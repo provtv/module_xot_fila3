@@ -32,9 +32,10 @@ class AddStrictTypesDeclarationCommand extends Command
         $dryRun = $this->option('dry-run');
 
         if ($moduleOption) {
-            $modulePath .= '/' . $moduleOption;
-            if (!File::isDirectory($modulePath)) {
+            $modulePath .= '/'.$moduleOption;
+            if (! File::isDirectory($modulePath)) {
                 $this->error("Il modulo {$moduleOption} non esiste");
+
                 return 1;
             }
         }
@@ -46,21 +47,22 @@ class AddStrictTypesDeclarationCommand extends Command
             if ($this->shouldProcessFile($file)) {
                 if ($dryRun) {
                     $this->info("Verrebbe processato: {$file}");
-                    $count++;
+                    ++$count;
                     continue;
                 }
 
                 try {
                     $path = $file->getRealPath();
-                    if ($path === false) {
+                    if (false === $path) {
                         continue;
                     }
-                    
+
                     $action->execute($path);
                     $this->info("Aggiunta dichiarazione strict_types a: {$path}");
-                    $count++;
+                    ++$count;
                 } catch (\Exception $e) {
-                    $this->error("Errore nel processare {$path}: " . $e->getMessage());
+                    $filePath = $file->getRealPath() ?: $file->getPathname();
+                    $this->error("Errore nel processare {$filePath}: ".$e->getMessage());
                 }
             }
         }
@@ -79,12 +81,12 @@ class AddStrictTypesDeclarationCommand extends Command
     private function shouldProcessFile(\SplFileInfo $file): bool
     {
         // Verifica l'estensione
-        if (!str_ends_with($file->getFilename(), '.php')) {
+        if (! str_ends_with($file->getFilename(), '.php')) {
             return false;
         }
 
         $path = $file->getRealPath();
-        if ($path === false) {
+        if (false === $path) {
             return false;
         }
 
@@ -97,6 +99,7 @@ class AddStrictTypesDeclarationCommand extends Command
 
         // Verifica se il file ha già la dichiarazione strict_types
         $content = File::get($path);
-        return !str_contains($content, 'declare(strict_types=1)');
+
+        return ! str_contains($content, 'declare(strict_types=1)');
     }
 }

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Xot\Filament\Traits;
 
-use TypeError;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Modules\Lang\Actions\SaveTransAction;
@@ -51,6 +50,7 @@ trait TransTrait
 
         $key = $transKey.'.'.$key;
         $key = Str::of($key)->replace('.cluster.pages.', '.')->toString();
+
         return $key;
     }
 
@@ -69,6 +69,7 @@ trait TransTrait
 
         $key = $transKey.'.'.$key;
         $key = Str::of($key)->replace('.cluster.pages.', '.')->toString();
+
         return $key;
     }
 
@@ -78,18 +79,19 @@ trait TransTrait
     public static function transFunc(string $func, bool $exceptionIfNotExist = false): string
     {
         $key = static::getKeyTransFunc($func);
-        
-        /** @var string|array<int|string,mixed>|null $trans */
-        try{
+
+        /** @var string|array<int|string,mixed>|null */
+        $trans = null;
+        try {
             $trans = trans($key);
-        }catch(TypeError $e){
+        } catch (\TypeError $e) {
             dddx([
-                'e'=>$e,
-                'key'=>$key
+                'e' => $e,
+                'key' => $key,
             ]);
         }
 
-        if ($key == $trans) {
+        if ($key === $trans) {
             $group = Str::of($key)->before('.')->toString();
             $item = Str::of($key)->after($group.'.')->toString();
             $group_arr = trans($group);
