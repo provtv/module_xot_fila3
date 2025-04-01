@@ -4,19 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\Xot\Providers;
 
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
-use Webmozart\Assert\Assert;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
-use Modules\Xot\Datas\ComponentFileData;
-use Nwidart\Modules\Traits\PathNamespace;
+use Illuminate\Support\Str;
 use Modules\Xot\Actions\Blade\RegisterBladeComponentsAction;
-use Modules\Xot\Actions\Module\GetModulePathByGeneratorAction;
 use Modules\Xot\Actions\Livewire\RegisterLivewireComponentsAction;
-
-use function Safe\realpath;
+use Modules\Xot\Actions\Module\GetModulePathByGeneratorAction;
+use Nwidart\Modules\Traits\PathNamespace;
+use Webmozart\Assert\Assert;
 
 /**
  * Class XotBaseServiceProvider.
@@ -26,13 +22,9 @@ abstract class XotBaseServiceProvider extends ServiceProvider
     use PathNamespace;
 
     public string $name = '';
-
     public string $nameLower = '';
-
     protected string $module_dir = __DIR__;
-
     protected string $module_ns = __NAMESPACE__;
-
     protected string $module_base_ns;
 
     /**
@@ -159,11 +151,11 @@ abstract class XotBaseServiceProvider extends ServiceProvider
             if (! file_exists($configPath)) {
                 return;
             }
-
+            /*
             $this->publishes([
                 $configPath => config_path($this->nameLower.'.php'),
             ], 'config');
-
+            */
             $this->mergeConfigFrom($configPath, $this->nameLower);
         } catch (\Exception $e) {
             // Ignore missing configuration
@@ -219,6 +211,7 @@ abstract class XotBaseServiceProvider extends ServiceProvider
                 Assert::isArray($item);
                 Assert::keyExists($item, 'ns');
                 Assert::string($item['ns']);
+
                 return $item['ns'];
             },
             $commands
