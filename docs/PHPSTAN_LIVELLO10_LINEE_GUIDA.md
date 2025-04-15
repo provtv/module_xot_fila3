@@ -102,6 +102,7 @@ Per le risorse PHP (file handles, connessioni di database, ecc.) che non possono
 private $fileHandle = null;
 ```
 
+<<<<<<< HEAD
 ### 4. Gestione delle API Fluenti di Librerie Esterne
 
 Le API fluenti (method chaining) di alcune librerie esterne come Laravel-FFMpeg possono causare problemi con PHPStan a livello 10, in particolare quando i metodi intermedi restituiscono tipi non standard o quando la catena è lunga e complessa.
@@ -149,6 +150,9 @@ Cannot call method lastMethod() on mixed
 Questo pattern è stato applicato con successo nei file `ConvertVideoByMediaConvertAction.php` e `ConvertVideoByConvertDataAction.php` del modulo Media per gestire l'API fluente di Laravel-FFMpeg.
 
 ### 5. Pattern per Controller
+=======
+### 4. Pattern per Controller
+>>>>>>> origin/dev
 
 Per i metodi dei controller, utilizzare tipi di ritorno espliciti che riflettono i possibili valori restituiti:
 
@@ -159,7 +163,11 @@ public function show(string $id): \Illuminate\View\View|\Illuminate\Http\Redirec
 }
 ```
 
+<<<<<<< HEAD
 ### 6. Gestione delle Proprietà Dinamiche
+=======
+### 5. Gestione delle Proprietà Dinamiche
+>>>>>>> origin/dev
 
 Per le proprietà dinamiche nei modelli, utilizzare annotazioni PHPDoc complete:
 
@@ -175,7 +183,11 @@ class User extends Model
 }
 ```
 
+<<<<<<< HEAD
 ### 7. Conversione Sicura da `mixed` a Tipi Scalari
+=======
+### 6. Conversione Sicura da `mixed` a Tipi Scalari
+>>>>>>> origin/dev
 
 Quando si lavora con valori `mixed` da convertire in tipi scalari (string, int, float, bool), utilizzare controlli di tipo prima della conversione:
 
@@ -217,7 +229,11 @@ if ($value !== null) {
 }
 ```
 
+<<<<<<< HEAD
 ### 8. Gestione Sicura di Array con Chiavi Miste
+=======
+### 7. Gestione Sicura di Array con Chiavi Miste
+>>>>>>> origin/dev
 
 Quando si ottengono array da fonti esterne (es. funzioni Laravel che restituiscono array con chiavi miste):
 
@@ -234,7 +250,11 @@ foreach ($componentsWithMixedKeys as $key => $component) {
 }
 ```
 
+<<<<<<< HEAD
 ### 9. Tipi Unione con Null
+=======
+### 8. Tipi Unione con Null
+>>>>>>> origin/dev
 
 Preferire la sintassi nullable (`?tipo`) per i tipi che possono essere null:
 
@@ -245,7 +265,11 @@ public function findById(?int $id): ?User
 }
 ```
 
+<<<<<<< HEAD
 ### 10. Parametri Variabili (Variadic)
+=======
+### 9. Parametri Variabili (Variadic)
+>>>>>>> origin/dev
 
 Per i parametri variabili, specificare il tipo di ogni elemento nell'array risultante:
 
@@ -260,7 +284,11 @@ public function buildPath(string ...$segments): string
 }
 ```
 
+<<<<<<< HEAD
 ### 11. Callback e Closure
+=======
+### 10. Callback e Closure
+>>>>>>> origin/dev
 
 Per i callback e le closure, utilizzare `callable` con specifiche di tipo dettagliate:
 
@@ -492,13 +520,21 @@ Anche se i file sono fisicamente collocati nella directory `app` del modulo, il 
 Uno degli errori più frequenti riguarda il namespace delle Actions:
 
 - ✅ **CORRETTO**: `namespace Modules\Xot\Actions;`
+<<<<<<< HEAD
 - ❌ **ERRATO**: `namespace Modules\Xot\Actions;`
+=======
+- ❌ **ERRATO**: `namespace Modules\Xot\app\Actions;`
+>>>>>>> origin/dev
 
 Anche se il file Actions si trova fisicamente in `Modules/Xot/app/Actions/`, il namespace deve sempre essere `Modules\Xot\Actions` (senza il segmento `app`).
 
 Gli errori PHPStan relativi a questo problema sono spesso del tipo:
 ```
+<<<<<<< HEAD
 Class 'Modules\Xot\Actions\MyAction' not found.
+=======
+Class 'Modules\Xot\app\Actions\MyAction' not found.
+>>>>>>> origin/dev
 ```
 
 #### Namespace Corretti per i Componenti Principali
@@ -520,7 +556,14 @@ Class 'Modules\Xot\Actions\MyAction' not found.
 namespace Modules\Xot\Console\Commands;
 
 // ERRATO
+<<<<<<< HEAD
 namespace Modules\Xot\Console\Commands;
 ```
 
 Errori PHPStan come `Class Modules\Xot\Console\Commands\DatabaseSchemaExportCommand not found` indicano che è necessario rimuovere il segmento `app` dal namespace.
+=======
+namespace Modules\Xot\app\Console\Commands;
+```
+
+Errori PHPStan come `Class Modules\Xot\app\Console\Commands\DatabaseSchemaExportCommand not found` indicano che è necessario rimuovere il segmento `app` dal namespace.
+>>>>>>> origin/dev

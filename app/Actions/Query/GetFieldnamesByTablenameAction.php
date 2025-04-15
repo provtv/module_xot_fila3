@@ -34,6 +34,7 @@ final class GetFieldnamesByTablenameAction
         Assert::string($connectionName = $connectionName ?? config('database.default'));
 
         // Validate database connection
+<<<<<<< HEAD
         if (! $this->isValidConnection($connectionName)) {
             throw new \InvalidArgumentException(sprintf('Invalid database connection: %s',  $connectionName));
         }
@@ -41,6 +42,15 @@ final class GetFieldnamesByTablenameAction
         // Check if table exists in the database
         if (! Schema::connection($connectionName)->hasTable($table)) {
             throw new \InvalidArgumentException(sprintf('Table "%s" does not exist in connection "%s".', $table,  $connectionName));
+=======
+        if (! $this->isValidConnection(is_string($connectionName) ? $connectionName : (string) $connectionName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid database connection: %s', is_string($connectionName) ? $connectionName : (string) $connectionName));
+        }
+
+        // Check if table exists in the database
+        if (! Schema::connection(is_string($connectionName) ? $connectionName : (string) $connectionName)->hasTable($table)) {
+            throw new \InvalidArgumentException(sprintf('Table "%s" does not exist in connection "%s".', $table, is_string($connectionName) ? $connectionName : (string) $connectionName));
+>>>>>>> origin/dev
         }
 
         // Get and return column listing

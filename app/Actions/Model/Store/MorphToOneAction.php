@@ -17,9 +17,15 @@ class MorphToOneAction
 
     public function execute(Model $model, RelationDTO $relationDTO): void
     {
+<<<<<<< HEAD
         //if ($relationDTO === null) {
         //    return;
         //}
+=======
+        if ($relationDTO === null) {
+            return;
+        }
+>>>>>>> origin/dev
 
         Assert::isInstanceOf($rows = $relationDTO->rows, MorphToOne::class);
 
@@ -27,9 +33,15 @@ class MorphToOneAction
             $relationDTO->data['lang'] = App::getLocale();
         }
 
+<<<<<<< HEAD
         //if ($rows !== null) {
         $rows->create($relationDTO->data);
         //}
+=======
+        if ($rows !== null) {
+            $rows->create($relationDTO->data);
+        }
+>>>>>>> origin/dev
         // } else {
         //    $rows->sync($relation->data);
         // }

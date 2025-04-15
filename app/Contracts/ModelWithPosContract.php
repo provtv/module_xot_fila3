@@ -44,6 +44,10 @@ use Spatie\ModelStatus\Status;
  * @method mixed     save($params)
  * @method array     treeLabel()
  * @method array     treeSons()
+<<<<<<< HEAD
+=======
+ * @method int       treeSonsCount()
+>>>>>>> origin/dev
  * @method array     toArray()
  * @method BelongsTo user()
  *
@@ -51,4 +55,10 @@ use Spatie\ModelStatus\Status;
  *
  * @mixin \Eloquent
  */
+<<<<<<< HEAD
 interface ModelWithPosContract {}
+=======
+interface ModelWithPosContract
+{
+}
+>>>>>>> origin/dev

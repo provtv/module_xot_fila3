@@ -14,7 +14,10 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\BaseFilter;
 use Illuminate\Database\Eloquent\Model;
 use Filament\Notifications\Notification;
+<<<<<<< HEAD
 use Filament\Tables\Actions\Action;
+=======
+>>>>>>> origin/dev
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Columns\Layout\Stack;
@@ -286,7 +289,11 @@ trait HasXotTable
     /**
      * Get table actions.
      *
+<<<<<<< HEAD
      * @return array<string, Tables\Actions\Action|Tables\Actions\ActionGroup>
+=======
+     * @return array<string, Action|ActionGroup>
+>>>>>>> origin/dev
      */
     public function getTableActions(): array
     {

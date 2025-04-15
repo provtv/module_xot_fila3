@@ -15,9 +15,15 @@ class SaveJsonArrayAction
     public function execute(array $data, string $filename): bool
     {
         $content = \Safe\json_encode($data, JSON_PRETTY_PRINT);
+<<<<<<< HEAD
         //if ($content === false) {
         //    return false;
         //}
+=======
+        if ($content === false) {
+            return false;
+        }
+>>>>>>> origin/dev
         return (bool) \Safe\file_put_contents($filename, $content);
     }
 }

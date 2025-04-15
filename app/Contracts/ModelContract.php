@@ -42,6 +42,10 @@ use Illuminate\Support\Carbon;
  * @method mixed     attach($params)
  * @method array     treeLabel()
  * @method array     treeSons()
+<<<<<<< HEAD
+=======
+ * @method int       treeSonsCount()
+>>>>>>> origin/dev
  * @method array     toArray()
  * @method BelongsTo user()
  * @method mixed     getAttributeValue(string $key)
