@@ -149,7 +149,15 @@ class RouteDynService
             return $controller;
         }
 
+<<<<<<< HEAD
         Assert::string($v['controller'] = $v['name']);
+=======
+<<<<<<< HEAD
+        Assert::string($v['controller'] = $v['name']);
+=======
+        Assert::nullOrString($v['controller'] = $v['name']);
+>>>>>>> origin/dev
+>>>>>>> origin/dev
         $v['controller'] = str_replace(['/', '{', '}'], ['_', '', ''], $v['controller']);
         $v['controller'] = Str::studly($v['controller']);
         $v['controller'] .= 'Controller';
@@ -159,9 +167,20 @@ class RouteDynService
 
     public static function getUri(array $v, ?string $namespace): string
     {
+<<<<<<< HEAD
         Assert::string($name= $v['name']);
         //return mb_strtolower(is_string($v) ? $v : (string) $v['name);
         return $name;
+=======
+<<<<<<< HEAD
+        Assert::string($name= $v['name']);
+        //return mb_strtolower(is_string($v) ? $v : (string) $v['name);
+        return $name;
+=======
+        Assert::nullOrString($v['name']);
+        return mb_strtolower(is_string($v) ? $v : (string) $v['name']);
+>>>>>>> origin/dev
+>>>>>>> origin/dev
     }
 
     public static function getMethod(array $v, ?string $namespace): array
@@ -221,11 +240,24 @@ class RouteDynService
         if ($v['name'] === null) {
             return;
         }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/dev
         Assert::string($name= $v['name']);
         $opts = self::getResourceOpts($v, $namespace);
         $controller = self::getController($v, $namespace);
         
         
+<<<<<<< HEAD
+=======
+=======
+        Assert::string($v['name']);
+        $opts = self::getResourceOpts($v, $namespace);
+        $controller = self::getController($v, $namespace);
+        $name = mb_strtolower(is_string($v) ? $v : (string) $v['name']);
+>>>>>>> origin/dev
+>>>>>>> origin/dev
         Route::resource($name, $controller, $opts);
     }
 

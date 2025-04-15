@@ -28,12 +28,28 @@ class GetAllModelsByModuleNameAction
             return [];
         }
 
+<<<<<<< HEAD
         $mod_path = $mod->getPath() . '/Models';
+=======
+<<<<<<< HEAD
+        $mod_path = $mod->getPath() . '/Models';
+=======
+        $mod_path = $mod->getPath().'/Models';
+>>>>>>> origin/dev
+>>>>>>> origin/dev
         $mod_path = str_replace(['\\', '/'], [\DIRECTORY_SEPARATOR, \DIRECTORY_SEPARATOR], $mod_path);
 
         $files = File::files($mod_path);
         $data = [];
+<<<<<<< HEAD
         $ns = 'Modules\\' . $mod->getName() . '\\Models';
+=======
+<<<<<<< HEAD
+        $ns = 'Modules\\' . $mod->getName() . '\\Models';
+=======
+        $ns = 'Modules\\'.$mod->getName().'\\Models';
+>>>>>>> origin/dev
+>>>>>>> origin/dev
         // con la barra davanti non va il search ?
         foreach ($files as $file) {
             $filename = $file->getRelativePathname();
@@ -46,12 +62,27 @@ class GetAllModelsByModuleNameAction
                 /**
                  * @var class-string
                  */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/dev
                 $class = $ns . '\\' . $name;
                 //if ($tmp !== null) {
                 $tmp->class = $class;
                 $name = Str::snake($name);
                 $tmp->name = $name;
                 //}
+<<<<<<< HEAD
+=======
+=======
+                $class = $ns.'\\'.$name;
+                if ($tmp !== null) {
+                    $tmp->class = $class;
+                    $name = Str::snake($name);
+                    $tmp->name = $name;
+                }
+>>>>>>> origin/dev
+>>>>>>> origin/dev
                 // 434    Parameter #1 $argument of class ReflectionClass constructor expects class-string<T of object>|T of object, string given.
                 try {
                     $reflection_class = new \ReflectionClass($tmp->class);
