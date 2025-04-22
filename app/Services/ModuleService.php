@@ -82,6 +82,7 @@ class ModuleService
 
                 $name = mb_substr($filename, 0, -mb_strlen($ext));
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
                 
@@ -97,12 +98,15 @@ class ModuleService
 =======
 
 >>>>>>> e2a4c5d (.)
+=======
+>>>>>>> 4ab3760 (.)
                 // dddx(['name' => $name, 'name1' => $file->getFilenameWithoutExtension()]);
 >>>>>>> 50bb41c (fix: auto resolve conflict)
                 /**
                  * @var class-string
                  */
                 $class = $ns.'\\'.$name;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -122,6 +126,8 @@ class ModuleService
 >>>>>>> origin/dev
 >>>>>>> origin/dev
 =======
+=======
+>>>>>>> 4ab3760 (.)
 
                 //Strict comparison using === between stdClass and null will always evaluate to false.
                 //if ($tmp === null) {
@@ -134,6 +140,7 @@ class ModuleService
                 $tmp->name = $name;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
                 $tmp->class = $class;
@@ -143,20 +150,24 @@ class ModuleService
                 // 434    Parameter #1 $argument of class ReflectionClass constructor expects class-string<T of object>|T of object, string given.
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
                 try {
                     $reflection_class = new \ReflectionClass($tmp->class);
                     if (! $reflection_class->isAbstract()) {
                         $data[$tmp->name] = $tmp->class;
                     }
                 } catch (\Exception) {
-<<<<<<< HEAD
                     // Ignore reflection errors
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
                     // Ignore reflection errors
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
                 }
             }
         }

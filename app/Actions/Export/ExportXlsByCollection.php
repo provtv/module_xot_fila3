@@ -9,9 +9,9 @@ use Maatwebsite\Excel\Facades\Excel;
 use Modules\Xot\Exports\CollectionExport;
 use Spatie\QueueableAction\QueueableAction;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
-<<<<<<< HEAD
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -19,15 +19,20 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 
 class ExportXlsByCollection
 {
     use QueueableAction;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     /**
      * Esporta una collezione in Excel.
      *
@@ -35,14 +40,17 @@ class ExportXlsByCollection
      * @param string $filename Nome del file Excel
      * @param string|null $transKey Chiave di traduzione per i campi
      * @param array<int, string> $fields Campi da includere nell'export
-     * 
+     *
      * @return BinaryFileResponse
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     public function execute(
         Collection $collection,
         string $filename = 'test.xlsx',
@@ -50,9 +58,12 @@ class ExportXlsByCollection
         array $fields = [],
     ): BinaryFileResponse {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         // Assicuriamo che $fields sia un array di stringhe
         $stringFields = array_map(function (string|int|float|bool $field): string {
             return (string) $field;
@@ -63,6 +74,7 @@ class ExportXlsByCollection
             transKey: $transKey,
             fields: $stringFields
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
         $export = new CollectionExport(
@@ -71,14 +83,19 @@ class ExportXlsByCollection
             fields: $fields
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         );
 
         return Excel::download($export, $filename);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 
     /**
      * Esporta una collezione in Excel utilizzando PhpSpreadsheet direttamente.
@@ -86,7 +103,7 @@ class ExportXlsByCollection
      * @param Collection $rows La collezione da esportare
      * @param array<string> $fields Campi da includere nell'export
      * @param string $filename Nome del file Excel
-     * 
+     *
      * @return string Il percorso del file generato
      */
     public function executeWithSpreadsheet(Collection $rows, array $fields, string $filename): string
@@ -182,8 +199,11 @@ class ExportXlsByCollection
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 }

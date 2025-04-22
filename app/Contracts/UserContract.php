@@ -22,9 +22,9 @@ use Spatie\Permission\Contracts\Role;
  * Modules\User\Contracts\UserContract.
  *
  * @property ProfileContract|null                                                       $profile
-<<<<<<< HEAD
  * @property string $id
  * @property string $handle
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
  * @property string $id
@@ -34,6 +34,8 @@ use Spatie\Permission\Contracts\Role;
  * @property string                                                                     $handle
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  * @property string|null                                                                $first_name
  * @property string|null                                                                $last_name
  * @property string|null                                                                $full_name

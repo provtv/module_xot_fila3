@@ -6,11 +6,14 @@ namespace Modules\Xot\Datas;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> origin/dev
 =======
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 use Livewire\Wireable;
 use Illuminate\Support\Arr;
 use Spatie\LaravelData\Data;
@@ -60,6 +63,7 @@ use Spatie\LaravelData\Concerns\WireableData;
  * @property array<string, array{key?: string, color: string, hex?: string}> $colors
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 50bb41c (fix: auto resolve conflict)
@@ -83,6 +87,8 @@ use Modules\Xot\Actions\File\AssetAction;
  * Undocumented class.
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  */
 class MetatagData extends Data implements Wireable
 {
@@ -90,11 +96,14 @@ class MetatagData extends Data implements Wireable
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> origin/dev
 =======
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     /** @var string */
     public string $title = '';
 
@@ -260,6 +269,7 @@ class MetatagData extends Data implements Wireable
         if (! self::$instance) {
             /** @var array<string, mixed> $data */
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
     public string $title;
@@ -331,6 +341,8 @@ class MetatagData extends Data implements Wireable
         if (! self::$instance) {
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             $data = TenantService::getConfig('metatag');
             self::$instance = self::from($data);
         }
@@ -340,11 +352,14 @@ class MetatagData extends Data implements Wireable
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> origin/dev
 =======
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     /**
      * Get the header logo URL.
      *
@@ -424,6 +439,7 @@ class MetatagData extends Data implements Wireable
      */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> origin/dev
@@ -442,6 +458,8 @@ class MetatagData extends Data implements Wireable
 
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     public function getLogoHeight(): string
     {
         return $this->logo_height;
@@ -449,11 +467,14 @@ class MetatagData extends Data implements Wireable
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> origin/dev
 =======
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     /**
      * Get the favicon URL.
      *
@@ -491,6 +512,7 @@ class MetatagData extends Data implements Wireable
      * Get the default Filament colors configuration.
      *
      * @return array<string, array<int, string>>
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -511,10 +533,13 @@ class MetatagData extends Data implements Wireable
      * @return array<array<string>|string>
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
      */
     public function getFilamentColors(): array
     {
         return [
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -522,12 +547,15 @@ class MetatagData extends Data implements Wireable
 >>>>>>> origin/dev
 =======
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             'danger' => Color::Red,
             'gray' => Color::Zinc,
             'info' => Color::Blue,
             'primary' => Color::Amber,
             'success' => Color::Green,
             'warning' => Color::Amber,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -546,11 +574,12 @@ class MetatagData extends Data implements Wireable
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         ];
     }
 
     /**
-<<<<<<< HEAD
      * Get the colors array with proper type handling.
      *
      * @return array<string, array<int, string>>
@@ -584,38 +613,6 @@ class MetatagData extends Data implements Wireable
                     isset(Color::all()[$item['color']])
                         => Color::all()[$item['color']],
                     default => Color::Gray,
-=======
-     * @return array<array<string>|string>
-     */
-    public function getAllColors(): array
-    {
-        $colors = array_keys(Color::all());
-        $colors = array_combine($colors, $colors);
-
-        return $colors;
-    }
-
-    /**
-     * @return array<string, array<string>|string>
-     */
-    public function getColors(): array
-    {
-        /** @var array<string, array<string>|string> $mapped */
-        $mapped = Arr::mapWithKeys(
-            $this->colors,
-            function (mixed $item, mixed $key): array {
-                if (! is_array($item)) {
-                    return [(string) $key => ''];
-                }
-
-                $keyStr = is_string($item['key'] ?? null) ? $item['key'] : (string) $key;
-                $colorValue = is_string($item['color'] ?? null) ? $item['color'] : '';
-
-                $value = match (true) {
-                    'custom' === $colorValue && is_string($item['hex'] ?? null) => Color::hex($item['hex']),
-                    'custom' !== $colorValue => Arr::get(Color::all(), $colorValue, ''),
-                    default => '',
->>>>>>> e2a4c5d (.)
                 };
 
                 return [$keyStr => $value];
@@ -624,7 +621,6 @@ class MetatagData extends Data implements Wireable
 
         return $mapped;
     }
-<<<<<<< HEAD
 
     /**
 >>>>>>> 50bb41c (fix: auto resolve conflict)
@@ -635,6 +631,7 @@ class MetatagData extends Data implements Wireable
         $colors = array_keys(Color::all());
         return array_combine($colors, $colors);
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     /**
@@ -712,4 +709,6 @@ class MetatagData extends Data implements Wireable
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 }

@@ -58,9 +58,12 @@ return [
             'help' => 'Data di scadenza della cache',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         'toggleColumns' => [
             'label' => 'toggleColumns',
         ],
@@ -77,10 +80,13 @@ return [
             'label' => 'openFilters',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     ],
     'actions' => [
         'clear' => [

@@ -214,7 +214,7 @@ Per prevenire problemi simili in futuro, si raccomanda di:
   #!/bin/bash
   
   # Verifica se ci sono marcatori di conflitto nei file in staging
-  if git diff --cached | grep -E '||>>>>>>> ' > /dev/null; then
+  if git diff --cached | grep -E '|| ' > /dev/null; then
       echo "Error: You have unresolved merge conflicts. Please resolve them before committing."
       exit 1
   fi

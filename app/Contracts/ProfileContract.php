@@ -17,13 +17,17 @@ use Spatie\Permission\Exceptions\PermissionDoesNotExist;
  * Modules\Xot\Contracts\ProfileContract.
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  * @property string $id
  * @property string $email
  * @property string $slug
  * @property string $user_id
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -33,6 +37,8 @@ use Spatie\Permission\Exceptions\PermissionDoesNotExist;
  * @property string                $user_id
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  * @property Collection<int, Role> $roles
  * @property int|null              $roles_count
  * @property UserContract          $user

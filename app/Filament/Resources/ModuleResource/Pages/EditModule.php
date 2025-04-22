@@ -11,6 +11,7 @@ use Modules\Xot\Filament\Resources\ModuleResource;
 use Modules\Xot\Models\Module;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 <<<<<<< HEAD
@@ -18,6 +19,8 @@ use Modules\Xot\Models\Module;
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 /**
  * @property Module $record
  */

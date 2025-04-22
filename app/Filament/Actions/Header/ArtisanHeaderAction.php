@@ -23,6 +23,7 @@ class ArtisanHeaderAction extends Action
         $this->translateLabel()
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             // 
 =======
 <<<<<<< HEAD
@@ -31,6 +32,9 @@ class ArtisanHeaderAction extends Action
             // ->label('')
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+            //
+>>>>>>> 4ab3760 (.)
             // ->tooltip(__('xot::actions.export_xls'))
 
             // ->icon('heroicon-o-cloud-arrow-down')

@@ -15,6 +15,7 @@ use Modules\Xot\Filament\Resources\LogResource\Pages;
 use Modules\Xot\Filament\Traits\NavigationLabelTrait;
 use Modules\Xot\Models\Log;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
 =======
 <<<<<<< HEAD
@@ -22,6 +23,9 @@ use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelati
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+use Modules\Xot\Filament\Resources\XotBaseResource\RelationManagers\XotBaseRelationManager;
+>>>>>>> 4ab3760 (.)
 
 class LogResource extends XotBaseResource
 {
@@ -33,9 +37,12 @@ class LogResource extends XotBaseResource
     {
         return [
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             'name' => TextInput::make('name')
                 ->required()
                 ->maxLength(255),
@@ -45,6 +52,7 @@ class LogResource extends XotBaseResource
                 ->maxLength(255),
 
             'content' => Textarea::make('content')
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -59,6 +67,8 @@ class LogResource extends XotBaseResource
             Textarea::make('content')
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
                 ->columnSpanFull(),
         ];
     }

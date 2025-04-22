@@ -13,13 +13,16 @@ class ApplyMetatagToPanelAction
     use QueueableAction;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 4ab3760 (.)
     /**
      * Applica i metatag al pannello Filament.
      *
      * @param Panel &$panel Il pannello Filament a cui applicare i metatag
-     * 
+     *
      * @return Panel Il pannello con i metatag applicati
      */
 >>>>>>> 50bb41c (fix: auto resolve conflict)
@@ -60,6 +63,7 @@ class ApplyMetatagToPanelAction
             return $panel;
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
     public function execute(Panel &$panel): Panel
@@ -76,5 +80,7 @@ class ApplyMetatagToPanelAction
             ->favicon($metatag->getFavicon());
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 }

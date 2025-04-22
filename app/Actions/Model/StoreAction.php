@@ -40,20 +40,26 @@ class StoreAction
 
         foreach ($relations as $relation) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             // Ottieni il tipo di relazione dal nome della classe
             $relationClass = get_class($relation);
             $relationshipType = class_basename($relationClass);
-            
+
             $action_class = __NAMESPACE__.'\\Store\\'.$relationshipType.'Action';
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
             $action_class = __NAMESPACE__.'\\Store\\'.$relation->relationship_type.'Action';
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             $action = app($action_class);
             Assert::object($action);
             if (! method_exists($action, 'execute')) {

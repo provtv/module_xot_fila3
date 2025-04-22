@@ -22,8 +22,8 @@ class ExportXlsAction extends Action
     {
         parent::setUp();
         $this->translateLabel()
-<<<<<<< HEAD
             ->tooltip(__('xot::actions.export_xls'))
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
             ->tooltip(__('xot::actions.export_xls'))
@@ -36,6 +36,8 @@ class ExportXlsAction extends Action
             // ->icon('fas-file-excel')
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             ->icon('heroicon-o-arrow-down-tray')
             ->action(static function (ListRecords $livewire) {
                 $filename = class_basename($livewire).'-'.collect($livewire->tableFilters)->flatten()->implode('-').'.xlsx';
@@ -43,12 +45,15 @@ class ExportXlsAction extends Action
                 $transKey .= '.fields';
                 $query = $livewire->getFilteredTableQuery();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
                 $rows = $query->get();
                 $resource = $livewire->getResource();
-                
+
                 /** @var array<int, string> $fields */
                 $fields = [];
                 if (method_exists($resource, 'getXlsFields')) {
@@ -68,11 +73,12 @@ class ExportXlsAction extends Action
                 }
 
                 return app(ExportXlsByCollection::class)->execute(
-                    $rows, 
-                    $filename, 
-                    $transKey, 
+                    $rows,
+                    $filename,
+                    $transKey,
                     array_values($fields)
                 );
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -87,6 +93,8 @@ class ExportXlsAction extends Action
                 return app(ExportXlsByCollection::class)->execute($rows, $filename, $transKey, $fields);
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             });
     }
 

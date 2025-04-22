@@ -17,6 +17,7 @@ use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\BaseFilter;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Database\Eloquent\Model;
@@ -28,11 +29,14 @@ use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Database\Eloquent\Model;
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 use Illuminate\Database\Events\MigrationsEnded;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\File;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
@@ -55,6 +59,8 @@ use Modules\Xot\View\Composers\XotComposer;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 4ab3760 (.)
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 use Modules\Xot\View\Composers\XotComposer;
@@ -63,6 +69,7 @@ use Webmozart\Assert\Assert;
 
 use function Safe\realpath;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -81,6 +88,8 @@ use Webmozart\Assert\Assert;
 
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 /**
  * Class XotServiceProvider.
  */
@@ -96,7 +105,6 @@ class XotServiceProvider extends XotBaseServiceProvider
     {
         parent::boot();
         $this->redirectSSL();
-<<<<<<< HEAD
         $this->registerViewComposers();
         $this->registerEvents();
 <<<<<<< HEAD
@@ -114,6 +122,7 @@ class XotServiceProvider extends XotBaseServiceProvider
         $this->registerViewComposers();
         $this->registerEvents();
         $this->registerTimezone();
+<<<<<<< HEAD
 =======
         // $this->registerTranslator(); to lang
         $this->registerViewComposers(); // rompe filament
@@ -125,13 +134,14 @@ class XotServiceProvider extends XotBaseServiceProvider
         // $this->translatableComponents();
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         $this->registerProviders();
     }
 
     public function register(): void
     {
         parent::register();
-<<<<<<< HEAD
         $this->registerConfig();
 <<<<<<< HEAD
         //$this->registerExceptionHandlersRepository();
@@ -150,12 +160,15 @@ class XotServiceProvider extends XotBaseServiceProvider
 <<<<<<< HEAD
         $this->registerConfig();
         $this->registerCommands();
+<<<<<<< HEAD
 =======
         $this->registerConfigs();
         $this->registerExceptionHandlersRepository();
         $this->extendExceptionHandler();
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 
     public function registerProviders(): void
@@ -169,14 +182,18 @@ class XotServiceProvider extends XotBaseServiceProvider
         Assert::string($date_format = config('app.date_format') ?? 'd/m/Y', '['.__LINE__.']['.class_basename($this).']');
         Assert::string($locale = config('app.locale') ?? 'it', '['.__LINE__.']['.class_basename($this).']');
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 
         app()->setLocale($locale);
         Carbon::setLocale($locale);
         date_default_timezone_set($timezone);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -186,11 +203,12 @@ class XotServiceProvider extends XotBaseServiceProvider
         // Assert::isArray($validationMessages = __('user::validation'));
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         DateTimePicker::configureUsing(fn (DateTimePicker $component) => $component->timezone($timezone));
         DatePicker::configureUsing(fn (DatePicker $component) => $component->timezone($timezone)->displayFormat($date_format));
         TimePicker::configureUsing(fn (TimePicker $component) => $component->timezone($timezone));
         TextColumn::configureUsing(fn (TextColumn $column) => $column->timezone($timezone));
-<<<<<<< HEAD
     }
 
 <<<<<<< HEAD
@@ -229,6 +247,7 @@ class XotServiceProvider extends XotBaseServiceProvider
     }
 
     public function registerConfig(): void
+<<<<<<< HEAD
 =======
         // TextInput::configureUsing(fn (TextInput $component) => $component->validationMessages($validationMessages));
     }
@@ -302,6 +321,8 @@ class XotServiceProvider extends XotBaseServiceProvider
     public function registerConfigs(): void
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     {
         // $config_file = realpath(__DIR__.'/../config/metatag.php');
         // $this->mergeConfigFrom($config_file, 'metatag');
@@ -316,15 +337,19 @@ class XotServiceProvider extends XotBaseServiceProvider
             }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             $realPath = $file->getRealPath();
             if (false === $realPath) {
                 continue;
             }
 
             include_once $realPath;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -335,6 +360,8 @@ class XotServiceProvider extends XotBaseServiceProvider
             include_once $file->getRealPath();
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         }
     }
 
@@ -350,6 +377,7 @@ class XotServiceProvider extends XotBaseServiceProvider
         }
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     /*
@@ -429,6 +457,8 @@ class XotServiceProvider extends XotBaseServiceProvider
 
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     private function redirectSSL(): void
     {
         // --- meglio ficcare un controllo anche sull'env

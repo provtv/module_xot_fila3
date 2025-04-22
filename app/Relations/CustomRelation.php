@@ -150,8 +150,8 @@ class CustomRelation extends Relation
      * @param \Closure|string|array|\Illuminate\Database\Query\Expression $column
      * @param mixed                                                       $operator
      * @param mixed                                                       $value
-<<<<<<< HEAD
      * @param string $boolean
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
      * @param string $boolean
@@ -159,6 +159,8 @@ class CustomRelation extends Relation
      * @param string                                                      $boolean
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */

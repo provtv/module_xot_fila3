@@ -5,13 +5,17 @@ declare(strict_types=1);
 namespace Modules\Xot\Actions\File;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 use Illuminate\Support\Facades\View;
 use Modules\Xot\Datas\XotData;
 use Spatie\QueueableAction\QueueableAction;
 use Webmozart\Assert\Assert;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -19,15 +23,20 @@ use Modules\Xot\Datas\XotData;
 use Spatie\QueueableAction\QueueableAction;
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 
 class GetViewNameSpacePathAction
 {
     use QueueableAction;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     /**
      * Ottiene il percorso di un namespace di vista.
      *
@@ -71,6 +80,7 @@ class GetViewNameSpacePathAction
 
         return base_path('Themes/'.$theme_name);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
     public function execute(string $ns): ?string
@@ -95,5 +105,7 @@ class GetViewNameSpacePathAction
         return null;
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 }

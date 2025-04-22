@@ -1,8 +1,12 @@
 https://fly.io/laravel-bytes/console-applications-with-laravel-zero/
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+
+>>>>>>> 4ab3760 (.)
 
 # Comandi Console in Moduli Laraxot
 
@@ -84,7 +88,12 @@ class DatabaseSchemaExportCommand extends Command
 - [Laravel Artisan Console Documentation](https://laravel.com/docs/10.x/artisan)
 - [Console Applications with Laravel Zero](https://fly.io/laravel-bytes/console-applications-with-laravel-zero/)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+
+ e2a4c5d (.)
+>>>>>>> 4ab3760 (.)

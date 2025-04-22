@@ -23,9 +23,12 @@ use Illuminate\Support\Carbon;
  * @property bool               $table_enable
  * @property PivotContract|null $pivot
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  * @property string $tennant_name
  * @property string $mail_subject
  * @property string $mail_body
@@ -33,6 +36,7 @@ use Illuminate\Support\Carbon;
  * @property string $mobile_phone
  * @property string $sms_body
  * @property string $sms_count
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -45,6 +49,8 @@ use Illuminate\Support\Carbon;
  * @property string             $sms_count
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  *
  * @method mixed     getKey()
  * @method string    getRouteKey()

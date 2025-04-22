@@ -17,16 +17,19 @@ class ExportXlsByView
     use QueueableAction;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     /**
      * Esporta una vista in Excel.
      *
      * @param View $view Vista da esportare
      * @param string $filename Nome del file Excel
      * @param array<string>|null $fields Campi da includere nell'export
-     * 
+     *
      * @return BinaryFileResponse
      */
     public function execute(
@@ -61,6 +64,7 @@ class ExportXlsByView
             fields: $stringFields
         );
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
     public function execute(
@@ -72,6 +76,8 @@ class ExportXlsByView
         $export = new ViewExport($view, $transKey, $fields);
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 
         return Excel::download($export, $filename);
     }

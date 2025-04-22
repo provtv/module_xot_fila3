@@ -10,14 +10,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Spatie\QueueableAction\QueueableAction;
-<<<<<<< HEAD
 use Webmozart\Assert\Assert;
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 use Webmozart\Assert\Assert;
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 
 class FakeSeederAction
 {
@@ -111,22 +113,28 @@ class FakeSeederAction
             ->execute($modelClass, $qty - self::MAX_RECORDS);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 
     private function getTableName(string $modelClass): string
     {
         Assert::classExists($modelClass, 'La classe del modello deve esistere');
-        
+
         /** @var \Illuminate\Database\Eloquent\Model */
         $model = app($modelClass);
-        
+
         return $model->getTable();
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 }

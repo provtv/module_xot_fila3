@@ -19,25 +19,32 @@ use Illuminate\Support\Facades\File;
  * @method static \Illuminate\Database\Eloquent\Builder|Feed  newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Feed  query()
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
  *
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  * @property string|null $id
  * @property string|null $name
  * @property int|null    $size
  * @property string|null $file_content
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  * @method static \Illuminate\Database\Eloquent\Builder|Log whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Log whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Log whereSize($value)
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -51,6 +58,8 @@ use Illuminate\Support\Facades\File;
  *
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  * @mixin \Eloquent
  */
 class Log extends BaseModel

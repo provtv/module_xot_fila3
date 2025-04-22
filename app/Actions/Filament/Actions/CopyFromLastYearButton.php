@@ -16,6 +16,7 @@ class CopyFromLastYearButton
     {
         return Action::make('copy_from_last_year')
 <<<<<<< HEAD
+<<<<<<< HEAD
             
 =======
 <<<<<<< HEAD
@@ -24,6 +25,9 @@ class CopyFromLastYearButton
             ->label('')
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+
+>>>>>>> 4ab3760 (.)
             ->tooltip('copy from last year')
             ->icon('heroicon-o-document-duplicate')
             ->visible(null !== $year)

@@ -11,8 +11,8 @@ namespace Modules\Xot\Models;
  * @property int|null                        $user_id
  * @property string|null                     $ip_address
  * @property string|null                     $user_agent
-<<<<<<< HEAD
  * @property string $payload
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
  * @property string $payload
@@ -20,11 +20,14 @@ namespace Modules\Xot\Models;
  * @property string                          $payload
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  * @property int                             $last_activity
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null                     $created_by
  * @property string|null                     $updated_by
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -32,6 +35,8 @@ namespace Modules\Xot\Models;
  *
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  * @method static \Modules\Xot\Database\Factories\SessionFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Session  newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Session  newQuery()
@@ -47,18 +52,21 @@ namespace Modules\Xot\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|Session  whereUserAgent($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Session  whereUserId($value)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
  *
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  * @property int                             $id
  * @property int|null                        $user_id
  * @property string|null                     $ip_address
  * @property string|null                     $user_agent
-<<<<<<< HEAD
  * @property string $payload
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
  * @property string $payload
@@ -66,11 +74,14 @@ namespace Modules\Xot\Models;
  * @property string                          $payload
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  * @property int                             $last_activity
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null                     $created_by
  * @property string|null                     $updated_by
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -78,6 +89,8 @@ namespace Modules\Xot\Models;
  *
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  * @method static \Modules\Xot\Database\Factories\SessionFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Session  newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Session  newQuery()
@@ -93,15 +106,19 @@ namespace Modules\Xot\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|Session  whereUserAgent($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Session  whereUserId($value)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property string|null                     $deleted_by
  * @method static \Illuminate\Database\Eloquent\Builder|Session whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Session whereDeletedBy($value)
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -117,6 +134,8 @@ namespace Modules\Xot\Models;
  *
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  * @mixin \Eloquent
  */
 class Session extends BaseModel

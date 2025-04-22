@@ -12,6 +12,7 @@ use Spatie\QueueableAction\QueueableAction;
 use Webmozart\Assert\Assert;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 /**
@@ -20,10 +21,16 @@ use Webmozart\Assert\Assert;
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+/**
+ * Azione per gestire le relazioni morphToOne nei modelli.
+ */
+>>>>>>> 4ab3760 (.)
 class MorphToOneAction
 {
     use QueueableAction;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function execute(Model $model, RelationDTO $relationDTO): void
     {
@@ -47,6 +54,8 @@ class MorphToOneAction
 
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 4ab3760 (.)
     /**
      * Esegue l'azione di creazione per una relazione morphToOne.
      *
@@ -57,6 +66,7 @@ class MorphToOneAction
     {
         Assert::isInstanceOf($rows = $relationDTO->rows, MorphToOne::class);
 
+<<<<<<< HEAD
 =======
     public function execute(Model $model, RelationDTO $relationDTO): void
     {
@@ -66,6 +76,8 @@ class MorphToOneAction
         // if (is_array($relation->data)) {
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         if (! isset($relationDTO->data['lang'])) {
             $relationDTO->data['lang'] = App::getLocale();
         }
@@ -89,6 +101,7 @@ class MorphToOneAction
 =======
         $rows->create($relationDTO->data);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 50bb41c (fix: auto resolve conflict)
         // } else {
@@ -110,5 +123,7 @@ class MorphToOneAction
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 }

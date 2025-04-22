@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 use Modules\Xot\Http\Middleware\SetDefaultLocaleForUrls;
 use Modules\Xot\Http\Middleware\SetDefaultTenantForUrlsMiddleware;
-<<<<<<< HEAD
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -20,15 +20,20 @@ use Illuminate\Support\Facades\Route;
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 
 // public function boot(\Illuminate\Routing\Router $router)
 
 // --- bases -----
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -40,6 +45,7 @@ class RouteServiceProvider extends ServiceProvider
      * The module namespace to assume when generating URLs to actions.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 class RouteServiceProvider extends XotBaseRouteServiceProvider
@@ -48,6 +54,8 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
 
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     protected string $moduleNamespace = 'Modules\Xot\Http\Controllers';
 
     protected string $module_dir = __DIR__;
@@ -55,9 +63,12 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
     protected string $module_ns = __NAMESPACE__;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     public string $name = 'Xot';
 
     /**
@@ -105,6 +116,7 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
             ->namespace($this->moduleNamespace)
             ->group(base_path('Modules/Xot/routes/api.php'));
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
     public function boot(): void
@@ -125,10 +137,13 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
         // URL::defaults(['lang' => $lang]);
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 
     public function registerMyMiddleware(Router $router): void
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -139,6 +154,8 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
         // $router->pushMiddlewareToGroup('api', \Spatie\ResponseCache\Middlewares\CacheResponse::class);
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         $router->prependMiddlewareToGroup('web', SetDefaultTenantForUrlsMiddleware::class);
         $router->prependMiddlewareToGroup('api', SetDefaultTenantForUrlsMiddleware::class);
     }
@@ -148,8 +165,8 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
         $langs = ['it', 'en'];
         $user = request()->user();
         $lang = app()->getLocale();
-<<<<<<< HEAD
         if ($user !== null) {
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
         if ($user !== null) {
@@ -157,6 +174,8 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
         if (null !== $user) {
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             $lang = $user->lang ?? $lang;
         }
         $locales = config('laravellocalization.supportedLocales');
@@ -164,10 +183,10 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
             $langs = array_keys($locales);
         }
 
-<<<<<<< HEAD
         if (in_array(request()->segment(1), $langs, false)) {
             $lang = request()->segment(1);
             if ($lang !== null) {
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
         if (in_array(request()->segment(1), $langs, false)) {
@@ -183,11 +202,14 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
             if (null !== $lang) {
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
                 app()->setLocale($lang);
             }
         }
 
         URL::defaults([
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -195,15 +217,17 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
             // 'tenant' => Filament::getTenant(),
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             'lang' => $lang,
         ]);
     }
 
     public function registerRoutePattern(Router $router): void
     {
-<<<<<<< HEAD
         $langs = config('laravellocalization.supportedLocales');
         if (! is_array($langs)) {
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
         $langs = config('laravellocalization.supportedLocales');
@@ -215,6 +239,8 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
             // throw new \Exception('[.__LINE__.]['.class_basename(__CLASS__).']');
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             $langs = ['it' => 'it', 'en' => 'en'];
         }
 
@@ -222,10 +248,10 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
         $lang_pattern = '/|'.$lang_pattern.'|/i';
 
         $router->pattern('lang', $lang_pattern);
-<<<<<<< HEAD
 
         $models = config('morph_map');
         if (! is_array($models)) {
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 
@@ -239,15 +265,17 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
             // throw new Exception('[' . print_r($models, true) . '][' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             $models = [];
         }
 
         $models_collect = collect(array_keys($models));
         $models_collect->implode('|');
         $models_collect->map(
-<<<<<<< HEAD
             fn ($item) => Str::plural(is_string($item) ? $item : (string) $item)
         )->implode('|');
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
             fn ($item) => Str::plural(is_string($item) ? $item : (string) $item)
@@ -259,6 +287,8 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
         // $router->pattern('container0', $container0_pattern);
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 
     // end registerRoutePattern

@@ -15,6 +15,7 @@ use Modules\User\Models\Team;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Contracts\UserContract;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
@@ -23,13 +24,15 @@ use function Safe\realpath;
 
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 use Spatie\LaravelData\Concerns\WireableData;
 use Spatie\LaravelData\Data;
 use Webmozart\Assert\Assert;
 
-<<<<<<< HEAD
 use function Safe\realpath;
 
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 use function Safe\realpath;
@@ -37,6 +40,8 @@ use function Safe\realpath;
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 /**
  * Class Modules\Xot\Datas\XotData.
  * ----.
@@ -96,10 +101,10 @@ class XotData extends Data implements Wireable
     private static ?self $instance = null;
 
     /**
-<<<<<<< HEAD
      * @var ProfileContract|null
      */
     private ?ProfileContract $profile = null;
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
      * @var ProfileContract|null
@@ -111,6 +116,8 @@ class XotData extends Data implements Wireable
     private $profile;
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 
     public static function make(): self
     {
@@ -150,8 +157,8 @@ class XotData extends Data implements Wireable
     {
         $user_class = $this->getUserClass();
         $userInstance = new $user_class();
-<<<<<<< HEAD
         if (! in_array('email', $userInstance->getFillable(), true)) {
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
         if (! in_array('email', $userInstance->getFillable(), true)) {
@@ -159,6 +166,8 @@ class XotData extends Data implements Wireable
         if (! in_array('email', $userInstance->getFillable())) {
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             throw new \Exception("Attribute 'email' not found in model ".get_class($userInstance));
         }
         $user = $user_class::firstOrCreate(['email' => $email]);
@@ -178,15 +187,19 @@ class XotData extends Data implements Wireable
     public function getTeamClass(): string
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         Assert::classExists($this->team_class, '['.__LINE__.']['.class_basename($this).']');
         // Assert::isInstanceOf($team_class, Model::class, '['.__LINE__.']['.class_basename($this).']');
         Assert::isAOf($this->team_class, Model::class, '['.__LINE__.']['.class_basename($this).']['.$this->team_class.']');
         Assert::implementsInterface($this->team_class, TeamContract::class, '['.$this->team_class.']['.__LINE__.']['.class_basename($this).']');
 
         return $this->team_class;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -198,6 +211,8 @@ class XotData extends Data implements Wireable
         return $class;
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 
     /**
@@ -208,9 +223,12 @@ class XotData extends Data implements Wireable
     public function getTenantClass(): string
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         Assert::classExists($this->tenant_class, '['.$this->tenant_class.']['.__LINE__.']['.class_basename($this).']');
         // Assert::isInstanceOf($class, Model::class, '['.__LINE__.']['.class_basename($this).']');
         // Assert::isAOf($class, Model::class, '['.__LINE__.']['.class_basename($this).']['.$class.']');
@@ -218,6 +236,7 @@ class XotData extends Data implements Wireable
         Assert::isAOf($this->tenant_class, Model::class, '['.__LINE__.']['.class_basename($this).']['.$this->tenant_class.']');
 
         return $this->tenant_class;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -230,6 +249,8 @@ class XotData extends Data implements Wireable
         return $class;
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 
     /**
@@ -248,9 +269,9 @@ class XotData extends Data implements Wireable
 
     public function getTenantPivotClass(): string
     {
-<<<<<<< HEAD
         Assert::classExists($this->tenant_pivot_class, '['.__LINE__.']['.class_basename($this).']');
         return $this->tenant_pivot_class;
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
         Assert::classExists($this->tenant_pivot_class, '['.__LINE__.']['.class_basename($this).']');
@@ -262,13 +283,15 @@ class XotData extends Data implements Wireable
         return $class;
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 
     public function getMembershipClass(): string
     {
-<<<<<<< HEAD
         Assert::classExists($this->membership_class, '['.__LINE__.']['.class_basename($this).']');
         return $this->membership_class;
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
         Assert::classExists($this->membership_class, '['.__LINE__.']['.class_basename($this).']');
@@ -280,6 +303,8 @@ class XotData extends Data implements Wireable
         return $class;
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 
     /**
@@ -289,16 +314,21 @@ class XotData extends Data implements Wireable
     {
         $class = 'Modules\\'.$this->main_module.'\Models\Profile';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
         
+=======
+
+>>>>>>> 4ab3760 (.)
         // Verifica che la classe esista
         Assert::classExists($class, '['.$class.']['.__LINE__.']['.class_basename($this).']');
-        
+
         // Verifica che sia un Model e implementi ProfileContract
         Assert::isAOf($class, Model::class, '['.__LINE__.']['.class_basename($this).']['.$class.']');
         Assert::implementsInterface($class, ProfileContract::class, '['.__LINE__.']['.class_basename($this).']['.$class.']');
+<<<<<<< HEAD
         
         /** @var class-string<Model&ProfileContract> */
 <<<<<<< HEAD
@@ -311,6 +341,10 @@ class XotData extends Data implements Wireable
 
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+
+        /** @var class-string<Model&ProfileContract> */
+>>>>>>> 4ab3760 (.)
         return $class;
     }
 
@@ -348,15 +382,19 @@ class XotData extends Data implements Wireable
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     /**
      * Verifica se l'utente autenticato è un super amministratore.
      */
     public function iAmSuperAdmin(): bool
     {
         $user = \Illuminate\Support\Facades\Auth::user();
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -365,28 +403,36 @@ class XotData extends Data implements Wireable
         $user = auth()->user();
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         if (null === $user) {
             return false;
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         if (! method_exists($user, 'hasRole')) {
             return false;
         }
 
         // Utilizziamo un'asserzione per garantire che hasRole restituisca un booleano
         $result = $user->hasRole('super-admin');
-        
+
         return $result === true;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
         return $user->hasRole('super-admin');
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 
     public function getProfileModel(): ProfileContract
@@ -394,6 +440,7 @@ class XotData extends Data implements Wireable
         if (null !== $this->profile) {
             return $this->profile;
         }
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -410,6 +457,12 @@ class XotData extends Data implements Wireable
         Assert::isInstanceOf($this->profile = $this->getProfileModelByUserId($user_id), ProfileContract::class, '['.__LINE__.']['.class_basename($this).']');
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+
+        $user_id = (string) authId();
+        $this->profile = $this->getProfileModelByUserId($user_id);
+        Assert::implementsInterface($this->profile, ProfileContract::class, '['.__LINE__.']['.class_basename($this).']');
+>>>>>>> 4ab3760 (.)
 
         return $this->profile;
     }
@@ -432,17 +485,21 @@ class XotData extends Data implements Wireable
     public function getPubThemeViewPath(string $key = ''): string
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         $path0 = base_path('Themes/'.$this->pub_theme.'/resources/views/'.$key);
         try {
             $path = realpath($path0);
-            
+
             return $path;
         } catch (\Exception $e) {
             throw new \Exception('realpath not find dir['.$path0.']'.PHP_EOL.'['.$e->getMessage().']');
         }
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -457,5 +514,7 @@ class XotData extends Data implements Wireable
         return $path;
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 }

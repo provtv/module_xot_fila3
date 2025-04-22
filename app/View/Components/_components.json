@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 []
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 4ab3760 (.)
 [
     {
         "name": "dashboard.item",
@@ -18,7 +21,10 @@
         "ns": "Modules\\Xot\\View\\Components\\XDebug"
     }
 ]
+<<<<<<< HEAD
 =======
 []
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)

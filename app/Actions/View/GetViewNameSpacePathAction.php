@@ -9,14 +9,16 @@ use Illuminate\View\FileViewFinder;
 use Modules\Xot\Datas\XotData;
 use Spatie\QueueableAction\QueueableAction;
 use Webmozart\Assert\Assert;
-<<<<<<< HEAD
 use Nwidart\Modules\Facades\Module;
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 use Nwidart\Modules\Facades\Module;
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 
 class GetViewNameSpacePathAction
 {
@@ -26,9 +28,12 @@ class GetViewNameSpacePathAction
      * @throws \Exception
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     public function execute(?string $module_name = null): string
     {
         if (null !== $module_name && '' !== $module_name) {
@@ -41,6 +46,7 @@ class GetViewNameSpacePathAction
         }
 
         return $namespace_path;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -69,5 +75,7 @@ class GetViewNameSpacePathAction
         throw new \Exception('View namespace not found['.$ns.'].');
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 }

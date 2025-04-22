@@ -10,13 +10,17 @@ namespace Modules\Xot\Actions\Filament;
 
 use Filament\Forms\Commands\Concerns\CanGenerateForms;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 use Filament\Resources\Resource;
 use Filament\Support\Commands\Concerns\CanReadModelSchemas;
 use Filament\Tables\Commands\Concerns\CanGenerateTables;
 use Illuminate\Database\Eloquent\Model;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -24,6 +28,8 @@ use Filament\Support\Commands\Concerns\CanReadModelSchemas;
 use Filament\Tables\Commands\Concerns\CanGenerateTables;
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 use Illuminate\Support\Facades\File as LaravelFile;
 use Illuminate\Support\Str;
 use Modules\Xot\Actions\ModelClass\GetMethodBodyAction;
@@ -42,6 +48,7 @@ class GenerateTableColumnsByFileAction
     use QueueableAction;
 
     /**
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -63,6 +70,15 @@ class GenerateTableColumnsByFileAction
     public function execute(File $file)
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+     * Genera colonne per tabelle e form Filament basate su un file di risorsa.
+     *
+     * @param File $file Il file della risorsa Filament
+     *
+     * @return void
+     */
+    public function execute(File $file): void
+>>>>>>> 4ab3760 (.)
     {
         if (! $file->isFile()) {
             return;
@@ -75,9 +91,12 @@ class GenerateTableColumnsByFileAction
         Assert::string($class_name = Str::replace('/', '\\', $class_name), '['.__LINE__.']['.class_basename($this).']');
         $class_name = Str::substr($class_name, 0, -4);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 
         // Verifichiamo che la classe esista
         Assert::classExists($class_name);
@@ -100,18 +119,21 @@ class GenerateTableColumnsByFileAction
         $modelInstance = app($modelClass);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
         $model_name = app($class_name)->getModel();
         $model = app($model_name);
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         // ------------------- TABLE -------------------
         // *
         $body = app(GetMethodBodyAction::class)->execute($class_name, 'table');
         $body1 = app(GetStrBetweenStartsWithAction::class)->execute($body, '->columns(', '(', ')');
-<<<<<<< HEAD
         $body_new = '->columns(['.chr(13).$this->getResourceTableColumns($modelClass).chr(13).'])';
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
         $body_new = '->columns(['.chr(13).$this->getResourceTableColumns($modelClass).chr(13).'])';
@@ -119,6 +141,8 @@ class GenerateTableColumnsByFileAction
         $body_new = '->columns(['.chr(13).$this->getResourceTableColumns($model_name).chr(13).'])';
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         $body_up = Str::of($body)
             ->replace($body1, $body_new)
             ->toString();
@@ -127,8 +151,8 @@ class GenerateTableColumnsByFileAction
         // -------------------- FORM ------------------------------
         $body = app(GetMethodBodyAction::class)->execute($class_name, 'form');
         $body1 = app(GetStrBetweenStartsWithAction::class)->execute($body, '->schema(', '(', ')');
-<<<<<<< HEAD
         $body_new = '->schema(['.chr(13).$this->getResourceFormSchema($modelClass).chr(13).'])';
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
         $body_new = '->schema(['.chr(13).$this->getResourceFormSchema($modelClass).chr(13).'])';
@@ -136,6 +160,8 @@ class GenerateTableColumnsByFileAction
         $body_new = '->schema(['.chr(13).$this->getResourceFormSchema($model_name).chr(13).'])';
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         $body_up = Str::of($body)
             ->replace($body1, $body_new)
             ->toString();
@@ -144,9 +170,12 @@ class GenerateTableColumnsByFileAction
         // -----------------------------------------------------
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         // Verifichiamo che il metodo getFillable esista
         if (method_exists($modelInstance, 'getFillable')) {
             $fillable = $modelInstance->getFillable();
@@ -166,6 +195,7 @@ class GenerateTableColumnsByFileAction
                 LaravelFile::put($filename, $content_new);
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
         if (in_array('anno', $model->getFillable())) {
@@ -182,26 +212,34 @@ class GenerateTableColumnsByFileAction
             LaravelFile::put($filename, $content_new);
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         }
         // */
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     /**
      * Mostra informazioni di debug su un file.
      *
      * @param File $file Il file da analizzare
-     * 
+     *
      * @return void
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     public function ddFile(File $file): void
     {
         dd([

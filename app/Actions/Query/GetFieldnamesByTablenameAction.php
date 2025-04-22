@@ -17,6 +17,7 @@ final class GetFieldnamesByTablenameAction
      * Get column names from a table with specific database connection.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param string $table          Table name to get columns from
 =======
 <<<<<<< HEAD
@@ -25,10 +26,14 @@ final class GetFieldnamesByTablenameAction
      * @param string      $table          Table name to get columns from
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+     * @param string $table Table name to get columns from
+>>>>>>> 4ab3760 (.)
      * @param string|null $connectionName Database connection name (optional)
      *
      * @throws \InvalidArgumentException
      *
+<<<<<<< HEAD
 <<<<<<< HEAD
      * @return list
 =======
@@ -38,6 +43,9 @@ final class GetFieldnamesByTablenameAction
      * @return list
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+     * @return list<string> Lista dei nomi delle colonne della tabella
+>>>>>>> 4ab3760 (.)
      */
     public function execute(string $table, ?string $connectionName = null): array
     {
@@ -52,12 +60,15 @@ final class GetFieldnamesByTablenameAction
         // Validate database connection
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> origin/dev
         if (! $this->isValidConnection($connectionName)) {
             throw new \InvalidArgumentException(sprintf('Invalid database connection: %s',  $connectionName));
 =======
+=======
+>>>>>>> 4ab3760 (.)
         if (! $this->isValidConnection($connectionName)) {
             throw new \InvalidArgumentException(sprintf('Invalid database connection: %s', $connectionName));
 >>>>>>> 50bb41c (fix: auto resolve conflict)
@@ -81,6 +92,7 @@ final class GetFieldnamesByTablenameAction
 >>>>>>> origin/dev
 =======
             throw new \InvalidArgumentException(sprintf('Table "%s" does not exist in connection "%s".', $table, $connectionName));
+<<<<<<< HEAD
 =======
         if (! $this->isValidConnection((string) $connectionName)) {
             throw new \InvalidArgumentException(sprintf('Invalid database connection: %s', (string) $connectionName));
@@ -91,12 +103,15 @@ final class GetFieldnamesByTablenameAction
             throw new \InvalidArgumentException(sprintf('Table "%s" does not exist in connection "%s".', $table, (string) $connectionName));
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         }
 
         // Get and return column listing
         try {
             $columns = Schema::connection($connectionName)->getColumnListing($table);
             $columns = array_values($columns);
+<<<<<<< HEAD
 <<<<<<< HEAD
             // $columns = array_map('strval', $columns);
 
@@ -114,6 +129,11 @@ final class GetFieldnamesByTablenameAction
             // return array_values(array_map(static fn ($value): string => (string) $value, $columns));
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+
+            // Assicuriamoci che tutti i valori siano stringhe
+            return array_map(static fn ($value): string => is_string($value) ? $value : (string) $value, $columns);
+>>>>>>> 4ab3760 (.)
         } catch (\Throwable $e) {
             throw new \InvalidArgumentException(sprintf('Error fetching columns from table "%s": %s', $table, $e->getMessage()));
         }

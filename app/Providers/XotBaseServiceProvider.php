@@ -6,9 +6,12 @@ namespace Modules\Xot\Providers;
 
 use Illuminate\Support\Arr;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 use Illuminate\Support\Str;
 use Webmozart\Assert\Assert;
 use Illuminate\Support\Facades\Blade;
@@ -22,6 +25,7 @@ use Modules\Xot\Actions\Livewire\RegisterLivewireComponentsAction;
 
 use function Safe\realpath;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -40,6 +44,8 @@ use Webmozart\Assert\Assert;
 
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 /**
  * Class XotBaseServiceProvider.
  */
@@ -64,13 +70,17 @@ abstract class XotBaseServiceProvider extends ServiceProvider
     {
         $this->registerTranslations();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom($this->module_dir.'/../Database/Migrations');
         $this->registerLivewireComponents();
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -85,6 +95,8 @@ abstract class XotBaseServiceProvider extends ServiceProvider
         // Illuminate\Contracts\Container\BindingResolutionException: Target class [modules] does not exist.
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         $this->registerBladeComponents();
         $this->registerCommands();
     }
@@ -96,9 +108,9 @@ abstract class XotBaseServiceProvider extends ServiceProvider
     {
         $this->nameLower = Str::lower($this->name);
         $this->module_ns = collect(explode('\\', $this->module_ns))->slice(0, -1)->implode('\\');
-<<<<<<< HEAD
         $this->app->register($this->module_ns.'\Providers\RouteServiceProvider');
         $this->app->register($this->module_ns.'\Providers\EventServiceProvider');
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
         $this->app->register($this->module_ns.'\Providers\RouteServiceProvider');
@@ -108,6 +120,8 @@ abstract class XotBaseServiceProvider extends ServiceProvider
         $this->app->register(''.$this->module_ns.'\Providers\EventServiceProvider');
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         $this->registerBladeIcons();
     }
 
@@ -125,12 +139,15 @@ abstract class XotBaseServiceProvider extends ServiceProvider
                 throw new \Exception('Invalid SVG path');
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
             // $resolvedPath = realpath($svgPath);
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             $resolvedPath = $svgPath;
             $svgPath = $resolvedPath;
         } catch (\Error $e) {
@@ -208,8 +225,11 @@ abstract class XotBaseServiceProvider extends ServiceProvider
     {
         try {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 4ab3760 (.)
             $configPath = app(GetModulePathByGeneratorAction::class)->execute($this->name, 'config');
 
 
@@ -218,6 +238,7 @@ abstract class XotBaseServiceProvider extends ServiceProvider
                 $configPath => config_path($this->nameLower.'.php'),
             ], 'config');
             */
+<<<<<<< HEAD
 =======
 >>>>>>> 50bb41c (fix: auto resolve conflict)
             Assert::string($relativePath = config('modules.paths.generator.config.path'));
@@ -238,6 +259,8 @@ abstract class XotBaseServiceProvider extends ServiceProvider
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             $this->mergeConfigFrom($configPath, $this->nameLower);
         } catch (\Exception $e) {
             // Ignore missing configuration
@@ -248,10 +271,13 @@ abstract class XotBaseServiceProvider extends ServiceProvider
     public function registerBladeComponents(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $componentClassPath = app(GetModulePathByGeneratorAction::class)->execute($this->name, 'component-class');
 
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 4ab3760 (.)
         try{
             $componentsViewPath = app(GetModulePathByGeneratorAction::class)->execute($this->name, 'component-view');
             Blade::anonymousComponentPath($componentsViewPath);
@@ -264,16 +290,20 @@ abstract class XotBaseServiceProvider extends ServiceProvider
 
         $componentClassPath = app(GetModulePathByGeneratorAction::class)->execute($this->name, 'component-class');
 
+<<<<<<< HEAD
 =======
         Assert::string($relativePath = config('modules.paths.generator.component-class.path'));
         $componentClassPath = module_path($this->name, $relativePath);
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         $namespace = $this->module_ns.'\View\Components';
         Blade::componentNamespace($namespace, $this->nameLower);
 
         app(RegisterBladeComponentsAction::class)
             ->execute(
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -281,6 +311,8 @@ abstract class XotBaseServiceProvider extends ServiceProvider
                 // $this->module_dir.'/../View/Components',
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
                 $componentClassPath,
                 $this->module_ns
             );
@@ -314,9 +346,12 @@ abstract class XotBaseServiceProvider extends ServiceProvider
             return;
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         $commands = $comps->toArray();
         /** @var array<int, array{ns: string}> $commands */
         $commands = array_map(
@@ -328,6 +363,7 @@ abstract class XotBaseServiceProvider extends ServiceProvider
             },
             $commands
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
         $commands = Arr::map(
@@ -337,6 +373,8 @@ abstract class XotBaseServiceProvider extends ServiceProvider
             }
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         );
         $this->commands($commands);
     }

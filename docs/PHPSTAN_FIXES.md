@@ -162,7 +162,7 @@ Line 147: Method Modules\Xot\Filament\Resources\XotBaseResource::getRelations() 
 ### 22. Errori in Filament/Resources/XotBaseResource/RelationManager/XotBaseRelationManager.php
 
 ```
-Line 111: Static access to instance property Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager::$resource.
+Line 111: Static access to instance property Modules\Xot\Filament\Resources\XotBaseResource\RelationManagers\XotBaseRelationManager::$resource.
 Line 112: Dead catch - Exception is never thrown in the try block.
 ```
 

@@ -22,9 +22,9 @@ use Illuminate\Support\Carbon;
  * @method static \Illuminate\Database\Eloquent\Builder|ExtraContract withExtraAttributes()
  *
  * @property int         $id
-<<<<<<< HEAD
  * @property string $model_type
  * @property string $model_id
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
  * @property string $model_type
@@ -34,6 +34,8 @@ use Illuminate\Support\Carbon;
  * @property string      $model_id
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $updated_by

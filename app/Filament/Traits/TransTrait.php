@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\Xot\Filament\Traits;
 
-<<<<<<< HEAD
 use TypeError;
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 use TypeError;
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Modules\Lang\Actions\SaveTransAction;
@@ -32,8 +34,8 @@ trait TransTrait
 
         if (is_string($res)) {
             if ($exceptionIfNotExist && $res === $tmp) {
-<<<<<<< HEAD
                 throw new \Exception('[' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -46,6 +48,8 @@ trait TransTrait
                 throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             }
 
             return $res;
@@ -55,9 +59,12 @@ trait TransTrait
             $first = current($res);
             if (is_string($first) || is_numeric($first)) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
                 return is_string($first) ? $first : (string) $first;
             }
         }
@@ -74,6 +81,7 @@ trait TransTrait
 >>>>>>> origin/dev
 =======
         return 'fix:' . $tmp;
+<<<<<<< HEAD
 =======
                 return (string) $first;
             }
@@ -82,6 +90,8 @@ trait TransTrait
         return 'fix:'.$tmp;
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 
     /**
@@ -92,7 +102,6 @@ trait TransTrait
         /** @var string */
         $transKey = app(GetTransKeyAction::class)->execute(static::class);
 
-<<<<<<< HEAD
         $key = $transKey . '.' . $key;
 <<<<<<< HEAD
 =======
@@ -107,10 +116,13 @@ trait TransTrait
 =======
         $key = Str::of($key)->replace('.cluster.pages.', '.')->toString();
         return $key;
+<<<<<<< HEAD
 =======
         return $transKey.'.'.$key;
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 
     /**
@@ -126,7 +138,6 @@ trait TransTrait
         /** @var string */
         $transKey = app(GetTransKeyAction::class)->execute(static::class);
 
-<<<<<<< HEAD
         $key = $transKey . '.' . $key;
 <<<<<<< HEAD
 =======
@@ -141,10 +152,13 @@ trait TransTrait
 =======
         $key = Str::of($key)->replace('.cluster.pages.', '.')->toString();
         return $key;
+<<<<<<< HEAD
 =======
         return $transKey.'.'.$key;
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 
     /**
@@ -155,11 +169,14 @@ trait TransTrait
         $key = static::getKeyTransFunc($func);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> origin/dev
 =======
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         /** @var string|array<int|string,mixed>|null */
         $trans = null;
 
@@ -175,6 +192,7 @@ trait TransTrait
         if ($key === $trans) {
             $group = Str::of($key)->before('.')->toString();
             $item = Str::of($key)->after($group . '.')->toString();
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -204,11 +222,14 @@ trait TransTrait
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             $group_arr = trans($group);
             if (is_array($group_arr)) {
                 $trans = Arr::get($group_arr, $item);
             }
         }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -222,10 +243,13 @@ trait TransTrait
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         if (is_numeric($trans)) {
             return strval($trans);
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -238,6 +262,8 @@ trait TransTrait
 >>>>>>> origin/dev
 =======
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         if (is_array($trans)) {
             $first = current($trans);
             if (is_string($first) || is_numeric($first)) {
@@ -257,6 +283,7 @@ trait TransTrait
 >>>>>>> origin/dev
 =======
         if (is_string($trans)) {
+<<<<<<< HEAD
 =======
         // if (! is_string($trans) && ! is_numeric($trans) && ! is_array($trans)) {
         //    return 'fix:'.$key;
@@ -271,6 +298,8 @@ trait TransTrait
         if (is_string($trans) /* || is_numeric($trans) */) {
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             if ($trans === $key) {
                 $newTrans = Str::of($key)
                     ->between('::', '.')
@@ -284,8 +313,8 @@ trait TransTrait
             return $trans;
         }
 
-<<<<<<< HEAD
         if ($trans === null) {
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -298,6 +327,8 @@ trait TransTrait
         if (is_null($trans)) {
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             $newTrans = Str::of($key)
                 ->between('::', '.')
                 ->replace('_', ' ')
@@ -307,8 +338,8 @@ trait TransTrait
             return $newTrans;
         }
 
-<<<<<<< HEAD
         return 'fix:' . $key;
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -331,6 +362,8 @@ trait TransTrait
         return 'fix:'.$key;
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 
     protected function transChoice(string $key, int $number, array $replace = []): string

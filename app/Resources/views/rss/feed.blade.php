@@ -20,6 +20,7 @@
                 <author><![CDATA[{{ $item->created_by }}]]></author>
                 {{-- guid o id?? --}}
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <guid>{{ $item-> }}</guid>
 =======
 <<<<<<< HEAD
@@ -28,6 +29,9 @@
                 <guid>{{ $item->id }}</guid>
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+                <guid>{{ $item->id }}</guid>
+>>>>>>> 4ab3760 (.)
                 <pubDate>{{ $item->created_at->toRssString() }}</pubDate>
             </item>
         @endforeach

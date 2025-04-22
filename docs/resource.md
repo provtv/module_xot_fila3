@@ -343,8 +343,9 @@ class ListMyRecords extends XotBaseListRecords
     public function mount(): void
     {
         abort_unless(
-<<<<<<< HEAD
+
             Auth::user()->can('resource.read'),
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
             Auth::user()->can('resource.read'),
@@ -352,6 +353,11 @@ class ListMyRecords extends XotBaseListRecords
             Auth::user()?->can('resource.read'),
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+
+            Auth::user()?->can('resource.read'),
+ e2a4c5d (.)
+>>>>>>> 4ab3760 (.)
             403
         );
     }
@@ -360,8 +366,9 @@ class ListMyRecords extends XotBaseListRecords
     {
         return [
             CreateAction::make()
-<<<<<<< HEAD
+
                 ->visible(fn () => Auth::user()->can('resource.write')),
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
                 ->visible(fn () => Auth::user()->can('resource.write')),
@@ -369,6 +376,11 @@ class ListMyRecords extends XotBaseListRecords
                 ->visible(fn () => Auth::user()?->can('resource.write')),
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+
+                ->visible(fn () => Auth::user()?->can('resource.write')),
+ e2a4c5d (.)
+>>>>>>> 4ab3760 (.)
         ];
     }
 }
@@ -417,8 +429,9 @@ class ListRecords extends XotBaseListRecords
     public function mount(): void
     {
         abort_unless(
-<<<<<<< HEAD
+
             Auth::user()->can('resource.read'),
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
             Auth::user()->can('resource.read'),
@@ -426,6 +439,11 @@ class ListRecords extends XotBaseListRecords
             Auth::user()?->can('resource.read'),
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+
+            Auth::user()?->can('resource.read'),
+ e2a4c5d (.)
+>>>>>>> 4ab3760 (.)
             403
         );
     }
@@ -545,9 +563,13 @@ public function getTableColumns(): array
 4. Non aggiungere il prefisso "List" ai nomi dei metodi
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+
+>>>>>>> 4ab3760 (.)
 ## Tipizzazione degli Array
 
 È **OBBLIGATORIO** utilizzare chiavi di tipo stringa per tutti gli array restituiti dai seguenti metodi:
@@ -629,8 +651,13 @@ public function getTableBulkActions(): array
 - Utilizzare sempre la tipizzazione PHPDoc corretta
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+
+ e2a4c5d (.)
+>>>>>>> 4ab3760 (.)
 // ... existing code ... 

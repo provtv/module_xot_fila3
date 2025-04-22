@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Modules\Xot\Actions\Filament;
 
-<<<<<<< HEAD
 use Filament\Forms\Components\Field;
 use Filament\Forms\Components\Component;
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 use Filament\Forms\Components\Field;
@@ -18,16 +18,18 @@ use Filament\Forms\Components\Component;
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 use Illuminate\Support\Arr;
 use Modules\Lang\Actions\SaveTransAction;
 use Modules\Xot\Actions\GetTransKeyAction;
 use Spatie\QueueableAction\QueueableAction;
 use Webmozart\Assert\Assert;
 
-<<<<<<< HEAD
 /**
  * Classe per automatizzare l'assegnazione di etichette ai componenti Filament.
  */
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 /**
@@ -36,15 +38,20 @@ use Webmozart\Assert\Assert;
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 class AutoLabelAction
 {
     use QueueableAction;
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
      * Get the component name based on its actual type.
      *
      * @param Field|Component $component Il componente di cui ottenere il nome
@@ -274,6 +281,7 @@ class AutoLabelAction
 =======
             // Applichiamo l'etichetta al componente
             // Field ha sempre un metodo label(), quindi possiamo chiamarlo direttamente
+<<<<<<< HEAD
 =======
      * Undocumented function.
      * return number of input added.
@@ -298,6 +306,8 @@ class AutoLabelAction
             }
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             $component->label($label);
         }
 

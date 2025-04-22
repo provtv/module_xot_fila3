@@ -22,8 +22,9 @@
         <template x-for="(line, index) in output" :key="index">
             <div class="whitespace-pre-wrap" x-text="line"></div>
         </template>
-        
+
         <div x-show="$wire.isRunning" class="animate-pulse">
+<<<<<<< HEAD
 <<<<<<< HEAD
             <span class="text-green-400"</span>
 =======
@@ -33,6 +34,9 @@
             <span class="text-green-400">></span>
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+            <span class="text-green-400">></span>
+>>>>>>> 4ab3760 (.)
             <span class="animate-blink">_</span>
         </div>
     </div>
@@ -45,7 +49,7 @@
         >
             Auto-scroll: <span x-text="autoScroll ? 'ON' : 'OFF'"></span>
         </button>
-        
+
         <button
             @click="$refs.terminal.scrollTop = $refs.terminal.scrollHeight"
             class="px-3 py-1 text-sm bg-gray-700 text-gray-300 rounded-md hover:bg-gray-600"
@@ -64,4 +68,4 @@
 .animate-blink {
     animation: blink 1s infinite;
 }
-</style> 
+</style>

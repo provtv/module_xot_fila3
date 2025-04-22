@@ -17,12 +17,16 @@ use Filament\Forms\Get;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 use Filament\Support\Colors\Color;
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+use Filament\Support\Colors\Color;
+>>>>>>> 4ab3760 (.)
 use Modules\Tenant\Services\TenantService;
 use Modules\Xot\Datas\MetatagData;
 use Modules\Xot\Filament\Traits\NavigationLabelTrait;
@@ -102,11 +106,14 @@ class MetatagPage extends Page implements HasForms
                             Select::make('key')
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> origin/dev
 =======
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
                                 ->label('Chiave')
                                 ->required()
                                 ->options($metatag->getFilamentColors()),
@@ -122,6 +129,7 @@ class MetatagPage extends Page implements HasForms
                                 ->visible(fn (Get $get) => $get('color') === 'custom')
                                 ->required(),
                         ])
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -148,6 +156,8 @@ class MetatagPage extends Page implements HasForms
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
                         ->columns(3),
                 ]
             )->columns(2)
@@ -170,6 +180,7 @@ class MetatagPage extends Page implements HasForms
         return [
             Action::make('save')
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -181,6 +192,8 @@ class MetatagPage extends Page implements HasForms
 
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
                 ->submit('save'),
         ];
     }

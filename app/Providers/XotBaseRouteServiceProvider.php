@@ -30,6 +30,7 @@ abstract class XotBaseRouteServiceProvider extends RouteServiceProvider
     {
         Config::set('extra_conn', Request::segment(2)); // Se configurato va a prendere db diverso
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
@@ -39,6 +40,8 @@ abstract class XotBaseRouteServiceProvider extends RouteServiceProvider
 
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         parent::boot();
     }
 
@@ -56,8 +59,8 @@ abstract class XotBaseRouteServiceProvider extends RouteServiceProvider
      */
     protected function mapWebRoutes(): void
     {
-<<<<<<< HEAD
         if ('' === $this->name) {
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
         if ('' === $this->name) {
@@ -65,6 +68,8 @@ abstract class XotBaseRouteServiceProvider extends RouteServiceProvider
         if ('' == $this->name) {
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             Notification::make()
                 ->title('Error')
                 ->danger()
@@ -78,12 +83,15 @@ abstract class XotBaseRouteServiceProvider extends RouteServiceProvider
             ->namespace($this->moduleNamespace)
             ->group($this->module_dir.'/../../routes/web.php');
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
         // ->group(module_path($this->name, '/routes/web.php'));
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 
     /**
@@ -95,16 +103,20 @@ abstract class XotBaseRouteServiceProvider extends RouteServiceProvider
             throw new \Exception('name is empty on ['.static::class.']');
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
         // -- da usare il config
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         Route::prefix('api')
             ->middleware('api')
             ->namespace($this->moduleNamespace)
             ->group($this->module_dir.'/../../routes/api.php');
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -112,5 +124,7 @@ abstract class XotBaseRouteServiceProvider extends RouteServiceProvider
         // ->group(module_path($this->name, '/routes/api.php'));
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 }

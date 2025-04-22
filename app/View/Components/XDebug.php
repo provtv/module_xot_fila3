@@ -64,6 +64,7 @@ class XDebug extends Component
         ob_end_clean();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         return is_string($out1) ? $out1 : (string) $out1;
 =======
 <<<<<<< HEAD
@@ -72,5 +73,8 @@ class XDebug extends Component
         return (string) $out1;
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+        return (string) $out1;
+>>>>>>> 4ab3760 (.)
     }
 }

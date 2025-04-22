@@ -23,10 +23,10 @@ use Spatie\ModelStatus\Status;
  * @property string|null              $updated_by
  * @property string|null              $title
  * @property PivotContract|null       $pivot
-<<<<<<< HEAD
  * @property string $tennant_name
  * @property UserContract|null        $user
  * @property string $status
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
  * @property string $tennant_name
@@ -38,6 +38,8 @@ use Spatie\ModelStatus\Status;
  * @property string                   $status
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  * @property Collection|array<Status> $statuses
  * @property int|null                 $statuses_count
  *

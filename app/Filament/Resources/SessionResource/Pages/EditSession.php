@@ -5,16 +5,19 @@ declare(strict_types=1);
 namespace Modules\Xot\Filament\Resources\SessionResource\Pages;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 use Filament\Actions;
 use Modules\Xot\Filament\Resources\SessionResource;
 
 
 
 
-use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
+use Modules\Xot\Filament\Resources\XotBaseResource\RelationManagers\XotBaseRelationManager;
 
 
 
@@ -25,6 +28,7 @@ class EditSession extends \Modules\Xot\Filament\Resources\Pages\XotBaseEditRecor
     protected static string $resource = SessionResource::class;
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -35,4 +39,6 @@ class EditSession extends \Modules\Xot\Filament\Resources\Pages\XotBaseEditRecor
     protected static string $resource = SessionResource::class;
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 }

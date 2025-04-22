@@ -14,9 +14,12 @@ use Webmozart\Assert\Assert;
  * Trait Updater.
  * https://dev.to/hasanmn/automatically-update-createdby-and-updatedby-in-laravel-using-bootable-traits-28g9.
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  *
  * @property int|null $created_by ID dell'utente che ha creato il record
  * @property int|null $updated_by ID dell'utente che ha aggiornato il record
@@ -25,10 +28,13 @@ use Webmozart\Assert\Assert;
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  */
 trait Updater
 {
@@ -76,9 +82,12 @@ trait Updater
         static::creating(
             static function (Model $model): void {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
                 Assert::isArray($attributes = $model->getAttributes());
 
                 if (array_key_exists('created_by', $attributes)) {
@@ -89,6 +98,7 @@ trait Updater
                     $model->setAttribute('updated_by', authId());
                 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
                 // @phpstan-ignore property.notFound
@@ -97,20 +107,26 @@ trait Updater
                 $model->updated_by = authId();
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             }
         );
 
         static::updating(
             static function (Model $model): void {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
                 Assert::isArray($attributes = $model->getAttributes());
 
                 if (array_key_exists('updated_by', $attributes)) {
                     $model->setAttribute('updated_by', authId());
                 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -118,6 +134,8 @@ trait Updater
                 $model->updated_by = authId();
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             }
         );
         /*
@@ -129,8 +147,8 @@ trait Updater
                 Assert::isArray($attributes = $model->attributes);
 
                 if (\in_array('deleted_by', array_keys($attributes), false)) {
-<<<<<<< HEAD
                     $model->setAttribute('deleted_by', authId());
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
                     $model->setAttribute('deleted_by', authId());
@@ -138,6 +156,8 @@ trait Updater
                     $model->update(['deleted_by' => authId()]);
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
                 }
             }
         );

@@ -9,6 +9,7 @@ use Filament\Forms\Components\TextInput;
 use Modules\Xot\Filament\Resources\SessionResource\Pages;
 use Modules\Xot\Models\Session;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
 =======
 <<<<<<< HEAD
@@ -16,6 +17,9 @@ use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelati
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+use Modules\Xot\Filament\Resources\XotBaseResource\RelationManagers\XotBaseRelationManager;
+>>>>>>> 4ab3760 (.)
 
 class SessionResource extends XotBaseResource
 {
@@ -25,9 +29,12 @@ class SessionResource extends XotBaseResource
     {
         return [
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             'id' => TextInput::make('id')
                 ->required()
                 ->maxLength(255),
@@ -45,6 +52,7 @@ class SessionResource extends XotBaseResource
                 ->columnSpanFull(),
 
             'last_activity' => TextInput::make('last_activity')
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -67,11 +75,14 @@ class SessionResource extends XotBaseResource
             TextInput::make('last_activity')
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
                 ->required()
                 ->numeric(),
         ];
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
@@ -94,4 +105,6 @@ class SessionResource extends XotBaseResource
     }
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 }

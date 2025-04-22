@@ -18,8 +18,8 @@ use Staudenmeir\LaravelAdjacencyList\Eloquent\Relations\Siblings;
  * Modules\Xot\Contracts\HasRecursiveRelationshipsContract.
  *
  * @property int                $id
-<<<<<<< HEAD
  * @property string $name
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
  * @property string $name
@@ -27,6 +27,8 @@ use Staudenmeir\LaravelAdjacencyList\Eloquent\Relations\Siblings;
  * @property string             $name
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
  * @property int                $depth
  * @property Collection<static> $children
  * @property int|null           $children_count

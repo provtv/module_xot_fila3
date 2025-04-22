@@ -10,34 +10,43 @@ use Modules\Xot\Filament\Resources\ExtraResource\Pages;
 use Modules\Xot\Models\Extra;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 
 
 
-use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
+use Modules\Xot\Filament\Resources\XotBaseResource\RelationManagers\XotBaseRelationManager;
 
 
 
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 class ExtraResource extends XotBaseResource
 {
     protected static ?string $model = Extra::class;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     /**
      * Get the form schema for the resource.
-     * 
+     *
      * @return array<string, \Filament\Forms\Components\Component>
      */
     public static function getFormSchema(): array
@@ -56,6 +65,7 @@ class ExtraResource extends XotBaseResource
                 ->numeric(),
 
             'value' => KeyValue::make('value')
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -77,6 +87,8 @@ class ExtraResource extends XotBaseResource
             KeyValue::make('value')
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
                 ->keyLabel('Chiave')
                 ->valueLabel('Valore')
                 ->reorderable()

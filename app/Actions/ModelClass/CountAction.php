@@ -5,14 +5,18 @@ declare(strict_types=1);
 namespace Modules\Xot\Actions\ModelClass;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 use Webmozart\Assert\Assert;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\QueueableAction\QueueableAction;
 use Modules\Xot\Models\InformationSchemaTable;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -22,6 +26,8 @@ use Spatie\QueueableAction\QueueableAction;
 use Webmozart\Assert\Assert;
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 
 /**
  * Counts records for a given model class using optimized table information.
@@ -31,6 +37,7 @@ class CountAction
     use QueueableAction;
 
     /**
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -44,6 +51,8 @@ class CountAction
     /**
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
      * Execute the count action for the given model class.
      *
      * @param class-string<Model> $modelClass The fully qualified model class name
@@ -54,8 +63,8 @@ class CountAction
      */
     public function execute(string $modelClass): int
     {
-<<<<<<< HEAD
         return InformationSchemaTable::getModelCount($modelClass);
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
         return InformationSchemaTable::getModelCount($modelClass);
@@ -109,5 +118,7 @@ class CountAction
         return $counts;
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
     }
 }

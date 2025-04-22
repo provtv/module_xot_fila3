@@ -122,6 +122,7 @@ abstract class XotBasePanelProvider extends PanelProvider
             );
 
 <<<<<<< HEAD
+<<<<<<< HEAD
        
 =======
 <<<<<<< HEAD
@@ -152,6 +153,9 @@ abstract class XotBasePanelProvider extends PanelProvider
 
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+
+>>>>>>> 4ab3760 (.)
         return $panel;
     }
 

@@ -34,9 +34,12 @@ abstract class XotBaseMainPanelProvider extends PanelProvider
 
         $panel
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
             ->id('admin')
             ->path('admin');
 
@@ -44,6 +47,7 @@ abstract class XotBaseMainPanelProvider extends PanelProvider
             $panel->login();
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -55,15 +59,20 @@ abstract class XotBaseMainPanelProvider extends PanelProvider
         }
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         $panel = $panel
             ->passwordReset()
             ->sidebarFullyCollapsibleOnDesktop()
             ->spa()
             ->profile(null, true);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
 
         app(ApplyMetatagToPanelAction::class)->execute(panel: $panel);
 
@@ -94,6 +103,7 @@ abstract class XotBaseMainPanelProvider extends PanelProvider
             ]);
 
         $navs = app(GetModulesNavigationItems::class)->execute();
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -139,6 +149,8 @@ abstract class XotBaseMainPanelProvider extends PanelProvider
 
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
         $panel->navigationItems($navs);
 
         try {
@@ -148,8 +160,8 @@ abstract class XotBaseMainPanelProvider extends PanelProvider
         }
 
         $panel->userMenuItems([
-<<<<<<< HEAD
             MenuItem::make()
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
             MenuItem::make()
@@ -159,6 +171,8 @@ abstract class XotBaseMainPanelProvider extends PanelProvider
 
 >>>>>>> e2a4c5d (.)
 >>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
+>>>>>>> 4ab3760 (.)
                 ->url(fn (): string => $profile_url)
                 ->icon('heroicon-o-user'),
         ]);
