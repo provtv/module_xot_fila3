@@ -16,7 +16,15 @@ use Modules\Xot\Filament\Traits\HasXotTable;
 use Webmozart\Assert\Assert;
 
 /**
+<<<<<<< HEAD
  * @property class-string<\Modules\Xot\Filament\Resources\XotBaseResource> $resource
+=======
+<<<<<<< HEAD
+ * @property class-string<\Modules\Xot\Filament\Resources\XotBaseResource> $resource
+=======
+ * @property class-string<Model> $resource
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
  */
 abstract class XotBaseRelationManager extends RelationManager
 {
@@ -24,9 +32,19 @@ abstract class XotBaseRelationManager extends RelationManager
 
     protected static string $relationship = '';
 
+<<<<<<< HEAD
     /**
      * @var class-string<\Modules\Xot\Filament\Resources\XotBaseResource>
      */
+=======
+<<<<<<< HEAD
+    /**
+     * @var class-string<\Modules\Xot\Filament\Resources\XotBaseResource>
+     */
+=======
+    /** @var class-string<XotBaseResource> */
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     protected static string $resource;
 
     public static function getModuleName(): string
@@ -49,7 +67,15 @@ abstract class XotBaseRelationManager extends RelationManager
         return static::transFunc(__FUNCTION__);
     }
 
+<<<<<<< HEAD
     final public function form(Form $form): Form
+=======
+<<<<<<< HEAD
+    final public function form(Form $form): Form
+=======
+    public function form(Form $form): Form
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     {
         return $form
             ->schema($this->getFormSchema());
@@ -58,7 +84,15 @@ abstract class XotBaseRelationManager extends RelationManager
     /**
      * Get form schema.
      *
+<<<<<<< HEAD
      * @return array<string|int, \Filament\Forms\Components\Component>
+=======
+<<<<<<< HEAD
+     * @return array<string|int, \Filament\Forms\Components\Component>
+=======
+     * @return array<string, \Filament\Forms\Components\Component>
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
      */
     public function getFormSchema(): array
     {
@@ -67,6 +101,10 @@ abstract class XotBaseRelationManager extends RelationManager
 
     public function getListTableColumns(): array
     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         $pages = $this->getResource()::getPages();
         if (!is_array($pages) || !isset($pages['index'])) {
             return [];
@@ -82,6 +120,13 @@ abstract class XotBaseRelationManager extends RelationManager
             return [];
         }
 
+<<<<<<< HEAD
+=======
+=======
+        $index = Arr::get($this->getResource()::getPages(), 'index');
+        $index_page = $index->getPage();
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         $columns = app($index_page)->getListTableColumns();
 
         return $columns;
@@ -114,6 +159,10 @@ abstract class XotBaseRelationManager extends RelationManager
     //     return [];
     // }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
     /**
      * Get the resource class.
@@ -156,5 +205,36 @@ abstract class XotBaseRelationManager extends RelationManager
         }
 
         return $resourceClass;
+<<<<<<< HEAD
+=======
+=======
+    /**
+     * Get the resource class.
+     *
+     * @return class-string<XotBaseResource>
+     */
+    protected function getResource(): string
+    {
+        try {
+            /* @var class-string<XotBaseResource> */
+            return static::$resource;
+        } catch (\Exception $e) {
+            dddx($e->getMessage());
+            $class = $this::class;
+            $resource_name = Str::of(class_basename($this))
+                ->beforeLast('RelationManager')
+                ->singular()
+                ->append('Resource')
+                ->toString();
+            $ns = Str::of($class)
+                ->before('Resources\\')
+                ->append('Resources\\')
+                ->toString();
+            Assert::classExists($resource_class = $ns.''.$resource_name);
+
+            return $resource_class;
+        }
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     }
 }

@@ -133,6 +133,10 @@ class ImportCsvAction
     }
 
     /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
      * Transform columns into ColumnData objects.
      *
      * @param string[] $columns
@@ -142,14 +146,34 @@ class ImportCsvAction
      * @phpstan-ignore method.unused
      */
     private function transformColumnsToColumnData(array $columns): array
+<<<<<<< HEAD
+=======
+=======
+     * @param array<mixed> $columns
+     *
+     * @return array<ColumnData>
+     */
+    public function execute1(array $columns): array
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     {
         return array_map(function ($column): ColumnData {
             Assert::string($column, 'Column must be a string');
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             return new ColumnData(
                 name: $column,
                 type: 'string' // Default type, modify if necessary
             );
+<<<<<<< HEAD
+=======
+=======
+            return new ColumnData($column);
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         }, $columns);
     }
 }

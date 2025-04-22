@@ -4,8 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\Xot\Actions\Export;
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Builder;
 use Maatwebsite\Excel\Facades\Excel;
+=======
+<<<<<<< HEAD
+use Illuminate\Database\Eloquent\Builder;
+use Maatwebsite\Excel\Facades\Excel;
+=======
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Database\Query\Builder as QueryBuilder;
+use Illuminate\Http\Response;
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 use Modules\Xot\Exports\QueryExport;
 use Spatie\QueueableAction\QueueableAction;
 // use Staudenmeir\LaravelCte\Query\Builder as CteBuilder;
@@ -15,6 +26,10 @@ class ExportXlsByQuery
 {
     use QueueableAction;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     /**
      * Esporta i risultati di una query in Excel.
      *
@@ -34,6 +49,7 @@ class ExportXlsByQuery
         // Assicuriamo che $fields sia un array di stringhe
         $stringFields = array_map(function ($field) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             return strval($field);
 =======
 <<<<<<< HEAD
@@ -42,6 +58,10 @@ class ExportXlsByQuery
             return is_string($field) ? $field : (string) $field;
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+
+            return strval($field);
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         }, array_values($fields));
 
         $export = new QueryExport(
@@ -50,6 +70,7 @@ class ExportXlsByQuery
             fields: $stringFields
         );
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 
@@ -57,6 +78,8 @@ class ExportXlsByQuery
         
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         // Note: QueryExport doesn't accept a limit parameter directly
         // If limit is needed, apply it to the query before passing to the exporter
         if ($limit !== null) {
@@ -64,5 +87,20 @@ class ExportXlsByQuery
         }
 
         return Excel::download($export, $filename);
+<<<<<<< HEAD
+=======
+=======
+    public function execute(
+        QueryBuilder|EloquentBuilder $query,
+        string $filename = 'test.xlsx',
+        ?string $transKey = null,
+        array $fields = [],
+    ): Response|BinaryFileResponse {
+        $queryExport = new QueryExport($query, $transKey, $fields);
+        // $queryExport->queue($filename); // Serialization of 'PDO' is not allowed
+
+        return $queryExport->download($filename);
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     }
 }

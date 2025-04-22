@@ -11,10 +11,20 @@ use Modules\Xot\Datas\RelationData as RelationDTO;
 use Spatie\QueueableAction\QueueableAction;
 use Webmozart\Assert\Assert;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+/**
+ * Azione per gestire le relazioni morphToOne nei modelli.
+ */
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 class MorphToOneAction
 {
     use QueueableAction;
 
+<<<<<<< HEAD
     public function execute(Model $model, RelationDTO $relationDTO): void
     {
 <<<<<<< HEAD
@@ -35,10 +45,32 @@ class MorphToOneAction
 
         Assert::isInstanceOf($rows = $relationDTO->rows, MorphToOne::class);
 
+=======
+<<<<<<< HEAD
+    /**
+     * Esegue l'azione di creazione per una relazione morphToOne.
+     *
+     * @param Model $model Il modello su cui operare
+     * @param RelationDTO $relationDTO I dati della relazione da creare
+     */
+    public function execute(Model $model, RelationDTO $relationDTO): void
+    {
+        Assert::isInstanceOf($rows = $relationDTO->rows, MorphToOne::class);
+
+=======
+    public function execute(Model $model, RelationDTO $relationDTO): void
+    {
+        Assert::isInstanceOf($rows = $relationDTO->rows, MorphToOne::class);
+        // dddx(['row' => $row, 'relation' => $relation, 'relation_data' => $relation->data]);
+
+        // if (is_array($relation->data)) {
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         if (! isset($relationDTO->data['lang'])) {
             $relationDTO->data['lang'] = App::getLocale();
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         //if ($rows !== null) {
         $rows->create($relationDTO->data);
@@ -54,6 +86,11 @@ class MorphToOneAction
         }
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+        $rows->create($relationDTO->data);
+<<<<<<< HEAD
+=======
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         // } else {
         //    $rows->sync($relation->data);
         // }
@@ -69,5 +106,9 @@ class MorphToOneAction
 
         dddx('wip');
         */
+<<<<<<< HEAD
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     }
 }

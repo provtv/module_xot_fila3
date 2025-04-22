@@ -103,9 +103,12 @@ private $fileHandle = null;
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> origin/dev
+=======
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 ### 4. Gestione delle API Fluenti di Librerie Esterne
 
 Le API fluenti (method chaining) di alcune librerie esterne come Laravel-FFMpeg possono causare problemi con PHPStan a livello 10, in particolare quando i metodi intermedi restituiscono tipi non standard o quando la catena è lunga e complessa.
@@ -154,12 +157,15 @@ Questo pattern è stato applicato con successo nei file `ConvertVideoByMediaConv
 
 ### 5. Pattern per Controller
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### 4. Pattern per Controller
 =======
 =======
 ### 4. Pattern per Controller
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
 Per i metodi dei controller, utilizzare tipi di ritorno espliciti che riflettono i possibili valori restituiti:
 
@@ -171,6 +177,7 @@ public function show(string $id): \Illuminate\View\View|\Illuminate\Http\Redirec
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### 6. Gestione delle Proprietà Dinamiche
 ### 5. Gestione delle Proprietà Dinamiche
 =======
@@ -180,6 +187,9 @@ public function show(string $id): \Illuminate\View\View|\Illuminate\Http\Redirec
 ### 5. Gestione delle Proprietà Dinamiche
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+### 6. Gestione delle Proprietà Dinamiche
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
 Per le proprietà dinamiche nei modelli, utilizzare annotazioni PHPDoc complete:
 
@@ -196,6 +206,7 @@ class User extends Model
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### 7. Conversione Sicura da `mixed` a Tipi Scalari
 ### 6. Conversione Sicura da `mixed` a Tipi Scalari
 =======
@@ -205,6 +216,9 @@ class User extends Model
 ### 6. Conversione Sicura da `mixed` a Tipi Scalari
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+### 7. Conversione Sicura da `mixed` a Tipi Scalari
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
 Quando si lavora con valori `mixed` da convertire in tipi scalari (string, int, float, bool), utilizzare controlli di tipo prima della conversione:
 
@@ -247,6 +261,7 @@ if ($value !== null) {
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### 8. Gestione Sicura di Array con Chiavi Miste
 ### 7. Gestione Sicura di Array con Chiavi Miste
 =======
@@ -256,6 +271,9 @@ if ($value !== null) {
 ### 7. Gestione Sicura di Array con Chiavi Miste
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+### 8. Gestione Sicura di Array con Chiavi Miste
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
 Quando si ottengono array da fonti esterne (es. funzioni Laravel che restituiscono array con chiavi miste):
 
@@ -273,6 +291,7 @@ foreach ($componentsWithMixedKeys as $key => $component) {
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### 9. Tipi Unione con Null
 ### 8. Tipi Unione con Null
 =======
@@ -282,6 +301,9 @@ foreach ($componentsWithMixedKeys as $key => $component) {
 ### 8. Tipi Unione con Null
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+### 9. Tipi Unione con Null
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
 Preferire la sintassi nullable (`?tipo`) per i tipi che possono essere null:
 
@@ -293,6 +315,7 @@ public function findById(?int $id): ?User
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### 10. Parametri Variabili (Variadic)
 ### 9. Parametri Variabili (Variadic)
 =======
@@ -302,6 +325,9 @@ public function findById(?int $id): ?User
 ### 9. Parametri Variabili (Variadic)
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+### 10. Parametri Variabili (Variadic)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
 Per i parametri variabili, specificare il tipo di ogni elemento nell'array risultante:
 
@@ -317,6 +343,7 @@ public function buildPath(string ...$segments): string
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### 11. Callback e Closure
 ### 10. Callback e Closure
 =======
@@ -326,6 +353,9 @@ public function buildPath(string ...$segments): string
 ### 10. Callback e Closure
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+### 10. Callback e Closure
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
 Per i callback e le closure, utilizzare `callable` con specifiche di tipo dettagliate:
 
@@ -558,6 +588,7 @@ Uno degli errori più frequenti riguarda il namespace delle Actions:
 
 - ✅ **CORRETTO**: `namespace Modules\Xot\Actions;`
 <<<<<<< HEAD
+<<<<<<< HEAD
 - ❌ **ERRATO**: `namespace Modules\Xot\Actions;`
 - ❌ **ERRATO**: `namespace Modules\Xot\app\Actions;`
 =======
@@ -567,12 +598,16 @@ Uno degli errori più frequenti riguarda il namespace delle Actions:
 - ❌ **ERRATO**: `namespace Modules\Xot\app\Actions;`
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+- ❌ **ERRATO**: `namespace Modules\Xot\app\Actions;`
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
 Anche se il file Actions si trova fisicamente in `Modules/Xot/app/Actions/`, il namespace deve sempre essere `Modules\Xot\Actions` (senza il segmento `app`).
 
 Gli errori PHPStan relativi a questo problema sono spesso del tipo:
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 Class 'Modules\Xot\Actions\MyAction' not found.
 Class 'Modules\Xot\app\Actions\MyAction' not found.
 =======
@@ -584,6 +619,23 @@ Class 'Modules\Xot\app\Actions\MyAction' not found.
 >>>>>>> origin/dev
 ```
 
+=======
+Class 'Modules\Xot\app\Actions\MyAction' not found.
+```
+
+#### Esempio per i Comandi Console
+
+```php
+// CORRETTO
+namespace Modules\Xot\Console\Commands;
+
+// ERRATO
+namespace Modules\Xot\app\Console\Commands;
+```
+
+Errori PHPStan come `Class Modules\Xot\app\Console\Commands\DatabaseSchemaExportCommand not found` indicano che è necessario rimuovere il segmento `app` dal namespace.
+
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 #### Namespace Corretti per i Componenti Principali
 
 | Tipo di Componente       | Percorso Fisico                         | Namespace Corretto                 |
@@ -598,6 +650,7 @@ Class 'Modules\Xot\app\Actions\MyAction' not found.
 
 #### Esempio per i Comandi Console
 
+<<<<<<< HEAD
 ```php
 // CORRETTO
 namespace Modules\Xot\Console\Commands;
@@ -623,3 +676,6 @@ Errori PHPStan come `Class Modules\Xot\app\Console\Commands\DatabaseSchemaExport
 =======
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+```
+>>>>>>> 50bb41c (fix: auto resolve conflict)

@@ -11,6 +11,10 @@ namespace Modules\Xot\Actions\Filament\Block;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 use Modules\Xot\Actions\File\AssetAction;
 use Modules\Xot\Actions\File\FixPathAction;
 use Spatie\QueueableAction\QueueableAction;
@@ -19,11 +23,23 @@ use Webmozart\Assert\Assert;
 /**
  * Classe per ottenere le opzioni dei blocchi di vista per un tipo specifico.
  */
+<<<<<<< HEAD
+=======
+=======
+use Modules\Xot\Actions\File\FixPathAction;
+use Spatie\QueueableAction\QueueableAction;
+
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 class GetViewBlocksOptionsByTypeAction
 {
     use QueueableAction;
 
     /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
      * Ottiene le opzioni dei blocchi di vista per un determinato tipo.
      *
      * @param string $type Il tipo di blocco da cercare
@@ -89,6 +105,34 @@ class GetViewBlocksOptionsByTypeAction
                     $imgPath = $module_low.'::img/screenshots/'.$name.'.png';
                     $img_path = $assetAction->execute($imgPath);
                     Assert::stringNotEmpty($img_path, 'Il percorso dell\'immagine non può essere vuoto');
+<<<<<<< HEAD
+=======
+=======
+     * Undocumented function.
+     * return number of input added.
+     *
+     * @return array<array<string>|string>
+     */
+    public function execute(string $type, bool $img = false): array
+    {
+        $files = File::glob(base_path('Modules').'/*/resources/views/components/blocks/'.$type.'/*.blade.php');
+
+        $opts = Arr::mapWithKeys(
+            $files,
+            function ($path) use ($img, $type) {
+                $path = app(FixPathAction::class)->execute($path);
+                $module_low = Str::of($path)
+                    ->between(DIRECTORY_SEPARATOR.'Modules'.DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR)
+                    ->lower()
+                    ->toString();
+                $info = pathinfo($path);
+                $name = Str::of($info['basename'])->before('.blade.php')->toString();
+                $view = $module_low.'::components.blocks.'.$type.'.'.$name;
+                if ($img) {
+                    $img_path = app(\Modules\Xot\Actions\File\AssetAction::class)
+                        ->execute($module_low.'::img/screenshots/'.$name.'.png');
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
                     return [$view => $img_path];
                 }
@@ -97,6 +141,10 @@ class GetViewBlocksOptionsByTypeAction
             }
         );
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         // Assicuriamo che il risultato sia un array di stringhe
         /** @var array<string, string> $result */
         $result = $opts;
@@ -108,5 +156,11 @@ class GetViewBlocksOptionsByTypeAction
         }
         
         return $result;
+<<<<<<< HEAD
+=======
+=======
+        return $opts;
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     }
 }

@@ -5,26 +5,62 @@ declare(strict_types=1);
 namespace Modules\Xot\Models;
 
 /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
  * 
  *
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+<<<<<<< HEAD
+=======
+=======
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
  * @method static \Modules\Xot\Database\Factories\PulseValueFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|PulseValue  newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PulseValue  newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PulseValue  query()
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
  * @property int         $id
  * @property int         $timestamp
  * @property string $type
  * @property string $key
  * @property string|null $key_hash
  * @property string $value
+<<<<<<< HEAD
+=======
+=======
+ *
+ * @property int         $id
+ * @property int         $timestamp
+ * @property string      $type
+ * @property string      $key
+ * @property string|null $key_hash
+ * @property string      $value
+ *
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
  * @method static \Illuminate\Database\Eloquent\Builder|PulseValue whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PulseValue whereKey($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PulseValue whereKeyHash($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PulseValue whereTimestamp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PulseValue whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PulseValue whereValue($value)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+ *
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
  * @mixin \Eloquent
  */
 class PulseValue extends BaseModel

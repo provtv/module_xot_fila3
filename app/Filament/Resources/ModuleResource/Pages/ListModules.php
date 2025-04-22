@@ -16,8 +16,16 @@ use Modules\Xot\Filament\Resources\ModuleResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 use Nwidart\Modules\Facades\Module;
 
+<<<<<<< HEAD
 use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
 
+=======
+<<<<<<< HEAD
+use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
+
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 class ListModules extends XotBaseListRecords
 {
     public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
@@ -75,11 +83,25 @@ class ListModules extends XotBaseListRecords
     {
         return [
             ViewAction::make()
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 ,
             EditAction::make()
                 ,
             DeleteAction::make()
                 
+<<<<<<< HEAD
+=======
+=======
+                ->label(''),
+            EditAction::make()
+                ->label(''),
+            DeleteAction::make()
+                ->label('')
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 ->requiresConfirmation(),
         ];
     }
@@ -87,7 +109,15 @@ class ListModules extends XotBaseListRecords
     /**
      * @return array<string, Tables\Actions\BulkAction>
      */
+<<<<<<< HEAD
     public function getTableBulkActions(): array
+=======
+<<<<<<< HEAD
+    public function getTableBulkActions(): array
+=======
+    protected function getTableBulkActions(): array
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     {
         return [
             'delete' => DeleteBulkAction::make(),

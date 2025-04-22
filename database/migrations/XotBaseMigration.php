@@ -209,12 +209,22 @@ abstract class XotBaseMigration extends Migration
      */
     public function down(): void
     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         $this->dropTableIfExists($this->getTable());
     }
 
     public function dropTableIfExists(string $table): void
     {
         $this->getConn()->dropIfExists($table);
+<<<<<<< HEAD
+=======
+=======
+        $this->getConn()->dropIfExists($this->getTable());
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     }
 
     public function renameTable(string $from, string $to): void
@@ -227,6 +237,10 @@ abstract class XotBaseMigration extends Migration
     public function renameColumn(string $from, string $to): void
     {
         $this->getConn()->table($this->getTable(), function (Blueprint $table) use ($from, $to) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
                 $table->renameColumn($from, $to);
 
@@ -245,6 +259,25 @@ abstract class XotBaseMigration extends Migration
     {
         $tableName = $table ?? $this->getTable();
         $this->getConn()->table($tableName, $next);
+<<<<<<< HEAD
+=======
+=======
+            $table->renameColumn($from, $to);
+        });
+    }
+
+    public function tableCreate(\Closure $next): void
+    {
+        if (! $this->tableExists()) {
+            $this->getConn()->create($this->getTable(), $next);
+        }
+    }
+
+    public function tableUpdate(\Closure $next): void
+    {
+        $this->getConn()->table($this->getTable(), $next);
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     }
 
     public function timestamps(Blueprint $table, bool $hasSoftDeletes = false): void
@@ -252,6 +285,10 @@ abstract class XotBaseMigration extends Migration
         $xot = XotData::make();
         $userClass = $xot->getUserClass();
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
             $table->timestamps();
             $table->foreignIdFor($userClass, 'user_id')->nullable();
@@ -260,6 +297,17 @@ abstract class XotBaseMigration extends Migration
 
 
         if ($hasSoftDeletes ) {
+<<<<<<< HEAD
+=======
+=======
+        $table->timestamps();
+        $table->foreignIdFor($userClass, 'user_id')->nullable();
+        $table->foreignIdFor($userClass, 'updated_by')->nullable();
+        $table->foreignIdFor($userClass, 'created_by')->nullable();
+
+        if ($hasSoftDeletes) {
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             $table->softDeletes();
         }
     }
@@ -299,6 +347,10 @@ abstract class XotBaseMigration extends Migration
         $this->{$methodName}($table);
 
         if ($this->hasColumn('model_id') && 'bigint' === $this->getColumnType('model_id')) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
                 $table->string('model_id', 36)->index()->change();
 
@@ -308,6 +360,16 @@ abstract class XotBaseMigration extends Migration
 
                 $table->uuid('team_id')->nullable()->change();
 
+<<<<<<< HEAD
+=======
+=======
+            $table->string('model_id', 36)->index()->change();
+        }
+
+        if ($this->hasColumn('team_id') && 'bigint' === $this->getColumnType('team_id')) {
+            $table->uuid('team_id')->nullable()->change();
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         }
     }
 

@@ -5,6 +5,10 @@ declare(strict_types=1);
 namespace Modules\Xot\Helpers;
 
 use Illuminate\Support\Str;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 use Webmozart\Assert\Assert;
 
 use function Safe\glob;
@@ -33,19 +37,51 @@ class ResourceFormSchemaGenerator
                 throw new \RuntimeException("Failed to get filename for class: {$resourceClass}");
             }
 
+<<<<<<< HEAD
+=======
+=======
+
+class ResourceFormSchemaGenerator
+{
+    public static function generateFormSchema(string $resourceClass)
+    {
+        try {
+            $reflection = new \ReflectionClass($resourceClass);
+            $filename = $reflection->getFileName();
+
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             // Read the file contents
             $fileContents = file_get_contents($filename);
 
             // Check if getFormSchema method already exists
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             if (strpos($fileContents, 'public function getFormSchema') !== false) {
                 return false;
             }
 
             // Generate form schema
+<<<<<<< HEAD
+=======
+=======
+            if (false !== strpos($fileContents, 'public function getFormSchema')) {
+                return false;
+            }
+
+            // Generate a basic form schema based on the class name
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             $modelName = str_replace('Resource', '', $reflection->getShortName());
             $modelVariable = Str::camel($modelName);
 
             $formSchemaMethod = "\n    public function getFormSchema(): array\n    {\n        return [\n";
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             $formSchemaMethod .= "            Forms\\Components\\TextInput::make('{$modelVariable}_name')\n";
             $formSchemaMethod .= "                ->required(),\n";
             $formSchemaMethod .= "        ];\n    }\n";
@@ -54,6 +90,26 @@ class ResourceFormSchemaGenerator
             $modifiedContents = preg_replace(
                 '/}(\s*)$/',
                 $formSchemaMethod.'}$1',
+<<<<<<< HEAD
+=======
+=======
+
+            // Try to generate some basic form fields
+            $formSchemaMethod .= "            Forms\\Components\\TextInput::make('{$modelVariable}_name')\n";
+            $formSchemaMethod .= "                ->label('".Str::headline($modelName)." Name')\n";
+            $formSchemaMethod .= "                ->required(),\n";
+
+            $formSchemaMethod .= "        ];\n    }\n";
+
+            // Detect if the class is in a Clusters directory
+            $isInClustersDir = false !== strpos($filename, 'Clusters');
+
+            // Insert the method before the last closing brace
+            $modifiedContents = preg_replace(
+                '/}(\s*)$/',
+                $formSchemaMethod.($isInClustersDir ? '' : '}$1'),
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 $fileContents
             );
 
@@ -62,11 +118,25 @@ class ResourceFormSchemaGenerator
 
             return true;
         } catch (\Exception $e) {
+<<<<<<< HEAD
             error_log("Error generating form schema for {$resourceClass}: ".$e->getMessage());
+=======
+<<<<<<< HEAD
+            error_log("Error generating form schema for {$resourceClass}: ".$e->getMessage());
+=======
+            // Log the error or handle it appropriately
+            error_log("Error generating form schema for {$resourceClass}: ".$e->getMessage());
+
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             return false;
         }
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     /**
      * @return array{updated: array<string>, skipped: array<string>}
      */
@@ -101,5 +171,44 @@ class ResourceFormSchemaGenerator
         }
 
         return $results;
+<<<<<<< HEAD
+=======
+=======
+    public static function generateForAllResources()
+    {
+        $resourceFiles = glob('/var/www/html/base_techplanner_fila3/laravel/Modules/*/app/Filament/Resources/*Resource.php');
+
+        $updatedResources = [];
+        $skippedResources = [];
+
+        foreach ($resourceFiles as $file) {
+            // Get the full class name
+            $content = file_get_contents($file);
+            preg_match('/namespace\s+([\w\\\\]+);/', $content, $namespaceMatch);
+            preg_match('/class\s+(\w+)\s+extends\s+XotBaseResource/', $content, $classMatch);
+
+            if (! isset($namespaceMatch[1]) || ! isset($classMatch[1])) {
+                $skippedResources[] = $file;
+
+                continue;
+            }
+
+            $fullClassName = $namespaceMatch[1].'\\'.$classMatch[1];
+
+            try {
+                if (self::generateFormSchema($fullClassName)) {
+                    $updatedResources[] = $fullClassName;
+                }
+            } catch (\Exception $e) {
+                $skippedResources[] = $fullClassName.': '.$e->getMessage();
+            }
+        }
+
+        return [
+            'updated' => $updatedResources,
+            'skipped' => $skippedResources,
+        ];
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     }
 }

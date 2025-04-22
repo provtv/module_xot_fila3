@@ -5,6 +5,10 @@ declare(strict_types=1);
 namespace Modules\Xot\Providers;
 
 use Illuminate\Support\Arr;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 use Illuminate\Support\Str;
 use Webmozart\Assert\Assert;
 use Illuminate\Support\Facades\Blade;
@@ -18,6 +22,24 @@ use Modules\Xot\Actions\Livewire\RegisterLivewireComponentsAction;
 
 use function Safe\realpath;
 
+<<<<<<< HEAD
+=======
+=======
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
+use Modules\Xot\Actions\Blade\RegisterBladeComponentsAction;
+use Modules\Xot\Actions\Livewire\RegisterLivewireComponentsAction;
+use Modules\Xot\Datas\ComponentFileData;
+use Nwidart\Modules\Traits\PathNamespace;
+
+use function Safe\realpath;
+
+use Webmozart\Assert\Assert;
+
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 /**
  * Class XotBaseServiceProvider.
  */
@@ -41,10 +63,28 @@ abstract class XotBaseServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->registerTranslations();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom($this->module_dir.'/../Database/Migrations');
         $this->registerLivewireComponents();
+<<<<<<< HEAD
+=======
+=======
+
+        $this->registerConfig();
+        $this->registerViews();
+        // $this->registerFactories();
+        $this->loadMigrationsFrom($this->module_dir.'/../Database/Migrations');
+
+        // Illuminate\Contracts\Container\BindingResolutionException: Target class [livewire] does not exist.
+        $this->registerLivewireComponents();
+        // Illuminate\Contracts\Container\BindingResolutionException: Target class [modules] does not exist.
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         $this->registerBladeComponents();
         $this->registerCommands();
     }
@@ -56,8 +96,18 @@ abstract class XotBaseServiceProvider extends ServiceProvider
     {
         $this->nameLower = Str::lower($this->name);
         $this->module_ns = collect(explode('\\', $this->module_ns))->slice(0, -1)->implode('\\');
+<<<<<<< HEAD
         $this->app->register($this->module_ns.'\Providers\RouteServiceProvider');
         $this->app->register($this->module_ns.'\Providers\EventServiceProvider');
+=======
+<<<<<<< HEAD
+        $this->app->register($this->module_ns.'\Providers\RouteServiceProvider');
+        $this->app->register($this->module_ns.'\Providers\EventServiceProvider');
+=======
+        $this->app->register(''.$this->module_ns.'\Providers\RouteServiceProvider');
+        $this->app->register(''.$this->module_ns.'\Providers\EventServiceProvider');
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         $this->registerBladeIcons();
     }
 
@@ -74,6 +124,13 @@ abstract class XotBaseServiceProvider extends ServiceProvider
             if (! is_string($svgPath)) {
                 throw new \Exception('Invalid SVG path');
             }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+            // $resolvedPath = realpath($svgPath);
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             $resolvedPath = $svgPath;
             $svgPath = $resolvedPath;
         } catch (\Error $e) {
@@ -150,6 +207,19 @@ abstract class XotBaseServiceProvider extends ServiceProvider
     protected function registerConfig(): void
     {
         try {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            $configPath = app(GetModulePathByGeneratorAction::class)->execute($this->name, 'config');
+
+
+            /*
+            $this->publishes([
+                $configPath => config_path($this->nameLower.'.php'),
+            ], 'config');
+            */
+=======
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             Assert::string($relativePath = config('modules.paths.generator.config.path'));
             $configPath = module_path($this->name, $relativePath);
             if (! is_string($configPath)) {
@@ -164,6 +234,10 @@ abstract class XotBaseServiceProvider extends ServiceProvider
                 $configPath => config_path($this->nameLower.'.php'),
             ], 'config');
 
+<<<<<<< HEAD
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             $this->mergeConfigFrom($configPath, $this->nameLower);
         } catch (\Exception $e) {
             // Ignore missing configuration
@@ -173,13 +247,40 @@ abstract class XotBaseServiceProvider extends ServiceProvider
 
     public function registerBladeComponents(): void
     {
+<<<<<<< HEAD
         $componentClassPath = app(GetModulePathByGeneratorAction::class)->execute($this->name, 'component-class');
 
+=======
+<<<<<<< HEAD
+        try{
+            $componentsViewPath = app(GetModulePathByGeneratorAction::class)->execute($this->name, 'component-view');
+            Blade::anonymousComponentPath($componentsViewPath);
+        } catch (\Exception $e) {
+            //return;
+        }
+        // $components_path = realpath(__DIR__.'/../resources/views/components');
+
+
+
+        $componentClassPath = app(GetModulePathByGeneratorAction::class)->execute($this->name, 'component-class');
+
+=======
+        Assert::string($relativePath = config('modules.paths.generator.component-class.path'));
+        $componentClassPath = module_path($this->name, $relativePath);
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         $namespace = $this->module_ns.'\View\Components';
         Blade::componentNamespace($namespace, $this->nameLower);
 
         app(RegisterBladeComponentsAction::class)
             ->execute(
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+                // $this->module_dir.'/../View/Components',
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 $componentClassPath,
                 $this->module_ns
             );
@@ -212,6 +313,10 @@ abstract class XotBaseServiceProvider extends ServiceProvider
         if (0 == $comps->count()) {
             return;
         }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         $commands = $comps->toArray();
         /** @var array<int, array{ns: string}> $commands */
         $commands = array_map(
@@ -222,6 +327,16 @@ abstract class XotBaseServiceProvider extends ServiceProvider
                 return $item['ns'];
             },
             $commands
+<<<<<<< HEAD
+=======
+=======
+        $commands = Arr::map(
+            $comps->items(),
+            function (ComponentFileData $item) {
+                return $item->ns;
+            }
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         );
         $this->commands($commands);
     }

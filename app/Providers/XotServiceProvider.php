@@ -16,13 +16,23 @@ use Filament\Support\Concerns\Configurable;
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\BaseFilter;
+<<<<<<< HEAD
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Database\Eloquent\Model;
+=======
+<<<<<<< HEAD
+=======
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Contracts\Debug\ExceptionHandler;
+use Illuminate\Database\Eloquent\Model;
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 use Illuminate\Database\Events\MigrationsEnded;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\File;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
@@ -43,10 +53,34 @@ use Modules\Xot\Exceptions\Handlers\HandlersRepository;
 >>>>>>> origin/dev
 use Modules\Xot\View\Composers\XotComposer;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+=======
+<<<<<<< HEAD
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\View;
+use Modules\Xot\View\Composers\XotComposer;
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 use Webmozart\Assert\Assert;
 
 use function Safe\realpath;
 
+<<<<<<< HEAD
+=======
+=======
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\View;
+use Modules\Xot\Exceptions\Formatters\WebhookErrorFormatter;
+use Modules\Xot\Exceptions\Handlers\HandlerDecorator;
+use Modules\Xot\Exceptions\Handlers\HandlersRepository;
+use Modules\Xot\View\Composers\XotComposer;
+
+use function Safe\realpath;
+
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Webmozart\Assert\Assert;
+
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 /**
  * Class XotServiceProvider.
  */
@@ -62,6 +96,7 @@ class XotServiceProvider extends XotBaseServiceProvider
     {
         parent::boot();
         $this->redirectSSL();
+<<<<<<< HEAD
         $this->registerViewComposers();
         $this->registerEvents();
 <<<<<<< HEAD
@@ -74,12 +109,29 @@ class XotServiceProvider extends XotBaseServiceProvider
 >>>>>>> origin/dev
 >>>>>>> origin/dev
         $this->registerTimezone();
+=======
+<<<<<<< HEAD
+        $this->registerViewComposers();
+        $this->registerEvents();
+        $this->registerTimezone();
+=======
+        // $this->registerTranslator(); to lang
+        $this->registerViewComposers(); // rompe filament
+        $this->registerEvents();
+        $this->registerExceptionHandler();
+        $this->registerTimezone();
+        // Model::shouldBeStrict(! app()->isProduction());
+        // moved to Lang
+        // $this->translatableComponents();
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         $this->registerProviders();
     }
 
     public function register(): void
     {
         parent::register();
+<<<<<<< HEAD
         $this->registerConfig();
 <<<<<<< HEAD
         //$this->registerExceptionHandlersRepository();
@@ -94,6 +146,16 @@ class XotServiceProvider extends XotBaseServiceProvider
 >>>>>>> origin/dev
 >>>>>>> origin/dev
         $this->registerCommands();
+=======
+<<<<<<< HEAD
+        $this->registerConfig();
+        $this->registerCommands();
+=======
+        $this->registerConfigs();
+        $this->registerExceptionHandlersRepository();
+        $this->extendExceptionHandler();
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     }
 
     public function registerProviders(): void
@@ -106,15 +168,29 @@ class XotServiceProvider extends XotBaseServiceProvider
         Assert::string($timezone = config('app.timezone') ?? 'Europe/Berlin', '['.__LINE__.']['.class_basename($this).']');
         Assert::string($date_format = config('app.date_format') ?? 'd/m/Y', '['.__LINE__.']['.class_basename($this).']');
         Assert::string($locale = config('app.locale') ?? 'it', '['.__LINE__.']['.class_basename($this).']');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
         app()->setLocale($locale);
         Carbon::setLocale($locale);
         date_default_timezone_set($timezone);
 
+<<<<<<< HEAD
+=======
+=======
+        app()->setLocale($locale);
+        Carbon::setLocale($locale);
+        date_default_timezone_set($timezone);
+        // Assert::isArray($validationMessages = __('user::validation'));
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         DateTimePicker::configureUsing(fn (DateTimePicker $component) => $component->timezone($timezone));
         DatePicker::configureUsing(fn (DatePicker $component) => $component->timezone($timezone)->displayFormat($date_format));
         TimePicker::configureUsing(fn (TimePicker $component) => $component->timezone($timezone));
         TextColumn::configureUsing(fn (TextColumn $column) => $column->timezone($timezone));
+<<<<<<< HEAD
     }
 
 <<<<<<< HEAD
@@ -148,6 +224,16 @@ class XotServiceProvider extends XotBaseServiceProvider
 <<<<<<< HEAD
 =======
 =======
+=======
+<<<<<<< HEAD
+    }
+
+    public function registerConfig(): void
+=======
+        // TextInput::configureUsing(fn (TextInput $component) => $component->validationMessages($validationMessages));
+    }
+
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     /**
      * @see https://github.com/cerbero90/exception-handler
      */
@@ -158,6 +244,7 @@ class XotServiceProvider extends XotBaseServiceProvider
         $exceptionHandler->reporter(
             static function (\Throwable $e): void {
                 $data = (new WebhookErrorFormatter($e))->format();
+<<<<<<< HEAD
                 if ($e instanceof AuthenticationException || $e instanceof NotFoundHttpException) {
                     return;
                 }
@@ -166,6 +253,24 @@ class XotServiceProvider extends XotBaseServiceProvider
                     && mb_strlen(config('logging.channels.slack_errors.url')) > 5) {
                     Log::channel('slack_errors')
                         ->error($e->getMessage(), $data);
+=======
+                if ($e instanceof AuthenticationException) {
+                    return;
+                }
+                if ($e instanceof NotFoundHttpException) {
+                    return;
+                }
+
+                if (
+                    is_string(config('logging.channels.slack_errors.url'))
+                    && mb_strlen(config('logging.channels.slack_errors.url')) > 5
+                ) {
+                    Log::channel('slack_errors')
+                        ->error(
+                            $e->getMessage(),
+                            $data
+                        );
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 }
             }
         );
@@ -187,10 +292,16 @@ class XotServiceProvider extends XotBaseServiceProvider
         });
         */
     }
+<<<<<<< HEAD
 >>>>>>> origin/dev
 >>>>>>> origin/dev
 
     public function registerConfig(): void
+=======
+
+    public function registerConfigs(): void
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     {
         // $config_file = realpath(__DIR__.'/../config/metatag.php');
         // $this->mergeConfigFrom($config_file, 'metatag');
@@ -204,12 +315,26 @@ class XotServiceProvider extends XotBaseServiceProvider
                 continue;
             }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             $realPath = $file->getRealPath();
             if (false === $realPath) {
                 continue;
             }
 
             include_once $realPath;
+<<<<<<< HEAD
+=======
+=======
+            if (false === $file->getRealPath()) {
+                continue;
+            }
+
+            include_once $file->getRealPath();
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         }
     }
 
@@ -226,6 +351,7 @@ class XotServiceProvider extends XotBaseServiceProvider
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     /*
      * Register the custom exception handlers repository.
      -- guardare come fa sentry
@@ -235,16 +361,22 @@ class XotServiceProvider extends XotBaseServiceProvider
      * Register the custom exception handlers repository.
      -- guardare come fa sentry
 =======
+>>>>>>> 50bb41c (fix: auto resolve conflict)
+=======
     /**
      * Register the custom exception handlers repository.
      */
+<<<<<<< HEAD
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     private function registerExceptionHandlersRepository(): void
     {
         $this->app->singleton(HandlersRepository::class, HandlersRepository::class);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> origin/dev
@@ -257,23 +389,33 @@ class XotServiceProvider extends XotBaseServiceProvider
 <<<<<<< HEAD
 =======
 =======
+=======
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
     /**
      * Extend the Laravel default exception handler.
      *
      * @see https://github.com/cerbero90/exception-handler/blob/master/src/Providers/ExceptionHandlerServiceProvider.php
      */
+<<<<<<< HEAD
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     private function extendExceptionHandler(): void
     {
         $this->app->extend(
             ExceptionHandler::class,
             static function (ExceptionHandler $handler, $app) {
+<<<<<<< HEAD
+=======
+                // @phpstan-ignore offsetAccess.nonOffsetAccessible, argument.type
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 return new HandlerDecorator($handler, $app[HandlersRepository::class]);
             }
         );
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
     */
 =======
@@ -283,6 +425,10 @@ class XotServiceProvider extends XotBaseServiceProvider
 
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     private function redirectSSL(): void
     {
         // --- meglio ficcare un controllo anche sull'env
@@ -319,6 +465,9 @@ class XotServiceProvider extends XotBaseServiceProvider
     {
         View::composer('*', XotComposer::class);
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 } // end class

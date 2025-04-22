@@ -19,6 +19,10 @@ class ExportXlsStreamByLazyCollection
 {
     use QueueableAction;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     /**
      * Esporta una LazyCollection in un file CSV streamed.
      *
@@ -29,6 +33,11 @@ class ExportXlsStreamByLazyCollection
      * 
      * @return StreamedResponse
      */
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     public function execute(
         LazyCollection $data,
         string $filename = 'test.csv',
@@ -36,6 +45,7 @@ class ExportXlsStreamByLazyCollection
         ?array $fields = null,
     ): StreamedResponse {
         $headers = [
+<<<<<<< HEAD
 <<<<<<< HEAD
             'Content-Disposition' => 'attachment; filename=' . $filename,
 =======
@@ -45,12 +55,23 @@ class ExportXlsStreamByLazyCollection
             'Content-Disposition' => 'attachment; filename='.$filename,
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename=' . $filename,
+            'Pragma' => 'no-cache',
+            'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
+            'Expires' => '0'
+=======
+            'Content-Disposition' => 'attachment; filename='.$filename,
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         ];
         $head = $this->headings($data, $transKey);
 
         return response()->stream(
             static function () use ($data, $head): void {
                 $file = fopen('php://output', 'w+');
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -73,6 +94,15 @@ class ExportXlsStreamByLazyCollection
                 
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+
+
+
+                // Assicuriamo che le intestazioni siano stringhe
+                $headStrings = array_map(function ($item): string {
+                    return strval($item);
+                }, $head);
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 fputcsv($file, $headStrings);
 
                 foreach ($data as $key => $value) {
@@ -88,6 +118,7 @@ class ExportXlsStreamByLazyCollection
                         continue;
                     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 
@@ -97,11 +128,16 @@ class ExportXlsStreamByLazyCollection
 >>>>>>> origin/dev
                     // Convertiamo tutti i valori in stringhe o null
                     $safeRowData = array_map(function ($item) {
+=======
+                    // Convertiamo tutti i valori in stringhe o null
+                    $safeRowData = array_map(function ($item): ?string {
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                         if ($item === null) {
                             return null;
                         }
                         return is_string($item) ? $item : (string) $item;
                     }, $rowData);
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -119,10 +155,36 @@ class ExportXlsStreamByLazyCollection
                 
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+
+                    fputcsv($file, $safeRowData);
+                }
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 // Aggiungiamo righe vuote alla fine
                 $blanks = ["\t", "\t", "\t", "\t"];
                 fputcsv($file, $blanks);
                 fputcsv($file, $blanks);
+<<<<<<< HEAD
+=======
+=======
+                fputcsv($file, $head);
+
+                foreach ($data as $key => $value) {
+                    // if(!method_exists($value,'toArray')){
+                    //    throw new \Exception('WIP['.__LINE__.']['.class_basename($this).']');
+                    // }
+                    /** @phpstan-ignore method.nonObject */
+                    $data = $value->toArray();
+
+                    fputcsv($file, $data);
+                }
+                $blanks = ["\t", "\t", "\t", "\t"];
+                fputcsv($file, $blanks);
+                $blanks = ["\t", "\t", "\t", "\t"];
+                fputcsv($file, $blanks);
+                $blanks = ["\t", "\t", "\t", "\t"];
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 fputcsv($file, $blanks);
 
                 fclose($file);
@@ -132,6 +194,10 @@ class ExportXlsStreamByLazyCollection
         );
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     /**
      * Ottiene le intestazioni per l'export.
      *
@@ -147,6 +213,7 @@ class ExportXlsStreamByLazyCollection
             return []; // Ritorna intestazioni vuote se non c'è un primo elemento valido
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         $headArray = is_array($first) ? $first : $first->toArray();
 
@@ -161,47 +228,80 @@ class ExportXlsStreamByLazyCollection
         
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+
+
+        $headArray = is_array($first) ? $first : $first->toArray();
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         /** 
          * @var array<string, mixed> $headArray 
          * @var \Illuminate\Support\Collection<int, string> $headings 
          */
         $headings = collect($headArray)->keys();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> origin/dev
+=======
+
+
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
         if (null !== $transKey) {
             $headings = $headings->map(
                 static function (string $item) use ($transKey) {
                     $key = $transKey . '.fields.' . $item;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
         
+=======
+=======
+    public function headings(LazyCollection $data, ?string $transKey = null): array
+    {
+        /**
+         * @var array
+         */
+        $head = $data->first();
+        $headings = collect($head)->keys();
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         if (null !== $transKey) {
             $headings = $headings->map(
                 static function (string $item) use ($transKey) {
                     $key = $transKey.'.fields.'.$item;
+<<<<<<< HEAD
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                     $trans = trans($key);
                     if ($trans !== $key) {
                         return $trans;
                     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                     Assert::string($item1 = Str::replace('.', '_', $item), '[' . __LINE__ . '][' . __CLASS__ . ']');
                     $key = $transKey . '.fields.' . $item1;
 =======
 <<<<<<< HEAD
+=======
+
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                     Assert::string($item1 = Str::replace('.', '_', $item), '[' . __LINE__ . '][' . __CLASS__ . ']');
                     $key = $transKey . '.fields.' . $item1;
 =======
                     Assert::string($item1 = Str::replace('.', '_', $item), '['.__LINE__.']['.__CLASS__.']');
                     $key = $transKey.'.fields.'.$item1;
+<<<<<<< HEAD
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                     $trans = trans($key);
                     if ($trans !== $key) {
                         return $trans;
@@ -212,6 +312,7 @@ class ExportXlsStreamByLazyCollection
             );
         }
 
+<<<<<<< HEAD
         /** @var array<string> */
 <<<<<<< HEAD
         return $headings->map(fn($item) => strval($item))->toArray();
@@ -222,5 +323,13 @@ class ExportXlsStreamByLazyCollection
         return $headings->map(fn ($item) => is_string($item) ? $item : (string) $item)->toArray();
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+<<<<<<< HEAD
+        /** @var array<string> */
+        return $headings->map(fn($item): string => strval($item))->toArray();
+=======
+        return $headings->toArray();
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     }
 }

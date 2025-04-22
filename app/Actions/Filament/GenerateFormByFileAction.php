@@ -8,8 +8,16 @@ declare(strict_types=1);
 
 namespace Modules\Xot\Actions\Filament;
 
+<<<<<<< HEAD
 use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Model;
+=======
+<<<<<<< HEAD
+use Filament\Resources\Resource;
+use Illuminate\Database\Eloquent\Model;
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 use Illuminate\Support\Str;
 
 use function Safe\file;
@@ -23,11 +31,22 @@ class GenerateFormByFileAction
     use QueueableAction;
 
     /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
      * Genera un form Filament basato su un file di risorsa.
      *
      * @param File $file Il file della risorsa Filament
      * 
      * @return int Numero di input aggiunti
+<<<<<<< HEAD
+=======
+=======
+     * Undocumented function.
+     * return number of input added.
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
      */
     public function execute(File $file): int
     {
@@ -41,6 +60,10 @@ class GenerateFormByFileAction
         $class_name = Str::replace(base_path('Modules/'), 'Modules/', $file->getPathname());
         Assert::string($class_name = Str::replace('/', '\\', $class_name), '['.__LINE__.']['.class_basename($this).']');
         $class_name = Str::substr($class_name, 0, -4);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         
         // Verifichiamo che la classe esista e sia una risorsa Filament
         Assert::classExists($class_name);
@@ -76,6 +99,15 @@ class GenerateFormByFileAction
             return 0;
         }
         
+<<<<<<< HEAD
+=======
+=======
+        $model_name = app($class_name)->getModel();
+        $fillable = app($model_name)->getFillable();
+        Assert::classExists($class_name);
+        $reflection_class = new \ReflectionClass($class_name);
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         $form_method = $reflection_class->getMethod('form');
         $start_line = $form_method->getStartLine() - 1;
         // it's actually - 1, otherwise you wont get the function() block
@@ -85,6 +117,10 @@ class GenerateFormByFileAction
         // $contents= $file->getContents();
         $source = file($file_name);
         $body = implode('', \array_slice($source, $start_line, $length));
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         
         // Otteniamo i metodi della classe risorsa
         $resourceMethods = get_class_methods($resourceInstance);
@@ -95,12 +131,27 @@ class GenerateFormByFileAction
             'fillable' => $fillable,
             // 't1'=>app($class_name)->form(app(\Filament\Forms\Form::class)),
             'methods' => $resourceMethods,
+<<<<<<< HEAD
+=======
+=======
+        dd([
+            'class_name' => $class_name,
+            'model_name' => $model_name,
+            'fillable' => $fillable,
+            // 't1'=>app($class_name)->form(app(\Filament\Forms\Form::class)),
+            'methods' => get_class_methods(app($class_name)),
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             'form_method' => $form_method,
             'form_method_methods' => get_class_methods($form_method),
             'body' => $body,
         ]);
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     /**
      * Mostra informazioni di debug su un file.
      *
@@ -108,6 +159,11 @@ class GenerateFormByFileAction
      * 
      * @return void
      */
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     public function ddFile(File $file): void
     {
         dd([

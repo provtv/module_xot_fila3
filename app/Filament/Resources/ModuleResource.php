@@ -11,6 +11,10 @@ use Modules\UI\Filament\Forms\Components\IconPicker;
 use Modules\Xot\Filament\Resources\ModuleResource\Pages;
 use Modules\Xot\Models\Module;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
 
 
@@ -20,6 +24,11 @@ use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelati
 
 
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 class ModuleResource extends XotBaseResource
 {
     protected static ?string $model = Module::class;

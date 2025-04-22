@@ -26,7 +26,15 @@ use Illuminate\Support\Carbon;
  * @property bool               $is_reclamed
  * @property bool               $table_enable
  * @property PivotContract|null $pivot
+<<<<<<< HEAD
  * @property string $tennant_name
+=======
+<<<<<<< HEAD
+ * @property string $tennant_name
+=======
+ * @property string             $tennant_name
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
  *
  * @method mixed     getKey()
  * @method string    getRouteKey()
@@ -43,12 +51,16 @@ use Illuminate\Support\Carbon;
  * @method array     treeLabel()
  * @method array     treeSons()
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
  * @method int       treeSonsCount()
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+ * @method int       treeSonsCount()
+>>>>>>> 50bb41c (fix: auto resolve conflict)
  * @method array     toArray()
  * @method BelongsTo user()
  * @method mixed     getAttributeValue(string $key)
@@ -107,7 +119,15 @@ interface ModelContract
      * @param  \Closure|string|array|\Illuminate\Contracts\Database\Query\Expression  $column
      * @param  mixed  $operator
      * @param  mixed  $value
+<<<<<<< HEAD
      * @param  string $boolean
+=======
+<<<<<<< HEAD
+     * @param  string $boolean
+=======
+     * @param  string  $boolean
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
      * @return $this
 
     public function where($column, $operator = null, $value = null, $boolean = 'and');
@@ -116,7 +136,15 @@ interface ModelContract
     /*
      * Execute the query and get the first result or throw an exception.
      *
+<<<<<<< HEAD
      * @param  array|string $columns
+=======
+<<<<<<< HEAD
+     * @param  array|string $columns
+=======
+     * @param  array|string  $columns
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
      * @return \Illuminate\Database\Eloquent\Model|static
      *
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException<\Illuminate\Database\Eloquent\Model>

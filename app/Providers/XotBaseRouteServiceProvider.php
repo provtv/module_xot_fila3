@@ -29,6 +29,16 @@ abstract class XotBaseRouteServiceProvider extends RouteServiceProvider
     public function boot(): void
     {
         Config::set('extra_conn', Request::segment(2)); // Se configurato va a prendere db diverso
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        // if (method_exists($this, 'bootCallback')) {
+        //    $this->bootCallback();
+        // }
+
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         parent::boot();
     }
 
@@ -46,7 +56,15 @@ abstract class XotBaseRouteServiceProvider extends RouteServiceProvider
      */
     protected function mapWebRoutes(): void
     {
+<<<<<<< HEAD
         if ('' === $this->name) {
+=======
+<<<<<<< HEAD
+        if ('' === $this->name) {
+=======
+        if ('' == $this->name) {
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             Notification::make()
                 ->title('Error')
                 ->danger()
@@ -59,6 +77,13 @@ abstract class XotBaseRouteServiceProvider extends RouteServiceProvider
         Route::middleware('web')
             ->namespace($this->moduleNamespace)
             ->group($this->module_dir.'/../../routes/web.php');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        // ->group(module_path($this->name, '/routes/web.php'));
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     }
 
     /**
@@ -69,9 +94,23 @@ abstract class XotBaseRouteServiceProvider extends RouteServiceProvider
         if ('' === $this->name) {
             throw new \Exception('name is empty on ['.static::class.']');
         }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        // -- da usare il config
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         Route::prefix('api')
             ->middleware('api')
             ->namespace($this->moduleNamespace)
             ->group($this->module_dir.'/../../routes/api.php');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        // ->group(module_path($this->name, '/routes/api.php'));
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     }
 }

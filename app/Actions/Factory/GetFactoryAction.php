@@ -12,11 +12,23 @@ declare(strict_types=1);
 
 namespace Modules\Xot\Actions\Factory;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 use Spatie\QueueableAction\QueueableAction;
 use Webmozart\Assert\Assert;
+<<<<<<< HEAD
+=======
+=======
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Str;
+use Spatie\QueueableAction\QueueableAction;
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
 /**
  * @see https://github.com/mpociot/laravel-test-factory-helper/blob/master/src/Console/GenerateCommand.php#L213
@@ -32,6 +44,10 @@ class GetFactoryAction
      *
      * @throws \Exception Generating Factory [factory_class] press [F5] to refresh page [__LINE__][__FILE__]
      *
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
      * @return Factory
      */
     public function execute(string $model_class): Factory
@@ -50,10 +66,27 @@ class GetFactoryAction
                 "La classe $factory_class::new() non ha restituito un'istanza di Factory");
                 
             return $factory;
+<<<<<<< HEAD
+=======
+=======
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function execute(string $model_class)
+    {
+        $factory_class = $this->getFactoryClass($model_class);
+
+        if (class_exists($factory_class)) {
+            return $factory_class::new();
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         }
 
         $this->createFactory($model_class);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         // Lancia un'eccezione con informazioni specifiche
         throw new \Exception(sprintf(
             'Generating Factory [%s] press [F5] to refresh page [%d][%s]',
@@ -76,15 +109,36 @@ class GetFactoryAction
         $model_name = class_basename($model_class);
         
         // Costruiamo il nome della classe factory seguendo le convenzioni di Laravel
+<<<<<<< HEAD
+=======
+=======
+        throw new \Exception('Generating Factory ['.$factory_class.'] press [F5] to refresh page ['.__LINE__.']['.class_basename($this).']');
+    }
+
+    public function getFactoryClass(string $model_class): string
+    {
+        $model_name = class_basename($model_class);
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         $factory_class = Str::of($model_class)
             ->before('\Models\\')
             ->append('\Database\Factories\\')
             ->append($model_name)
             ->append('Factory')
             ->toString();
+<<<<<<< HEAD
             
         Assert::stringNotEmpty($factory_class, 'Factory class non può essere vuota');
         
+=======
+<<<<<<< HEAD
+            
+        Assert::stringNotEmpty($factory_class, 'Factory class non può essere vuota');
+        
+=======
+
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         return $factory_class;
     }
 
@@ -95,6 +149,10 @@ class GetFactoryAction
      *
      * @return void
      */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     public function createFactory(string $model_class): void
     {
         Assert::stringNotEmpty($model_class, 'Model class non può essere vuota');
@@ -118,5 +176,34 @@ class GetFactoryAction
         $artisan_params = ['name' => $model_name, 'module' => $module_name];
         
         Artisan::call($artisan_cmd, $artisan_params);
+<<<<<<< HEAD
+=======
+=======
+    public function createFactory(string $model_class)
+    {
+        /*
+        $model = app($model_class);
+        $dataFromTable = app(GetPropertiesFromTableByModelAction::class)->execute($model);
+        $dataFromMethods = app(GetPropertiesFromMethodsByModelAction::class)->execute($model);
+
+        dddx([
+            'dataFromTable' => $dataFromTable,
+            'dataFromMethods' => $dataFromMethods,
+        ]);
+        */
+        $model_name = class_basename($model_class);
+        $module_name = Str::of($model_class)->between('Modules\\', '\Models\\')->toString();
+        $artisan_cmd = 'module:make-factory';
+        $artisan_params = ['name' => $model_name, 'module' => $module_name];
+        Artisan::call($artisan_cmd, $artisan_params);
+
+        /*
+        dddx([
+            'message' => 'WIP',
+            'model_name' => $model_class,
+        ]);
+        */
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     }
 }

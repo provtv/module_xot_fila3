@@ -12,7 +12,14 @@ namespace Modules\Xot\Filament\Actions\Header;
 // use Filament\Tables\Actions\Action;
 use Filament\Actions\Action;
 use Filament\Resources\Pages\ListRecords;
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Builder;
+=======
+<<<<<<< HEAD
+use Illuminate\Database\Eloquent\Builder;
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 use Modules\Xot\Actions\Export\ExportXlsByLazyCollection;
 use Modules\Xot\Actions\Export\ExportXlsByQuery;
 use Modules\Xot\Actions\Export\ExportXlsStreamByLazyCollection;
@@ -25,7 +32,15 @@ class ExportXlsLazyAction extends Action
     {
         parent::setUp();
         $this->translateLabel()
+<<<<<<< HEAD
             
+=======
+<<<<<<< HEAD
+            
+=======
+            ->label('')
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             ->tooltip(__('xot::actions.export_xls'))
             ->icon('heroicon-o-arrow-down-tray')
             ->action(static function (ListRecords $livewire) {
@@ -34,6 +49,10 @@ class ExportXlsLazyAction extends Action
                 $transKey .= '.fields';
 
                 $resource = $livewire->getResource();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 /** @var array<int, string> $fields */
                 $fields = [];
                 if (method_exists($resource, 'getXlsFields')) {
@@ -84,6 +103,34 @@ class ExportXlsLazyAction extends Action
                     $filename, 
                     array_values($fields)
                 );
+<<<<<<< HEAD
+=======
+=======
+                $fields = [];
+                if (method_exists($resource, 'getXlsFields')) {
+                    Assert::isArray($fields = $resource::getXlsFields($livewire->tableFilters));
+                }
+
+                $lazy = $livewire->getFilteredTableQuery();
+                if (empty($fields)) {
+                    $fields = [];
+                }
+
+                if ($lazy->count() < 7) {
+                    $query = $lazy->getQuery();
+
+                    return app(ExportXlsByQuery::class)->execute($query, $filename, $transKey, $fields);
+                }
+
+                $lazy = $lazy->cursor();
+
+                if ($lazy->count() > 3000) {
+                    return app(ExportXlsStreamByLazyCollection::class)->execute($lazy, $filename, $transKey, $fields);
+                }
+
+                return app(ExportXlsByLazyCollection::class)->execute($lazy, $filename, $transKey, $fields);
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             });
     }
 

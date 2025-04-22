@@ -22,9 +22,21 @@ use Spatie\ModelStatus\Status;
  * @property string|null              $updated_by
  * @property string|null              $title
  * @property PivotContract|null       $pivot
+<<<<<<< HEAD
  * @property string $tennant_name
  * @property UserContract|null        $user
  * @property string $status
+=======
+<<<<<<< HEAD
+ * @property string $tennant_name
+ * @property UserContract|null        $user
+ * @property string $status
+=======
+ * @property string                   $tennant_name
+ * @property UserContract|null        $user
+ * @property string                   $status
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
  * @property Collection|array<Status> $statuses
  * @property int|null                 $statuses_count
  * @property int|null                 $pos
@@ -45,12 +57,16 @@ use Spatie\ModelStatus\Status;
  * @method array     treeLabel()
  * @method array     treeSons()
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
  * @method int       treeSonsCount()
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+ * @method int       treeSonsCount()
+>>>>>>> 50bb41c (fix: auto resolve conflict)
  * @method array     toArray()
  * @method BelongsTo user()
  *
@@ -58,6 +74,7 @@ use Spatie\ModelStatus\Status;
  *
  * @mixin \Eloquent
  */
+<<<<<<< HEAD
 <<<<<<< HEAD
 interface ModelWithPosContract {}
 =======
@@ -69,3 +86,8 @@ interface ModelWithPosContract
 }
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+interface ModelWithPosContract
+{
+}
+>>>>>>> 50bb41c (fix: auto resolve conflict)

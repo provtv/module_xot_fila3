@@ -20,7 +20,15 @@ use Illuminate\Support\Carbon;
  * @property string|null        $updated_by
  * @property string|null        $title
  * @property PivotContract|null $pivot
+<<<<<<< HEAD
  * @property string $tennant_name
+=======
+<<<<<<< HEAD
+ * @property string $tennant_name
+=======
+ * @property string             $tennant_name
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
  * @property int|null           $author_id
  * @property UserContract|null  $user
  * @property UserContract|null  $author
@@ -41,12 +49,16 @@ use Illuminate\Support\Carbon;
  * @method array     treeLabel()
  * @method array     treeSons()
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
  * @method int       treeSonsCount()
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+ * @method int       treeSonsCount()
+>>>>>>> 50bb41c (fix: auto resolve conflict)
  * @method array     toArray()
  * @method BelongsTo user()
  *
@@ -54,6 +66,7 @@ use Illuminate\Support\Carbon;
  *
  * @mixin \Eloquent
  */
+<<<<<<< HEAD
 <<<<<<< HEAD
 interface ModelWithAuthorContract {}
 =======
@@ -65,3 +78,8 @@ interface ModelWithAuthorContract
 }
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+interface ModelWithAuthorContract
+{
+}
+>>>>>>> 50bb41c (fix: auto resolve conflict)

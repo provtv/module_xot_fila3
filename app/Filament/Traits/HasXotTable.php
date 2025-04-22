@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Xot\Filament\Traits;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 use Filament\Tables;
 use Filament\Actions;
 use Filament\Tables\Table;
@@ -15,6 +19,7 @@ use Filament\Tables\Filters\BaseFilter;
 use Illuminate\Database\Eloquent\Model;
 use Filament\Notifications\Notification;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Filament\Tables\Actions\Action;
 =======
 <<<<<<< HEAD
@@ -22,6 +27,9 @@ use Filament\Tables\Actions\Action;
 =======
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+use Filament\Tables\Actions\Action;
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Columns\Layout\Stack;
@@ -32,6 +40,32 @@ use Filament\Tables\Actions\DeleteBulkAction;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Modules\Xot\Actions\Model\TableExistsByModelClassActions;
 use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
+<<<<<<< HEAD
+=======
+=======
+use Filament\Actions;
+use Filament\Notifications\Notification;
+use Filament\Tables;
+use Filament\Tables\Actions\Action;
+use Filament\Tables\Actions\ActionGroup;
+use Filament\Tables\Actions\BulkAction;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Columns\Layout\Stack;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Enums\ActionsPosition;
+use Filament\Tables\Enums\FiltersLayout;
+use Filament\Tables\Filters\BaseFilter;
+use Filament\Tables\Filters\TernaryFilter;
+use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use Modules\UI\Enums\TableLayoutEnum;
+use Modules\UI\Filament\Actions\Table\TableLayoutToggleTableAction;
+use Modules\Xot\Actions\Model\TableExistsByModelClassActions;
+use Webmozart\Assert\Assert;
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
 /**
  * Trait HasXotTable.
@@ -57,7 +91,15 @@ trait HasXotTable
      *
      * @return array<string, Action|ActionGroup>
      */
+<<<<<<< HEAD
     public function getTableHeaderActions(): array
+=======
+<<<<<<< HEAD
+    public function getTableHeaderActions(): array
+=======
+    protected function getTableHeaderActions(): array
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     {
         $actions = [];
 
@@ -189,6 +231,10 @@ trait HasXotTable
     }
 
     /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
      * Configura una tabella Filament.
      *
      * Nota: Questo metodo è stato modificato per risolvere l'errore
@@ -204,12 +250,25 @@ trait HasXotTable
      * mantenendo la retrocompatibilità e prevenendo errori.
      *
      * Ultimo aggiornamento: 10/2023
+<<<<<<< HEAD
+=======
+=======
+     * Configure the table.
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
      */
     public function table(Table $table): Table
     {
         $modelClass = $this->getModelClass();
         if (! app(TableExistsByModelClassActions::class)->execute($modelClass)) {
             $this->notifyTableMissing();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             return $this->configureEmptyTable($table);
         }
 
@@ -217,12 +276,23 @@ trait HasXotTable
         $model = app($modelClass);
         Assert::isInstanceOf($model, Model::class);
 
+<<<<<<< HEAD
         // Configurazione base della tabella
+=======
+<<<<<<< HEAD
+        // Configurazione base della tabella
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         $table = $table
             ->recordTitleAttribute($this->getTableRecordTitleAttribute())
             ->heading($this->getTableHeading())
             ->columns($this->layoutView->getTableColumns())
             ->contentGrid($this->layoutView->getTableContentGrid())
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             ->filters($this->getTableFilters())
             ->filtersLayout(FiltersLayout::AboveContent)
             ->filtersFormColumns($this->getTableFiltersFormColumns())
@@ -242,6 +312,18 @@ trait HasXotTable
         }
 
         $table = $table
+<<<<<<< HEAD
+=======
+=======
+            ->headerActions($this->getTableHeaderActions())
+            ->filters($this->getTableFilters())
+            ->filtersLayout(FiltersLayout::AboveContent)
+            ->filtersFormColumns($this->getTableFiltersFormColumns())
+            ->persistFiltersInSession()
+            ->actions($this->getTableActions())
+            ->bulkActions($this->getTableBulkActions())
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             ->actionsPosition(ActionsPosition::BeforeColumns)
             ->emptyStateActions($this->getTableEmptyStateActions())
             ->striped();
@@ -283,9 +365,21 @@ trait HasXotTable
     /**
      * Get table filters.
      *
+<<<<<<< HEAD
      * @return array<string|int, Tables\Filters\Filter|TernaryFilter|BaseFilter>
      */
     public function getTableFilters(): array
+=======
+<<<<<<< HEAD
+     * @return array<string|int, Tables\Filters\Filter|TernaryFilter|BaseFilter>
+     */
+    public function getTableFilters(): array
+=======
+     * @return array<string, Tables\Filters\Filter|TernaryFilter|BaseFilter>
+     */
+    protected function getTableFilters(): array
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     {
         return [];
     }
@@ -295,6 +389,7 @@ trait HasXotTable
      *
 <<<<<<< HEAD
      * @return array<string, Tables\Actions\Action|Tables\Actions\ActionGroup>
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
      * @return array<string, Tables\Actions\Action|Tables\Actions\ActionGroup>
@@ -304,6 +399,15 @@ trait HasXotTable
 >>>>>>> origin/dev
      */
     public function getTableActions(): array
+=======
+     */
+    public function getTableActions(): array
+=======
+     * @return array<string, Action|ActionGroup>
+     */
+    protected function getTableActions(): array
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     {
         $actions = [];
 
@@ -319,6 +423,10 @@ trait HasXotTable
                 ->tooltip(__('user::actions.edit'));
         }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         $actions['delete'] = Tables\Actions\DeleteAction::make()
             ->iconButton()
             ->tooltip(__('user::actions.delete'));
@@ -341,6 +449,31 @@ trait HasXotTable
                     }
                 }
             }
+<<<<<<< HEAD
+=======
+=======
+        if ($this->shouldShowReplicateAction()) {
+            $actions['replicate'] = Tables\Actions\ReplicateAction::make()
+                ->label('')
+                ->tooltip(__('user::actions.replicate'))
+                ->iconButton();
+        }
+
+        if (! $this->shouldShowDetachAction()) {
+            $actions['delete'] = Tables\Actions\DeleteAction::make()
+                ->tooltip(__('user::actions.delete'))
+                ->iconButton();
+        }
+
+        if ($this->shouldShowDetachAction()) {
+            $actions['detach'] = Tables\Actions\DetachAction::make()
+                ->label('')
+                ->tooltip(__('user::actions.detach'))
+                ->icon('heroicon-o-link-slash')
+                ->color('danger')
+                ->requiresConfirmation();
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         }
 
         return $actions;
@@ -351,11 +484,26 @@ trait HasXotTable
      *
      * @return array<string, BulkAction>
      */
+<<<<<<< HEAD
     public function getTableBulkActions(): array
+=======
+<<<<<<< HEAD
+    public function getTableBulkActions(): array
+=======
+    protected function getTableBulkActions(): array
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     {
         return [
             'delete' => DeleteBulkAction::make()
                 ->label('')
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+                ->tooltip(__('user::actions.delete_selected'))
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 ->icon('heroicon-o-trash')
                 ->color('danger')
                 ->requiresConfirmation(),

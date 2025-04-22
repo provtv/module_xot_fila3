@@ -12,23 +12,48 @@ use Modules\Tenant\Services\TenantService;
 use Spatie\QueueableAction\QueueableAction;
 use Webmozart\Assert\Assert;
 
+<<<<<<< HEAD
 /**
  * Classe per gestire gli elementi di navigazione per i moduli.
  */
+=======
+<<<<<<< HEAD
+/**
+ * Classe per gestire gli elementi di navigazione per i moduli.
+ */
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 class GetModulesNavigationItems
 {
     use QueueableAction;
 
     /**
+<<<<<<< HEAD
      * Ottiene gli elementi di navigazione per i moduli.
      *
      * @return array<int, NavigationItem> Array di elementi di navigazione
+=======
+<<<<<<< HEAD
+     * Ottiene gli elementi di navigazione per i moduli.
+     *
+     * @return array<int, NavigationItem> Array di elementi di navigazione
+=======
+     * Undocumented function.
+     *
+     * @return array<NavigationItem>
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
      */
     public function execute(): array
     {
         $navs = [];
 
         $modules = TenantService::allModules();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         Assert::isArray($modules, 'TenantService::allModules() deve restituire un array');
 
         foreach ($modules as $module) {
@@ -83,24 +108,71 @@ class GetModulesNavigationItems
             $navigation_sort = (int) $navigation_sort;
             
             // Creiamo l'elemento di navigazione
+<<<<<<< HEAD
+=======
+=======
+
+        foreach ($modules as $module) {
+            // if (! Filament::auth()->check()) {
+            //    continue;
+            // }
+            $module_low = Str::lower($module);
+            // if (! auth()->user()->can('module_'.$module_low)) {
+            //    continue;
+            // }
+
+            $relativeConfigPath = config('modules.paths.generator.config.path');
+            try {
+                $configPath = module_path($module, $relativeConfigPath);
+            } catch (\Error $e) {
+                $configPath = base_path('Modules/'.$module.'/'.$relativeConfigPath);
+            }
+            /**
+             * @var array
+             */
+            $config = File::getRequire($configPath.'/config.php');
+            Assert::string($icon = $config['icon'] ?? 'heroicon-o-question-mark-circle');
+            $role = $module_low.'::admin';
+            Assert::integer($navigation_sort = $config['navigation_sort'] ?? 1);
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             $nav = NavigationItem::make($module)
                 ->url('/'.$module_low.'/admin')
                 ->icon($icon)
                 ->group('Modules')
                 ->sort($navigation_sort)
                 ->visible(
+<<<<<<< HEAD
                     static function () use ($role): bool {
+=======
+<<<<<<< HEAD
+                    static function () use ($role): bool {
+=======
+                    static function () use ($role) {
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                         $user = Filament::auth()->user();
                         if (null === $user) {
                             return false;
                         }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                         // Verifichiamo che il metodo hasRole esista
                         if (!method_exists($user, 'hasRole')) {
                             return false;
                         }
 
                         return (bool) $user->hasRole($role);
+<<<<<<< HEAD
+=======
+=======
+                        // Call to an undefined method Illuminate\Foundation\Auth\User::hasRole()
+                        return $user->hasRole($role);
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                     }
                 );
 

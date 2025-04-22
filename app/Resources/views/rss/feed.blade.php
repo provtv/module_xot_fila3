@@ -19,7 +19,15 @@
                 <category>{{ $item->post_type }}</category>
                 <author><![CDATA[{{ $item->created_by }}]]></author>
                 {{-- guid o id?? --}}
+<<<<<<< HEAD
                 <guid>{{ $item-> }}</guid>
+=======
+<<<<<<< HEAD
+                <guid>{{ $item-> }}</guid>
+=======
+                <guid>{{ $item->id }}</guid>
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 <pubDate>{{ $item->created_at->toRssString() }}</pubDate>
             </item>
         @endforeach

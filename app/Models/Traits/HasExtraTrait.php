@@ -17,9 +17,21 @@ use Webmozart\Assert\Assert;
 /**
  * Modules\Xot\Models\HasExtraTrait.
  *
+<<<<<<< HEAD
  * @property string $currency
  * @property float              $price
  * @property string $price_complete
+=======
+<<<<<<< HEAD
+ * @property string $currency
+ * @property float              $price
+ * @property string $price_complete
+=======
+ * @property string             $currency
+ * @property float              $price
+ * @property string             $price_complete
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
  * @property int                $qty
  * @property ExtraContract|null $extra
  */
@@ -49,11 +61,21 @@ trait HasExtraTrait
      */
     public function getExtra(string $name)
     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
         if($this->extra==null){
             return null;
         }
         $value = $this->extra->extra_attributes->get($name);
+<<<<<<< HEAD
+=======
+=======
+        $value = $this->extra?->extra_attributes->get($name);
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         if (
             is_array($value) || is_int($value)
             // || is_float($value)
@@ -79,8 +101,20 @@ trait HasExtraTrait
                 ->firstOrCreate([], ['extra_attributes' => json_encode([])]);
             Assert::implementsInterface($extra, ExtraContract::class, '['.__LINE__.']['.class_basename($this).']['.$extra.']');
         }
+<<<<<<< HEAD
         Assert::notNull($extra);
         $extra->extra_attributes->set($name, $value);
         $extra->save();
+=======
+<<<<<<< HEAD
+        Assert::notNull($extra);
+        $extra->extra_attributes->set($name, $value);
+        $extra->save();
+=======
+
+        $extra?->extra_attributes->set($name, $value);
+        $extra?->save();
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     }
 }

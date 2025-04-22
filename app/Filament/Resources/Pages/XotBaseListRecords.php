@@ -18,16 +18,49 @@ use Webmozart\Assert\Assert;
 /**
  * Base class for list records pages.
  *
+<<<<<<< HEAD
  * @property ?string $model
  * @property ?string $resource
  * @property ?string $slug
+=======
+<<<<<<< HEAD
+ * @property ?string $model
+ * @property ?string $resource
+ * @property ?string $slug
+=======
+ * @property ?string         $model
+ * @property ?string         $resource
+ * @property ?string         $slug
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
  * @property TableLayoutEnum $layoutView
  */
 abstract class XotBaseListRecords extends FilamentListRecords
 {
     use HasXotTable;
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+    /*
+     * Get the table instance.
+
+    public function table(Table $table): Table
+    {
+        $defaultSort = $this->getDefaultSort();
+        $column = key($defaultSort);
+        $direction = current($defaultSort);
+
+        return $table
+            ->columns($this->getListTableColumns())
+            ->defaultSort($column, $direction);
+    }
+    */
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     /**
      * Get the table columns.
      *
@@ -82,8 +115,17 @@ abstract class XotBaseListRecords extends FilamentListRecords
             $count = $query->count();
 
             /* @var \Illuminate\Contracts\Pagination\Paginator */
+<<<<<<< HEAD
             Assert::isInstanceOf($res = $query->fastPaginate($count), Paginator::class);
             return $res;
+=======
+<<<<<<< HEAD
+            Assert::isInstanceOf($res = $query->fastPaginate($count), Paginator::class);
+            return $res;
+=======
+            return $query->fastPaginate($count);
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         }
 
         if (is_numeric($perPage)) {
@@ -91,6 +133,10 @@ abstract class XotBaseListRecords extends FilamentListRecords
             Assert::greaterThan($perPageInt, 0);
 
             /* @var \Illuminate\Contracts\Pagination\Paginator */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             Assert::isInstanceOf($res = $query->fastPaginate($perPageInt), Paginator::class);
             return $res;
         }
@@ -98,5 +144,15 @@ abstract class XotBaseListRecords extends FilamentListRecords
         /* @var \Illuminate\Contracts\Pagination\Paginator */
         Assert::isInstanceOf($res = $query->fastPaginate(10), Paginator::class);
         return $res;
+<<<<<<< HEAD
+=======
+=======
+            return $query->fastPaginate($perPageInt);
+        }
+
+        /* @var \Illuminate\Contracts\Pagination\Paginator */
+        return $query->fastPaginate(10);
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     }
 }

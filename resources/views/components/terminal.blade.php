@@ -24,7 +24,15 @@
         </template>
         
         <div x-show="$wire.isRunning" class="animate-pulse">
+<<<<<<< HEAD
             <span class="text-green-400"</span>
+=======
+<<<<<<< HEAD
+            <span class="text-green-400"</span>
+=======
+            <span class="text-green-400">></span>
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             <span class="animate-blink">_</span>
         </div>
     </div>

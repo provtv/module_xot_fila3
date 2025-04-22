@@ -81,6 +81,7 @@ class ModuleService
                 $tmp = new \stdClass();
 
                 $name = mb_substr($filename, 0, -mb_strlen($ext));
+<<<<<<< HEAD
 
 <<<<<<< HEAD
                 
@@ -91,10 +92,18 @@ class ModuleService
                 // dddx(['name' => $name, 'name1' => $file->getFilenameWithoutExtension()]);
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> e2a4c5d (.)
+                // dddx(['name' => $name, 'name1' => $file->getFilenameWithoutExtension()]);
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 /**
                  * @var class-string
                  */
                 $class = $ns.'\\'.$name;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -112,17 +121,42 @@ class ModuleService
                 }
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+
+                //Strict comparison using === between stdClass and null will always evaluate to false.
+                //if ($tmp === null) {
+                //    continue;
+                //}
+
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 $tmp->class = $class;
                 $name = Str::snake($name);
                 $tmp->name = $name;
 
+<<<<<<< HEAD
+=======
+=======
+                $tmp->class = $class;
+
+                $name = Str::snake($name);
+                $tmp->name = $name;
+                // 434    Parameter #1 $argument of class ReflectionClass constructor expects class-string<T of object>|T of object, string given.
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 try {
                     $reflection_class = new \ReflectionClass($tmp->class);
                     if (! $reflection_class->isAbstract()) {
                         $data[$tmp->name] = $tmp->class;
                     }
                 } catch (\Exception) {
+<<<<<<< HEAD
                     // Ignore reflection errors
+=======
+<<<<<<< HEAD
+                    // Ignore reflection errors
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 }
             }
         }

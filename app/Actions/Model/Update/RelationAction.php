@@ -30,11 +30,21 @@ class RelationAction
         }
         // */
         foreach ($relations as $relation) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             // Ottieni il tipo di relazione dal nome della classe
             $relationClass = get_class($relation);
             $relationshipType = class_basename($relationClass);
             
             $actionClass = __NAMESPACE__.'\\'.$relationshipType.'Action';
+<<<<<<< HEAD
+=======
+=======
+            $actionClass = __NAMESPACE__.'\\'.$relation->relationship_type.'Action';
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             Assert::object($action = app($actionClass));
 
             if (method_exists($action, 'execute')) {

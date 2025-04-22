@@ -11,13 +11,25 @@ use Nwidart\Modules\Facades\Module;
 
 class GenerateFilamentResources extends Command
 {
+<<<<<<< HEAD
     protected $signature = 'filament:generate-resources {module : Il nome del modulo per cui generare le risorse}';
+=======
+<<<<<<< HEAD
+    protected $signature = 'filament:generate-resources {module : Il nome del modulo per cui generare le risorse}';
+=======
+    protected $signature = 'filament:generate-resources';
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
     protected $description = 'Generate Filament resources for all models';
 
     public function handle(): int
     {
         $moduleName = $this->argument('module');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         
         // Assicuriamoci che $moduleName sia una stringa
         if (!is_string($moduleName)) {
@@ -25,6 +37,11 @@ class GenerateFilamentResources extends Command
             return Command::FAILURE;
         }
         
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         $module = Module::find($moduleName);
 
         if (! $module) {
@@ -46,9 +63,19 @@ class GenerateFilamentResources extends Command
         foreach ($models as $model) {
             $modelName = $model->getFilenameWithoutExtension();
 
+<<<<<<< HEAD
             // Assicuriamoci che $moduleName sia una stringa per strtolower
             $panelName = strtolower($moduleName);
             $panel = $panelName.'::admin';
+=======
+<<<<<<< HEAD
+            // Assicuriamoci che $moduleName sia una stringa per strtolower
+            $panelName = strtolower($moduleName);
+            $panel = $panelName.'::admin';
+=======
+            $panel = strtolower($moduleName).'::admin';
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             $params = [
                 'name' => $modelName,
                 '--panel' => $panel,

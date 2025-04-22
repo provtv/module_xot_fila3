@@ -16,6 +16,10 @@ class ExportXlsByView
 {
     use QueueableAction;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     /**
      * Esporta una vista in Excel.
      *
@@ -33,6 +37,7 @@ class ExportXlsByView
         // Se $fields non è null, assicuriamo che sia un array di stringhe
         $stringFields = null;
         if (is_array($fields)) {
+<<<<<<< HEAD
             $stringFields = array_map(function ($field) {
 <<<<<<< HEAD
                 return strval($field);
@@ -43,6 +48,10 @@ class ExportXlsByView
                 return is_string($field) ? $field : (string) $field;
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+            $stringFields = array_map(function (string|int|float|bool $field): string {
+                return (string) $field;
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             }, array_values($fields));
         }
 
@@ -51,6 +60,18 @@ class ExportXlsByView
             transKey: null,
             fields: $stringFields
         );
+<<<<<<< HEAD
+=======
+=======
+    public function execute(
+        View $view,
+        string $filename = 'test.xlsx',
+        ?string $transKey = null,
+        ?array $fields = null,
+    ): BinaryFileResponse {
+        $export = new ViewExport($view, $transKey, $fields);
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
         return Excel::download($export, $filename);
     }

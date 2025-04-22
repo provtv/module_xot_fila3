@@ -24,6 +24,10 @@ use Illuminate\Support\Carbon;
  * @property bool               $is_reclamed
  * @property bool               $table_enable
  * @property PivotContract|null $pivot
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
  * @property string $tennant_name
  * @property string $mail_subject
  * @property string $mail_body
@@ -31,6 +35,18 @@ use Illuminate\Support\Carbon;
  * @property string $mobile_phone
  * @property string $sms_body
  * @property string $sms_count
+<<<<<<< HEAD
+=======
+=======
+ * @property string             $tennant_name
+ * @property string             $mail_subject
+ * @property string             $mail_body
+ * @property string             $sms_from
+ * @property string             $mobile_phone
+ * @property string             $sms_body
+ * @property string             $sms_count
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
  *
  * @method mixed     getKey()
  * @method string    getRouteKey()
@@ -48,12 +64,16 @@ use Illuminate\Support\Carbon;
  * @method array     treeLabel()
  * @method array     treeSons()
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
  * @method int       treeSonsCount()
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+ * @method int       treeSonsCount()
+>>>>>>> 50bb41c (fix: auto resolve conflict)
  * @method array     toArray()
  * @method BelongsTo user()
  *
@@ -61,6 +81,7 @@ use Illuminate\Support\Carbon;
  *
  * @mixin \Eloquent
  */
+<<<<<<< HEAD
 <<<<<<< HEAD
 interface ModelInputContract {}
 =======
@@ -72,3 +93,8 @@ interface ModelInputContract
 }
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+interface ModelInputContract
+{
+}
+>>>>>>> 50bb41c (fix: auto resolve conflict)

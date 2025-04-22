@@ -87,7 +87,15 @@ class DummyClassName extends XotBasePanel {
      */
     public function indexQuery(array $data, $query)
     {
+<<<<<<< HEAD
         //return $query->where('user_id', $request->user()->);
+=======
+<<<<<<< HEAD
+        //return $query->where('user_id', $request->user()->);
+=======
+        //return $query->where('user_id', $request->user()?->id);
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         return $query;
     }
 

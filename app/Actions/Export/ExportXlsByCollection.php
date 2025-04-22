@@ -9,13 +9,25 @@ use Maatwebsite\Excel\Facades\Excel;
 use Modules\Xot\Exports\CollectionExport;
 use Spatie\QueueableAction\QueueableAction;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+<<<<<<< HEAD
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+=======
+<<<<<<< HEAD
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
 class ExportXlsByCollection
 {
     use QueueableAction;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     /**
      * Esporta una collezione in Excel.
      *
@@ -26,12 +38,21 @@ class ExportXlsByCollection
      * 
      * @return BinaryFileResponse
      */
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     public function execute(
         Collection $collection,
         string $filename = 'test.xlsx',
         ?string $transKey = null,
         array $fields = [],
     ): BinaryFileResponse {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         // Assicuriamo che $fields sia un array di stringhe
         $stringFields = array_map(function (string|int|float|bool $field): string {
             return (string) $field;
@@ -41,10 +62,23 @@ class ExportXlsByCollection
             collection: $collection,
             transKey: $transKey,
             fields: $stringFields
+<<<<<<< HEAD
+=======
+=======
+        $export = new CollectionExport(
+            collection: $collection,
+            transKey: $transKey,
+            fields: $fields
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         );
 
         return Excel::download($export, $filename);
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
     /**
      * Esporta una collezione in Excel utilizzando PhpSpreadsheet direttamente.
@@ -84,13 +118,17 @@ class ExportXlsByCollection
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> origin/dev
+=======
+>>>>>>> 50bb41c (fix: auto resolve conflict)
      * Scrive le righe nel foglio di lavoro.
      *
      * @param \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $sheet Il foglio di lavoro
      * @param \Illuminate\Support\Collection $rows I dati da scrivere
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -100,6 +138,8 @@ class ExportXlsByCollection
      * @param Collection $rows Le righe di dati da scrivere
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+>>>>>>> 50bb41c (fix: auto resolve conflict)
      * @param array<string> $fields I campi da utilizzare per le colonne
      */
     protected function writeRows(\PhpOffice\PhpSpreadsheet\Worksheet\Worksheet $sheet, Collection $rows, array $fields): void
@@ -108,9 +148,14 @@ class ExportXlsByCollection
         foreach ($rows as $data) {
             foreach ($fields as $col => $field) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> origin/dev
+=======
+
+
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 $value = '';
 
                 // Verifica che $data supporti il metodo get
@@ -121,6 +166,7 @@ class ExportXlsByCollection
                 } elseif (is_object($data) && property_exists($data, $field)) {
                     $value = $data->{$field} ?? '';
                 }
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 =======
@@ -128,9 +174,16 @@ class ExportXlsByCollection
                 $value = $data->get($field) ?? '';
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 $sheet->setCellValueByColumnAndRow($col + 1, $row, $value);
             }
             $row++;
         }
     }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 }

@@ -4,9 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\Xot\Actions\Export;
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
+=======
+<<<<<<< HEAD
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
+=======
+use Illuminate\Support\Carbon;
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 use Modules\Xot\Actions\Model\GetTransKeyByModelClassAction;
@@ -14,12 +24,23 @@ use Modules\Xot\Actions\Model\GetTransKeyByModelClassAction;
 use Modules\Xot\Exports\CollectionExport;
 use Spatie\QueueableAction\QueueableAction;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+<<<<<<< HEAD
 use Webmozart\Assert\Assert;
+=======
+<<<<<<< HEAD
+use Webmozart\Assert\Assert;
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
 class XlsByModelClassAction
 {
     use QueueableAction;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     /**
      * Esporta i dati di un modello in Excel.
      *
@@ -31,6 +52,11 @@ class XlsByModelClassAction
      * 
      * @return BinaryFileResponse
      */
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     public function execute(
         string $modelClass,
         array $where = [],
@@ -38,6 +64,10 @@ class XlsByModelClassAction
         array $excludes = [],
         ?callable $callback = null,
     ): BinaryFileResponse {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         // Verifichiamo che la classe del modello esista
         Assert::classExists($modelClass);
         Assert::subclassOf($modelClass, Model::class);
@@ -59,6 +89,18 @@ class XlsByModelClassAction
         $rows = $query->get();
         
         // Filtriamo i campi se sono specificati gli includes
+<<<<<<< HEAD
+=======
+=======
+        $with = $this->getWithByIncludes($includes);
+
+        $rows = app($modelClass)
+            ->with($with)
+            ->where($where);
+
+        $rows = $rows->get();
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         if ([] !== $includes) {
             $rows = $rows->map(
                 static function ($item) use ($includes) {
@@ -72,6 +114,10 @@ class XlsByModelClassAction
             );
         }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         // Nascondiamo i campi esclusi
         if ([] !== $excludes) {
             $rows = $rows->map(function ($item) use ($excludes) {
@@ -84,11 +130,27 @@ class XlsByModelClassAction
         }
 
         // Applichiamo il callback se fornito
+<<<<<<< HEAD
+=======
+=======
+        if ([] !== $excludes) {
+            $rows = $rows->makeHidden($excludes);
+        }
+
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         if (null !== $callback) {
             $rows = $rows->map($callback);
         }
 
+<<<<<<< HEAD
         // Otteniamo la chiave di traduzione e creiamo l'export
+=======
+<<<<<<< HEAD
+        // Otteniamo la chiave di traduzione e creiamo l'export
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         $transKey = app(GetTransKeyByModelClassAction::class)->execute($modelClass);
         $collectionExport = new CollectionExport($rows, $transKey);
         $filename = $this->getExportName($modelClass);
@@ -96,6 +158,10 @@ class XlsByModelClassAction
         return Excel::download($collectionExport, $filename);
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     /**
      * Ottiene le relazioni da caricare in base ai campi inclusi.
      *
@@ -103,10 +169,19 @@ class XlsByModelClassAction
      * 
      * @return array<int, string>
      */
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     private function getWithByIncludes(array $includes): array
     {
         $with = [];
         foreach ($includes as $include) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             // Assicuriamo che $include sia una stringa
             $includeStr = is_string($include) ? $include : (string) $include;
             
@@ -132,6 +207,24 @@ class XlsByModelClassAction
      * 
      * @return string
      */
+<<<<<<< HEAD
+=======
+=======
+            $tmp = explode('.', (string) $include);
+            if (! isset($tmp[0])) {
+                continue;
+            }
+            if (! Str::contains($include, '.')) {
+                continue;
+            }
+            $with[] = $tmp[0];
+        }
+
+        return $with;
+    }
+
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     private function getExportName(string $modelClass): string
     {
         return sprintf(

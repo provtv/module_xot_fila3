@@ -17,6 +17,7 @@ namespace Modules\Tenant\Repositories;
 ### Esempi Errati
 ```php
 <<<<<<< HEAD
+<<<<<<< HEAD
 namespace Modules\Xot\Console\Commands;
 =======
 <<<<<<< HEAD
@@ -25,6 +26,9 @@ namespace Modules\Xot\Console\Commands;
 namespace Modules\Xot\app\Console\Commands;
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+namespace Modules\Xot\app\Console\Commands;
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 namespace Modules\Broker\app\Models;
 namespace Modules\User\app\Services;
 namespace Modules\Tenant\app\Repositories;

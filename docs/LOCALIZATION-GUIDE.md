@@ -172,6 +172,7 @@ protected $middlewareGroups = [
 
 ```php
 <<<<<<< HEAD
+<<<<<<< HEAD
 namespace Modules\Xot\Enums;
 =======
 <<<<<<< HEAD
@@ -180,6 +181,9 @@ namespace Modules\Xot\Enums;
 namespace Modules\Xot\app\Enums;
 >>>>>>> origin/dev
 >>>>>>> origin/dev
+=======
+namespace Modules\Xot\Enums;
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
 enum SupportedLocale: string
 {
@@ -302,4 +306,8 @@ php artisan lang:clear
 
 ## Conclusione
 
+<<<<<<< HEAD
 Seguendo queste linee guida, potrai implementare un sistema di localizzazione robusto e manutenibile all'interno del framework Laraxot PTVX. Ricorda che i file di localizzazione devono rimanere nella directory `lang` alla radice del modulo, rispettando le convenzioni standard di Laravel. 
+=======
+Seguendo queste linee guida, potrai implementare un sistema di localizzazione robusto e manutenibile all'interno del framework Laraxot PTVX. Ricorda che i file di localizzazione devono rimanere nella directory `lang` alla radice del modulo, rispettando le convenzioni standard di Laravel. 
+>>>>>>> 50bb41c (fix: auto resolve conflict)

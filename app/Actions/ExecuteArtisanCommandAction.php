@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Xot\Actions;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Process;
 use Spatie\QueueableAction\QueueableAction;
@@ -12,15 +16,33 @@ use Webmozart\Assert\Assert;
 /**
  * Classe per eseguire comandi Artisan in modo sicuro.
  */
+<<<<<<< HEAD
+=======
+=======
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Process;
+use Spatie\QueueableAction\QueueableAction;
+
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 class ExecuteArtisanCommandAction
 {
     use QueueableAction;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     /**
      * Lista dei comandi consentiti per motivi di sicurezza.
      * 
      * @var array<int, string>
      */
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     private array $allowedCommands = [
         'migrate',
         'filament:upgrade',
@@ -32,6 +54,10 @@ class ExecuteArtisanCommandAction
         'queue:restart',
     ];
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
     /**
      * Esegue un comando Artisan e restituisce i risultati.
      *
@@ -50,15 +76,40 @@ class ExecuteArtisanCommandAction
     {
         Assert::stringNotEmpty($command, 'Il comando non può essere vuoto');
         
+<<<<<<< HEAD
+=======
+=======
+    public function execute(string $command, string $processId): array
+    {
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         if (! $this->isCommandAllowed($command)) {
             throw new \RuntimeException("Comando non consentito: {$command}");
         }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
         /** @var array<int, string> $output */
         $output = [];
         $status = 'running';
 
         Event::dispatch('artisan-command.started', [$command]);
+<<<<<<< HEAD
+=======
+=======
+        $output = [];
+        $status = 'running';
+
+        // Store process info in cache
+        Cache::put("artisan.command.{$processId}", [
+            'command' => $command,
+            'status' => $status,
+            'output' => [],
+        ], now()->addHours(1));
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
         try {
             $process = Process::path(base_path())
@@ -73,7 +124,16 @@ class ExecuteArtisanCommandAction
                     $formattedData = trim($data);
                     if (! empty($formattedData)) {
                         $output[] = $formattedData;
+<<<<<<< HEAD
                         Event::dispatch('artisan-command.output', [$command, $formattedData]);
+=======
+<<<<<<< HEAD
+                        Event::dispatch('artisan-command.output', [$command, $formattedData]);
+=======
+                        $this->broadcastOutput($processId, $formattedData);
+                        $this->updateCache($processId, $formattedData);
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                     }
                 }
 
@@ -82,40 +142,105 @@ class ExecuteArtisanCommandAction
                     $formattedError = trim($errorData);
                     if (! empty($formattedError)) {
                         $output[] = '[ERROR] '.$formattedError;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                         Event::dispatch('artisan-command.output', [$command, '[ERROR] '.$formattedError]);
                     }
                 }
 
                 usleep(50000); // 50ms di pausa per evitare sovraccarico della CPU
+<<<<<<< HEAD
+=======
+=======
+                        $this->broadcastOutput($processId, '[ERROR] '.$formattedError, 'error');
+                        $this->updateCache($processId, '[ERROR] '.$formattedError);
+                    }
+                }
+
+                usleep(100000); // 100ms pause to prevent CPU overload
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             }
 
             $result = $process->wait();
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             // Cattura qualsiasi output residuo
             $finalOutput = trim($result->output());
             if (! empty($finalOutput)) {
                 $output[] = $finalOutput;
                 Event::dispatch('artisan-command.output', [$command, $finalOutput]);
+<<<<<<< HEAD
+=======
+=======
+            // Capture any remaining output
+            $finalOutput = trim($result->output());
+            if (! empty($finalOutput)) {
+                $output[] = $finalOutput;
+                $this->broadcastOutput($processId, $finalOutput);
+                $this->updateCache($processId, $finalOutput);
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             }
 
             $finalErrorOutput = trim($result->errorOutput());
             if (! empty($finalErrorOutput)) {
                 $output[] = '[ERROR] '.$finalErrorOutput;
+<<<<<<< HEAD
                 Event::dispatch('artisan-command.output', [$command, '[ERROR] '.$finalErrorOutput]);
+=======
+<<<<<<< HEAD
+                Event::dispatch('artisan-command.output', [$command, '[ERROR] '.$finalErrorOutput]);
+=======
+                $this->broadcastOutput($processId, '[ERROR] '.$finalErrorOutput, 'error');
+                $this->updateCache($processId, '[ERROR] '.$finalErrorOutput);
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             }
 
             if ($result->successful()) {
                 $status = 'completed';
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 Event::dispatch('artisan-command.completed', [$command]);
             } else {
                 $status = 'failed';
                 Event::dispatch('artisan-command.failed', [$command, $finalErrorOutput]);
             }
 
+<<<<<<< HEAD
+=======
+=======
+                $this->broadcastOutput($processId, 'Comando completato con successo', 'completed');
+            } else {
+                $status = 'failed';
+                $this->broadcastOutput($processId, $finalErrorOutput, 'error');
+            }
+
+            // Update final status in cache
+            Cache::put("artisan.command.{$processId}", [
+                'command' => $command,
+                'status' => $status,
+                'output' => $output,
+            ], now()->addHours(1));
+
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             return [
                 'command' => $command,
                 'output' => $output,
                 'status' => $status,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 'exitCode' => $result->exitCode() ?? 0,
             ];
         } catch (\Throwable $e) {
@@ -139,4 +264,33 @@ class ExecuteArtisanCommandAction
         Assert::stringNotEmpty($command, 'Il comando non può essere vuoto');
         return in_array($command, $this->allowedCommands, true);
     }
+<<<<<<< HEAD
+=======
+=======
+                'exitCode' => $result->exitCode(),
+            ];
+        } catch (\Throwable $e) {
+            $this->broadcastOutput($processId, $e->getMessage(), 'error');
+            throw new \RuntimeException("Errore durante l'esecuzione del comando {$command}: {$e->getMessage()}", (int) $e->getCode(), $e);
+        }
+    }
+
+    private function isCommandAllowed(string $command): bool
+    {
+        return in_array($command, $this->allowedCommands, true);
+    }
+
+    private function broadcastOutput(string $processId, string $output, string $type = 'output'): void
+    {
+        event(new CommandOutputEvent($processId, $output, $type));
+    }
+
+    private function updateCache(string $processId, string $output): void
+    {
+        $data = Cache::get("artisan.command.{$processId}", ['output' => []]);
+        $data['output'][] = $output;
+        Cache::put("artisan.command.{$processId}", $data, now()->addHours(1));
+    }
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 }

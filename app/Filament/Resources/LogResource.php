@@ -14,7 +14,14 @@ use Modules\Xot\Filament\Infolists\Components\FileContentEntry;
 use Modules\Xot\Filament\Resources\LogResource\Pages;
 use Modules\Xot\Filament\Traits\NavigationLabelTrait;
 use Modules\Xot\Models\Log;
+<<<<<<< HEAD
 use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
+=======
+<<<<<<< HEAD
+use Modules\Xot\Filament\Resources\XotBaseResource\RelationManager\XotBaseRelationManager;
+=======
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
 
 class LogResource extends XotBaseResource
 {
@@ -25,6 +32,10 @@ class LogResource extends XotBaseResource
     public static function getFormSchema(): array
     {
         return [
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50bb41c (fix: auto resolve conflict)
             'name' => TextInput::make('name')
                 ->required()
                 ->maxLength(255),
@@ -34,6 +45,20 @@ class LogResource extends XotBaseResource
                 ->maxLength(255),
 
             'content' => Textarea::make('content')
+<<<<<<< HEAD
+=======
+=======
+            TextInput::make('name')
+                ->required()
+                ->maxLength(255),
+
+            TextInput::make('path')
+                ->required()
+                ->maxLength(255),
+
+            Textarea::make('content')
+>>>>>>> e2a4c5d (.)
+>>>>>>> 50bb41c (fix: auto resolve conflict)
                 ->columnSpanFull(),
         ];
     }
