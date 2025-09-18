@@ -15,7 +15,11 @@ use Filament\Notifications\Notification as FilamentNotification;
 
 abstract class XotBaseTransition extends Transition
 {
+<<<<<<< HEAD
     public function __construct(): void {
+=======
+    public function __construct() {
+>>>>>>> 04664ea (.)
     }
 
     public function handle(): Model

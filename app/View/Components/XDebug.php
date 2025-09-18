@@ -19,7 +19,11 @@ use function Safe\ob_start;
  */
 class XDebug extends Component
 {
+<<<<<<< HEAD
     public function __construct(): void {
+=======
+    public function __construct() {
+>>>>>>> 04664ea (.)
     }
 
     public function render(): Renderable

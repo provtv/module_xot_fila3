@@ -16,7 +16,11 @@ class UrlService
 {
     private static ?self $instance = null;
 
+<<<<<<< HEAD
     public function __construct(): void {
+=======
+    public function __construct() {
+>>>>>>> 04664ea (.)
         // ---
         include_once __DIR__.'/vendor/autoload.php';
     }

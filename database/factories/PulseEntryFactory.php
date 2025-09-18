@@ -6,7 +6,11 @@ namespace Modules\Xot\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+<<<<<<< HEAD
 class PulseEntryFactory extends Factory
+=======
+class PulseEntryFactory extends Factory<PulseEntry>
+>>>>>>> 04664ea (.)
 {
     /**
      * The name of the factory's corresponding model.

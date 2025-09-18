@@ -77,7 +77,11 @@ trait RelationX
      * @param  bool  $inverse
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany<TRelatedModel, $this>
      */
+<<<<<<< HEAD
     public function morphToManyX(): void {
+=======
+    public function morphToManyX($related, $name, $table = null, $foreignPivotKey = null, $relatedPivotKey = null, $parentKey = null, $relatedKey = null, $relation = null, $inverse = false) {
+>>>>>>> 04664ea (.)
        
         $pivot = $this->guessMorphPivot($related);
         $table = $pivot->getTable();
@@ -106,9 +110,18 @@ trait RelationX
     }
 
     /**
+<<<<<<< HEAD
      * @return \Illuminate\Database\Eloquent\Relations\MorphPivot
      */
     public function guessMorphPivot(): void {
+=======
+     * Guess the morph pivot class for a polymorphic many-to-many relationship.
+     *
+     * @param string $related The related model class name
+     * @return \Illuminate\Database\Eloquent\Relations\MorphPivot
+     */
+    public function guessMorphPivot($related): \Illuminate\Database\Eloquent\Relations\MorphPivot {
+>>>>>>> 04664ea (.)
         $class = $this::class;
         $pivot_name = class_basename($related).'Morph';
         
@@ -125,8 +138,13 @@ trait RelationX
      * @param string|class-string|null $class The class to use for parent class lookup (used internally)
      * @return \Illuminate\Database\Eloquent\Relations\Pivot
      */
+<<<<<<< HEAD
     public function guessPivot(): void {
         $class = $class ?? $this::class;
+=======
+    public function guessPivot(string $related): \Illuminate\Database\Eloquent\Relations\Pivot {
+        $class = $this::class;
+>>>>>>> 04664ea (.)
         $model_names = [
             class_basename($class),
             class_basename($related),

@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Models\Log;
 
+<<<<<<< HEAD
 class LogFactory extends Factory
+=======
+class LogFactory extends Factory<Log>
+>>>>>>> 04664ea (.)
 {
     /**
      * The name of the factory's corresponding model.

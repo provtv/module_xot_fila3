@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Models\Cache;
 
+<<<<<<< HEAD
 class CacheFactory extends Factory
+=======
+class CacheFactory extends Factory<Cache>
+>>>>>>> 04664ea (.)
 {
     /**
      * The name of the factory's corresponding model.

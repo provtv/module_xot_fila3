@@ -67,6 +67,7 @@ return [
         //  'path/to/directory-or-file'
     ],
 
+<<<<<<< HEAD
     'add' => [
         Classes::class => [
             ForbiddenFinalClasses::class,
@@ -85,6 +86,26 @@ return [
         ReturnTypeHintSniff::class,
         UselessFunctionDocCommentSniff::class,
     ],
+=======
+    // 'add' => [
+    //     Classes::class => [
+    //         ForbiddenFinalClasses::class,
+    //     ],
+    // ],
+
+    // 'remove' => [
+    //     AlphabeticallySortedUsesSniff::class,
+    //     DeclareStrictTypesSniff::class,
+    //     DisallowMixedTypeHintSniff::class,
+    //     ForbiddenDefineFunctions::class,
+    //     ForbiddenNormalClasses::class,
+    //     ForbiddenTraits::class,
+    //     ParameterTypeHintSniff::class,
+    //     PropertyTypeHintSniff::class,
+    //     ReturnTypeHintSniff::class,
+    //     UselessFunctionDocCommentSniff::class,
+    // ],
+>>>>>>> 04664ea (.)
 
     'config' => [
         ForbiddenPrivateMethods::class => [

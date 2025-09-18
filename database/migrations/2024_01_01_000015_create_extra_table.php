@@ -20,7 +20,11 @@ return new class extends XotBaseMigration {
             static function (Blueprint $table): void {
                 $table->increments('id');
                 $table->uuidMorphs('model');
+<<<<<<< HEAD
                 $table->schemalessAttributes('extra_attributes');
+=======
+                $table->json('extra_attributes');
+>>>>>>> 04664ea (.)
                 $table->unique(['model_id', 'model_type'], 'morph_unique');
             }
         );

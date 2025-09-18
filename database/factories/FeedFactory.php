@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Models\Feed;
 
+<<<<<<< HEAD
 class FeedFactory extends Factory
+=======
+class FeedFactory extends Factory<Feed>
+>>>>>>> 04664ea (.)
 {
     /**
      * The name of the factory's corresponding model.

@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Models\Session;
 
+<<<<<<< HEAD
 class SessionFactory extends Factory
+=======
+class SessionFactory extends Factory<Session>
+>>>>>>> 04664ea (.)
 {
     /**
      * The name of the factory's corresponding model.

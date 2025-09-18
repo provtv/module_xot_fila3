@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Correzioni PHPStan - 6 Gennaio 2025
 
 ## Errori Risolti
@@ -98,3 +99,99 @@
 - [PHPStan Level 10 Guidelines](./phpstan-level10-guidelines.md)
 
 *Ultimo aggiornamento: 6 Gennaio 2025*
+=======
+# PHPStan Fixes - Xot Module
+
+## Errori Risolti
+
+### 1. Action Execute Method Return Type Error
+**File**: `app/Actions/Mail/SendMailByRecordsAction.php`
+**Errore**: `A void method must not return a value`
+**Causa**: Il metodo `execute()` era dichiarato come `void` ma il PHPDoc indicava che dovrebbe restituire `bool` e stava effettivamente restituendo `true`
+**Soluzione**: Cambiato il tipo di ritorno da `void` a `bool`
+
+```php
+// PRIMA (ERRATO)
+/**
+ * @return bool
+ */
+public function execute(): void {
+    foreach ($records as $record) {
+        app(SendMailByRecordAction::class)->execute($record, $mail_class);
+    }
+    return true;  // ERRORE: void method non può restituire valori
+}
+
+// DOPO (CORRETTO)
+/**
+ * @return bool
+ */
+public function execute(): bool {
+    foreach ($records as $record) {
+        app(SendMailByRecordAction::class)->execute($record, $mail_class);
+    }
+    return true;  // OK: bool method può restituire true
+}
+```
+
+**Motivazione**: Le Actions di Spatie QueueableAction possono restituire valori per indicare il successo o il fallimento dell'operazione. In questo caso, restituisce `true` per indicare che l'invio delle email è stato completato con successo.
+
+**Business Logic**: Questa action gestisce l'invio di email multiple a una collezione di record, utilizzando un'action separata per ogni singolo record. È parte del sistema di notifiche del framework Laraxot.
+
+### 2. Trait Method Return Type Error
+**File**: `app/Models/Traits/RelationX.php`
+**Errore**: `A void method must not return a value`
+**Causa**: Il metodo `guessMorphPivot()` era dichiarato come `void` ma restituiva un oggetto `MorphPivot`
+**Soluzione**: Cambiato il tipo di ritorno da `void` a `\Illuminate\Database\Eloquent\Relations\MorphPivot`
+
+```php
+// PRIMA (ERRATO)
+/**
+ * @return \Illuminate\Database\Eloquent\Relations\MorphPivot
+ */
+public function guessMorphPivot(): void {
+    $class = $this::class;
+    $pivot_name = class_basename($related).'Morph';
+    
+    $pivot_class = $this->guessPivotFullClass($pivot_name, $related, $class);
+    $pivot = app($pivot_class);
+    Assert::isInstanceOf($pivot,\Illuminate\Database\Eloquent\Relations\MorphPivot::class);
+    return $pivot;  // ERRORE: void method non può restituire valori
+}
+
+// DOPO (CORRETTO)
+/**
+ * @return \Illuminate\Database\Eloquent\Relations\MorphPivot
+ */
+public function guessMorphPivot(): \Illuminate\Database\Eloquent\Relations\MorphPivot {
+    $class = $this::class;
+    $pivot_name = class_basename($related).'Morph';
+    
+    $pivot_class = $this->guessPivotFullClass($pivot_name, $related, $class);
+    $pivot = app($pivot_class);
+    Assert::isInstanceOf($pivot,\Illuminate\Database\Eloquent\Relations\MorphPivot::class);
+    return $pivot;  // OK: MorphPivot method può restituire MorphPivot
+}
+```
+
+**Motivazione**: Il metodo `guessMorphPivot()` è utilizzato per determinare dinamicamente la classe pivot per relazioni morph many-to-many. Deve restituire un'istanza della classe pivot per essere utilizzata nelle relazioni Eloquent.
+
+**Business Logic**: Questo trait fornisce funzionalità avanzate per la gestione delle relazioni Eloquent, inclusa la determinazione automatica delle classi pivot. È parte del sistema di ORM avanzato del framework Laraxot.
+
+## Pattern Identificati
+
+### Spatie QueueableAction
+- Le actions possono restituire valori per indicare il risultato dell'operazione
+- Utilizzare `bool` per indicare successo/fallimento
+- Utilizzare tipi più specifici quando appropriato (es. `string` per messaggi, `int` per conteggi)
+
+### Action Chaining
+- Le actions possono chiamare altre actions per decomporre operazioni complesse
+- Utilizzare `app(ActionClass::class)->execute()` per dependency injection
+- Mantenere coerenza nei tipi di ritorno tra actions correlate
+
+## Collegamenti
+- [README.md](./README.md)
+- [Troubleshooting](./troubleshooting.md)
+- [Best Practices](../docs/best-practices.md)
+>>>>>>> 04664ea (.)
