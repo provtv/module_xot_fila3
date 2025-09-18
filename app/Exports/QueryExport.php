@@ -34,8 +34,7 @@ class QueryExport implements FromQuery, ShouldQueue, WithChunkReading, WithHeadi
     /**
      * @param array<int, string> $fields
      */
-    public function __construct(QueryBuilder|EloquentBuilder $query, ?string $transKey = null, array $fields = [])
-    {
+    public function __construct(): void {
         $this->query = $query;
         $this->transKey = $transKey;
         $this->fields = $fields;

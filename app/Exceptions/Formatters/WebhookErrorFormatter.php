@@ -8,9 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class WebhookErrorFormatter
 {
-    public function __construct(
-        private \Throwable $exception
-    ) {}
+    public function __construct(): void {}
 
     /**
      * @return array<string, mixed>

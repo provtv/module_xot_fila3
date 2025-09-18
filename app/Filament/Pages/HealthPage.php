@@ -81,6 +81,7 @@ class HealthPage extends Page
 
     protected function getHeaderActions(): array
     {
+        /** @var array<string, \Filament\Actions\Action> */
         return [
             Action::make('refresh')
                 

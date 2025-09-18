@@ -28,6 +28,7 @@ class CacheLockResource extends XotBaseResource
      */
     public static function getFormSchema(): array
     {
+        /** @var array<string, \Filament\Forms\Components\Component> */
         return [
             'key' => TextInput::make('key')
                 ->required()

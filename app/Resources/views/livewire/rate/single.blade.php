@@ -1,4 +1,3 @@
-<div>
     @php
       Theme::add('xot::css/adorable_rating.css');
       Theme::add('xot::js/adorable_rating.js');

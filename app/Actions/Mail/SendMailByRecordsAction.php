@@ -16,8 +16,7 @@ class SendMailByRecordsAction
      *
      * @return bool
      */
-    public function execute(Collection $records, string $mail_class)
-    {
+    public function execute(): void {
         foreach ($records as $record) {
             app(SendMailByRecordAction::class)->execute($record, $mail_class);
         }

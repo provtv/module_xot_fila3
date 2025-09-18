@@ -1,4 +1,4 @@
-@extends('adm_theme::layouts.app')
+nds('adm_theme::layouts.app')
 @section('content')
     WIP
     {{--

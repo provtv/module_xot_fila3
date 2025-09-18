@@ -72,6 +72,7 @@ abstract class XotBaseRelationManager extends RelationManager
      */
     public function getTableColumns(): array
     {
+        /** @var array<string, \Filament\Tables\Columns\Column> */
         return [];
         //return $this->getResource()::getTableColumns();
     }

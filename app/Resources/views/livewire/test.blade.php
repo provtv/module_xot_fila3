@@ -1,4 +1,3 @@
-<div>
     <div class="btn-group group-toggle">
         <x-filament-forms::field-wrapper.label class="btn btn-danger">
             <input wire:model="animal" name="animal" type="radio" value="cats" /> Cats

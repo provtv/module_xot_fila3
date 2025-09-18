@@ -27,8 +27,7 @@ abstract class XotBaseMigration extends Migration
 
     protected ?string $model_class = null;
 
-    public function __construct()
-    {
+    public function __construct(): void {
         
         
         $this->model_class = $this->model_class ?? $this->getModelClass();
@@ -393,7 +392,7 @@ abstract class XotBaseMigration extends Migration
      * @param  string|null  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
      */
-    public function foreignIdFor($table, string $class, ?string $column = null) {
+    public function foreignIdFor(): void {
         return $table->foreignIdFor($class, $column);
     } 
     

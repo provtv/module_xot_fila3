@@ -1,4 +1,3 @@
-<div
     x-data="{
         output: @entangle('output'),
         autoScroll: true,

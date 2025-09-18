@@ -113,6 +113,7 @@ trait HasXotTable
      */
     protected function getHeaderActions(): array
     {
+        /** @var array<string, \Filament\Actions\Action> */
         return [
             'create' => Actions\CreateAction::make()
                 ->icon('heroicon-o-plus'),

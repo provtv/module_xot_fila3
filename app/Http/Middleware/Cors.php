@@ -13,8 +13,7 @@ class Cors
      *
      * @return \Illuminate\Http\Response
      */
-    public function handle(Request $request, \Closure $next)
-    {
+    public function handle(): void {
         $response = $next($request);
 
         // @phpstan-ignore property.nonObject

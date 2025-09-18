@@ -730,7 +730,7 @@ if (! function_exists('getRelationships')) {
 }
 
 /*
-    public function getRelationshipsV2($model){
+    public function getRelationshipsV2(): void {
         $relationships = [];
         foreach((new \ReflectionClass($model))->getMethods(\ReflectionMethod::IS_PUBLIC) as $method){
             if ($method->class != get_class($model) ||

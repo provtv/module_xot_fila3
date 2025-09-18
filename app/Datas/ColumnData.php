@@ -8,9 +8,6 @@ use Spatie\LaravelData\Data;
 
 class ColumnData extends Data
 {
-    public function __construct(
-        public string $name,
-        public string $type,
-    ) {
+    public function __construct(): void {
     }
 }

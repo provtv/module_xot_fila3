@@ -12,11 +12,6 @@ class HasManyUpdateData extends Data
     /**
      * @param array<int|string> $ids
      */
-    public function __construct(
-        public string $foreignKey,
-        public mixed $parentKey,
-        #[ArrayType]
-        public array $ids = [],
-    ) {
+    public function __construct(): void {
     }
 }

@@ -1,4 +1,4 @@
-<table border="1" class="table table-bordered">
+e border="1" class="table table-bordered">
 @foreach ($rows as $row)
     <tr>
         @foreach ($row as $cell)

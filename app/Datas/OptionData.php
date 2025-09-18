@@ -19,13 +19,7 @@ class OptionData extends Data
      * @param string $prefix          Prefisso per le chiavi delle opzioni
      * @param array  $autoload        Opzioni da caricare automaticamente
      */
-    public function __construct(
-        public readonly string $cache_driver = 'file',
-        public readonly bool $enable_cache = true,
-        public readonly int $cache_ttl = 86400,
-        public readonly string $prefix = 'options_',
-        public readonly array $autoload = ['site_name', 'site_description', 'site_logo'],
-    ) {
+    public function __construct(): void {
     }
 
     /**

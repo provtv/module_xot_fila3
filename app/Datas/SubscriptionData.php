@@ -21,15 +21,7 @@ class SubscriptionData extends Data
      * @param  bool  $trial_enabled  Se abilitare i periodi di prova
      * @param  int  $trial_days  Durata periodo di prova in giorni
      */
-    public function __construct(
-        public readonly bool $enable = false,
-        public readonly string $driver = 'stripe',
-        public readonly array $plans = [],
-        public readonly string $currency = 'EUR',
-        public readonly array $allowed_models = [],
-        public readonly bool $trial_enabled = true,
-        public readonly int $trial_days = 14,
-    ) {}
+    public function __construct(): void {}
 
     /**
      * Create a new instance of SubscriptionData with default values.

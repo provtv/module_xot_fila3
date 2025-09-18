@@ -24,13 +24,7 @@ class StreamDownloadPdfAction
      * @param string $filename Nome del file PDF
      * @return \Symfony\Component\HttpFoundation\StreamedResponse
      */
-    public function execute(
-        ?string $html=null,
-        ?string $view=null,
-        ?array $data=null,
-        string $filename = 'my_doc.pdf',
-        
-    ){
+    public function execute(): void {
 
         if($html==null && $view!=null){
             if(!view()->exists($view)){

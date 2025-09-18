@@ -1,4 +1,4 @@
-@extends('pub_theme::layouts.app')
+nds('pub_theme::layouts.app')
 @section('title', 'Web Routes List')
 @section('content')
 <div class="text-center">

@@ -86,8 +86,7 @@ class GetPdfContentByRecordActionTest extends TestCase
             protected $table = 'test_performance';
             protected $fillable = ['id', 'matr', 'cognome', 'nome'];
             
-            public function getKey()
-            {
+            public function getKey(): void {
                 return 456;
             }
         };

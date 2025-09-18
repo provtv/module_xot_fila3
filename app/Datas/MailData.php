@@ -24,18 +24,7 @@ class MailData extends Data
      * @param string|null $reply_to       Indirizzo per le risposte
      * @param bool        $verify_peer    Verifica certificato peer SSL
      */
-    public function __construct(
-        public readonly string $driver = 'smtp',
-        public readonly string $host = 'smtp.mailtrap.io',
-        public readonly int $port = 2525,
-        public readonly string $encryption = 'tls',
-        public readonly string $username = '',
-        public readonly string $password = '',
-        public readonly string $from_address = 'no-reply@example.com',
-        public readonly string $from_name = 'Laraxot App',
-        public readonly ?string $reply_to = null,
-        public readonly bool $verify_peer = true,
-    ) {
+    public function __construct(): void {
     }
 
     /**

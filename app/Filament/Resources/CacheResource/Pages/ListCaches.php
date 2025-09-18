@@ -32,6 +32,7 @@ class ListCaches extends XotBaseListRecords
 
     public function getTableColumns(): array
     {
+        /** @var array<string, \Filament\Tables\Columns\Column> */
         return [
             'key' => TextColumn::make('key')
                 ->searchable()
@@ -63,6 +64,7 @@ class ListCaches extends XotBaseListRecords
      */
     protected function getHeaderActions(): array
     {
+        /** @var array<string, \Filament\Actions\Action> */
         return [
             'create' => Actions\CreateAction::make(),
             'route_list' => ArtisanHeaderAction::make('route:list'),

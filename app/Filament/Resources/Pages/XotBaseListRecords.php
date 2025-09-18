@@ -54,6 +54,7 @@ abstract class XotBaseListRecords extends FilamentListRecords
      */
     protected function getHeaderActions(): array
     {
+        /** @var array<string, \Filament\Actions\Action> */
         return [
             // \Filament\Actions\CreateAction::make(),
            // ExportXlsAction::make('export_xls'),

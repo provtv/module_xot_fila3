@@ -1,4 +1,4 @@
-<x-filament::page>
+lament::page>
     <div class="space-y-6">
         <div class="p-6 bg-white rounded-xl shadow dark:bg-gray-800">
             <div class="space-y-4">

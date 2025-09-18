@@ -49,7 +49,7 @@ class DateTimeRule implements Rule
 class MyClassRequest extends FormRequest
 {
     ...
-    public function validationData() {
+    public function validationData(): void {
         return array_merge(
             $this->all(),
             [
@@ -61,8 +61,7 @@ class MyClassRequest extends FormRequest
 }
 
 
-public function rules(Request $request)
-{
+public function rules(): void {
     if ($request->has('start_dt')){
         $request->replace('start_dt', Carbon::createFromFormat('d M Y H:i:s', $request->start_dt . ' ' . $request->start_hr . ':'. $request->start_min . ':00'));
     }
@@ -86,8 +85,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StorePostRequest extends FormRequest
 {
-    public function rules()
-    {
+    public function rules(): void {
         return [
             'title' => 'required|max:200',
             'body' => 'required',

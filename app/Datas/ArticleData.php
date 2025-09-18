@@ -24,22 +24,7 @@ class ArticleData extends Data
      * @param  bool  $show_date  Se mostrare la data
      * @param  bool  $show_reading_time  Se mostrare il tempo di lettura
      */
-    public function __construct(
-        public readonly array $types = ['post', 'page', 'news'],
-        public readonly array $categories = [],
-        public readonly bool $enable_comments = true,
-        public readonly bool $moderate_comments = true,
-        public readonly string $editor = 'markdown',
-        public readonly bool $enable_rating = false,
-        public readonly array $default_meta = [
-            'title' => '',
-            'description' => '',
-            'keywords' => '',
-        ],
-        public readonly bool $show_author = true,
-        public readonly bool $show_date = true,
-        public readonly bool $show_reading_time = true,
-    ) {}
+    public function __construct(): void {}
 
     /**
      * Create a new instance of ArticleData with default values.

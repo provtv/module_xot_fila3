@@ -1,4 +1,3 @@
-<div>
     @php
      if (! extension_loaded('xdebug')) {
             throw new RuntimeException('XDebug must be installed to use this function');

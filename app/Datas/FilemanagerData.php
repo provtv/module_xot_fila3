@@ -20,14 +20,7 @@ class FilemanagerData extends Data
      * @param string $route_prefix Prefisso per le rotte del file manager
      * @param bool   $enable_crop Abilita il crop delle immagini
      */
-    public function __construct(
-        public readonly string $disk = 'public',
-        public readonly array $disks = ['public'],
-        public readonly array $allowed_ext = ['jpg', 'jpeg', 'png', 'gif', 'pdf', 'doc', 'docx', 'xls', 'xlsx', 'zip'],
-        public readonly int $max_size = 10,
-        public readonly string $route_prefix = 'filemanager',
-        public readonly bool $enable_crop = true,
-    ) {
+    public function __construct(): void {
     }
 
     /**

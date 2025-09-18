@@ -289,6 +289,7 @@ return [
 
 ### 🏗️ **Architettura**
 - [🏆 PHPStan Level 9 Achievement](phpstan-level9-achievement.md) - **✅ COMPLETATO** - 832→0 errori PHPStan
+- [🎯 PHPStan Comprehensive Fixes 2025](phpstan-comprehensive-fixes-2025.md) - **✅ COMPLETATO** - Fix completi tutti i moduli
 - [🎨 Theme Assets Workflow](theme-assets-workflow.md) - **⚠️ CRITICO** - Workflow CSS/JS per temi
 - [PHPStan Array Types Fixes](phpstan-array-types-fixes.md) - **✅ COMPLETATO** - Correzioni complete tipi array
 - [Base Classes Guide](base-classes/README.md) - Guida alle classi base

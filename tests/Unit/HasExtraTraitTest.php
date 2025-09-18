@@ -40,8 +40,7 @@ describe('HasExtraTrait', function () {
                 ];
             }
             
-            public function model()
-            {
+            public function model(): void {
                 return $this->morphTo();
             }
         };
@@ -71,7 +70,7 @@ describe('HasExtraTrait', function () {
         $mockExtra = new class {
             public $extra_attributes;
             
-            public function __construct() {
+            public function __construct(): void {
                 $this->extra_attributes = collect(['test_key' => 'test_value']);
             }
         };
@@ -87,7 +86,7 @@ describe('HasExtraTrait', function () {
         $mockExtra = new class {
             public $extra_attributes;
             
-            public function __construct() {
+            public function __construct(): void {
                 $this->extra_attributes = collect([
                     'string_value' => 'test_string',
                     'int_value' => 123,
@@ -111,7 +110,7 @@ describe('HasExtraTrait', function () {
         $mockExtra = new class {
             public $extra_attributes;
             
-            public function __construct() {
+            public function __construct(): void {
                 $this->extra_attributes = collect([
                     'invalid_value' => new stdClass(), // Object that's not allowed
                 ]);
@@ -174,7 +173,7 @@ describe('HasExtraTrait', function () {
         $mockExtra = new class {
             public $extra_attributes;
             
-            public function __construct() {
+            public function __construct(): void {
                 $this->extra_attributes = collect([]);
             }
         };
@@ -230,8 +229,7 @@ class HasExtraTraitTest extends Model implements ExtraContract
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
-    public function model()
-    {
+    public function model(): void {
         return $this->morphTo();
     }
 }

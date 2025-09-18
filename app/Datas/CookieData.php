@@ -19,13 +19,7 @@ class CookieData extends Data
      * @param string $policy_url     URL della cookie policy
      * @param string $banner_style   Stile del banner dei cookie
      */
-    public function __construct(
-        public readonly bool $accept = false,
-        public readonly string $type = 'necessary',
-        public readonly int $duration_days = 365,
-        public readonly string $policy_url = '/cookie-policy',
-        public readonly string $banner_style = 'bottom',
-    ) {
+    public function __construct(): void {
     }
 
     /**

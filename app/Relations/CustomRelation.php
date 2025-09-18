@@ -32,23 +32,7 @@ class CustomRelation extends Relation
     /**
      * Create a new belongs to relationship instance.
      */
-    public function __construct(
-        Builder $query,
-        Model $model,
-        /* implements BuilderContract */
-        /**
-         * The baseConstraints callback.
-         */
-        protected \Closure $baseConstraints,
-        /**
-         * The eagerConstraints callback.
-         */
-        protected ?\Closure $eagerConstraints,
-        /**
-         * The eager constraints model matcher.
-         */
-        protected ?\Closure $eagerMatcher,
-    ) {
+    public function __construct(): void {
         parent::__construct($query, $model);
     }
 
@@ -111,8 +95,7 @@ class CustomRelation extends Relation
      *
      * @return Collection<int, Model>
      */
-    public function getResults()
-    {
+    public function getResults(): void {
         return $this->get();
     }
 
@@ -153,7 +136,7 @@ class CustomRelation extends Relation
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    // public function where($column, $operator = null, $value = null, $boolean = 'and') {
+    // public function where(): void {
     //    return $this->query->where($column, $operator, $value, $boolean);
     // }
 }

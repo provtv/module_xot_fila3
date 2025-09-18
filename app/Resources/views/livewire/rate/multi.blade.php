@@ -1,4 +1,3 @@
-<div>
     @component('ui::components.modal.simple', ['guid' => $modal_guid, 'title' => $modal_title])
         @slot('content')
             @if (session()->has('message'))

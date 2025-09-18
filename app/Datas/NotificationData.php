@@ -21,35 +21,7 @@ class NotificationData extends Data
      * @param array  $slack           Configurazione Slack
      * @param array  $telegram        Configurazione Telegram
      */
-    public function __construct(
-        public readonly array $channels = ['mail', 'database'],
-        public readonly string $default_channel = 'mail',
-        public readonly bool $queue = true,
-        public readonly array $mail = [
-            'template' => 'mail.notification',
-            'from' => [
-                'address' => 'noreply@example.com',
-                'name' => 'Laraxot App',
-            ],
-        ],
-        public readonly array $broadcast = [
-            'driver' => 'pusher',
-            'app_id' => '',
-            'app_key' => '',
-            'app_secret' => '',
-            'options' => [
-                'cluster' => 'eu',
-                'encrypted' => true,
-            ],
-        ],
-        public readonly array $slack = [
-            'webhook_url' => '',
-        ],
-        public readonly array $telegram = [
-            'bot_token' => '',
-            'chat_id' => '',
-        ],
-    ) {
+    public function __construct(): void {
     }
 
     /**

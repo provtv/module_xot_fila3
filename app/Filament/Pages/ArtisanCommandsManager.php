@@ -41,6 +41,7 @@ class ArtisanCommandsManager extends XotBasePage
 
     protected function getHeaderActions(): array
     {
+        /** @var array<string, \Filament\Actions\Action> */
         return [
             Action::make('migrate')
                 ->label(__('xot::artisan-commands-manager.commands.migrate.label'))

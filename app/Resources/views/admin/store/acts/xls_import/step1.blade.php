@@ -1,4 +1,4 @@
-@extends('adm_theme::layouts.app')
+nds('adm_theme::layouts.app')
 @section('content')
 PASSO 1
 {!! $data_html !!}

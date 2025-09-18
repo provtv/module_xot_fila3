@@ -50,6 +50,7 @@ abstract class XotBaseRelationManager extends FilamentRelationManager
 //*
     public function getTableColumns(): array
     {
+        /** @var array<string, \Filament\Tables\Columns\Column> */
         $index=Arr::get($this->getResource()::getPages(),'index');
         if(!$index){
             //throw new \Exception('Index page not found');

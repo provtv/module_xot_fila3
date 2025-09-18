@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\Xot\Filament\Resources\XotBaseResource\Pages;
 
-use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Form;
-use Filament\Resources\Pages\ManageRelatedRecords as FilamentManageRelatedRecords;
-use Filament\Tables\Actions\Action;
-use Filament\Tables\Actions\CreateAction;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use Modules\Xot\Filament\Traits\HasXotTable;
-use Modules\Xot\Filament\Traits\NavigationLabelTrait;
 use Webmozart\Assert\Assert;
+use Filament\Tables\Actions\Action;
+use Filament\Tables\Columns\TextColumn;
+use Illuminate\Database\Eloquent\Model;
+use Filament\Tables\Actions\CreateAction;
+use Modules\Xot\Filament\Traits\HasXotTable;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Forms\Concerns\InteractsWithForms;
+use Modules\Xot\Filament\Traits\NavigationLabelTrait;
+use Filament\Resources\Pages\ManageRelatedRecords as FilamentManageRelatedRecords;
 
 /**
  * Classe base per la gestione delle relazioni nelle risorse Filament.
@@ -40,6 +41,13 @@ abstract class XotBaseManageRelatedRecords extends FilamentManageRelatedRecords
         return '';
     }
 
+    public function getTableBulkActions(): array
+    {
+        return [
+            DeleteBulkAction::make(),
+        ];
+    }
+
     /*
      * @return array<\Filament\Forms\Components\Component>
      */
@@ -53,6 +61,7 @@ abstract class XotBaseManageRelatedRecords extends FilamentManageRelatedRecords
      */
     public function getTableColumns(): array
     {
+        /** @var array<string, \Filament\Tables\Columns\Column> */
         return [
             'id' => TextColumn::make('id')
                 ->label('ID')

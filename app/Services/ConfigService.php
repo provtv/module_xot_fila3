@@ -15,8 +15,7 @@ class ConfigService
 {
     private static ?self $instance = null;
 
-    public function __construct()
-    {
+    public function __construct(): void {
         // ---
         // require_once __DIR__.'/vendor/autoload.php';
     }

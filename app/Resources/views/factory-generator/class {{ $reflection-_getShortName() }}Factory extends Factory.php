@@ -1,4 +1,8 @@
-namespace Database\Factories;
+<?php
+
+declare(strict_types=1);
+
+pace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 @isset($properties['remember_token'])

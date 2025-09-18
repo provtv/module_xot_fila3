@@ -21,24 +21,7 @@ class AuthData extends Data
      * @param array  $throttle       Configurazione throttling
      * @param array  $social         Provider social abilitati
      */
-    public function __construct(
-        public readonly string $guard = 'web',
-        public readonly array $guards = ['web', 'api'],
-        public readonly array $providers = ['users' => ['driver' => 'eloquent', 'model' => '']],
-        public readonly bool $verify_email = true,
-        public readonly int $password_reset_timeout = 60,
-        public readonly array $throttle = [
-            'enabled' => true,
-            'decay_minutes' => 1,
-            'max_attempts' => 5,
-        ],
-        public readonly array $social = [
-            'google' => false,
-            'facebook' => false,
-            'twitter' => false,
-            'github' => false,
-        ],
-    ) {
+    public function __construct(): void {
     }
 
     /**

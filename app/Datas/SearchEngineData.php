@@ -21,15 +21,7 @@ class SearchEngineData extends Data
      * @param  bool  $enable_local  Abilita la ricerca locale
      * @param  array<int, class-string>  $searchable  Modelli cercabili
      */
-    public function __construct(
-        public readonly string $driver = 'local',
-        public readonly string $algolia_app_id = '',
-        public readonly string $algolia_secret = '',
-        public readonly string $meili_host = 'http://localhost:7700',
-        public readonly string $meili_key = '',
-        public readonly bool $enable_local = true,
-        public readonly array $searchable = [],
-    ) {}
+    public function __construct(): void {}
 
     /**
      * Create a new instance of SearchEngineData with default values.

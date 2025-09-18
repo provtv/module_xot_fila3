@@ -15,8 +15,7 @@ use Filament\Notifications\Notification as FilamentNotification;
 
 abstract class XotBaseTransition extends Transition
 {
-    public function __construct(public Model $record, public ?string $message = '')
-    {
+    public function __construct(): void {
     }
 
     public function handle(): Model

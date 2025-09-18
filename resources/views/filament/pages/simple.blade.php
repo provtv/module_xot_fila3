@@ -1,3 +1,3 @@
-<x-filament-panels::page>
+lament-panels::page>
     
 </x-filament-panels::page>

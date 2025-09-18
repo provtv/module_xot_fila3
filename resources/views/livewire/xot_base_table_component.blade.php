@@ -1,4 +1,3 @@
-<div>
     <div class="row justify-content-between">
         <div class="col-auto order-last order-md-first">
             <div class="input-group mb-3">

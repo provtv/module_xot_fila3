@@ -15,8 +15,7 @@ class ModelDeletionException extends ApplicationException
 {
     private readonly string $model;
 
-    public function __construct(private readonly int $id, string $model)
-    {
+    public function __construct(): void {
         $this->model = Str::afterLast($model, '\\');
     }
 

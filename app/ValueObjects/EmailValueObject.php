@@ -14,9 +14,7 @@ namespace Modules\Xot\ValueObjects;
 
 class EmailValueObject
 {
-    public function __construct(// public readonly string $email;
-        public string $email,
-    ) {
+    public function __construct(): void {
         if (! filter_var($email, FILTER_VALIDATE_EMAIL)) {
             throw new \InvalidArgumentException(sprintf('Email address %s is considered valid.', $email));
         }

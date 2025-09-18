@@ -1,5 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
+
+
 return [
     'title' => 'Pannello di Amministrazione',
     'description' => 'Gestione del pannello di amministrazione',

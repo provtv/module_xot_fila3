@@ -1,4 +1,4 @@
-@extends('xot::layouts.email')
+nds('xot::layouts.email')
 
 @section('content')
 <div class="record-data">

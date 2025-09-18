@@ -61,8 +61,7 @@ abstract class XotBaseWidget extends FilamentWidget implements HasForms, HasActi
     public ?array $data = [];
 
     /*
-    public function __construct()
-    {
+    public function __construct(): void {
         //parent::__construct();//Cannot call constructor
         $view = app(GetViewByClassAction::class)->execute(static::class);
         if(view()->exists($view)){

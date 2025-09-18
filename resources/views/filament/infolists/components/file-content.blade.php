@@ -1,4 +1,4 @@
-<x-dynamic-component :component="$getEntryWrapperView()" :entry="$entry">
+namic-component :component="$getEntryWrapperView()" :entry="$entry">
     <div>
         {{ $getState() }}
     </div>

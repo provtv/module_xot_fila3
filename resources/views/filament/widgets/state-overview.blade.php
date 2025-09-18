@@ -1,4 +1,4 @@
-{{-- Vista per il widget AppointmentOverviewWidget --}}
+Vista per il widget AppointmentOverviewWidget --}}
 <x-filament-widgets::widget>
         {{-- Grid responsive per gli stati degli appuntamenti (ottimizzato per 17 stati) --}}
         <div class="grid gap-2" style="grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); max-width: 100%;">

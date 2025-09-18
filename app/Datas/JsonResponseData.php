@@ -23,8 +23,7 @@ class JsonResponseData extends Data
     public int $status = 200;
 
     /*
-    public function toResponse($request)
-    {
+    public function toResponse(): void {
 
     }
     */

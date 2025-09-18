@@ -22,21 +22,7 @@ class PwaData extends Data
      * @param  string  $icon_path  Percorso dell'icona
      * @param  array<string, string>  $splash  Configurazione splash screen
      */
-    public function __construct(
-        public readonly bool $enable = false,
-        public readonly string $name = 'Laraxot App',
-        public readonly string $short_name = 'Laraxot',
-        public readonly string $description = 'Laraxot Framework Application',
-        public readonly string $background_color = '#ffffff',
-        public readonly string $theme_color = '#000000',
-        public readonly string $icon_path = 'img/icons',
-        public readonly array $splash = [
-            '640x1136' => 'img/splash/splash-640x1136.png',
-            '750x1334' => 'img/splash/splash-750x1334.png',
-            '1242x2208' => 'img/splash/splash-1242x2208.png',
-            '1125x2436' => 'img/splash/splash-1125x2436.png',
-        ],
-    ) {}
+    public function __construct(): void {}
 
     /**
      * Create a new instance of PwaData with default values.

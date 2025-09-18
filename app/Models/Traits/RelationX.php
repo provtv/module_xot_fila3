@@ -77,10 +77,7 @@ trait RelationX
      * @param  bool  $inverse
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany<TRelatedModel, $this>
      */
-    public function morphToManyX($related, $name, $table = null, $foreignPivotKey = null,
-                                $relatedPivotKey = null, $parentKey = null,
-                                $relatedKey = null, $relation = null, $inverse = false)
-    {
+    public function morphToManyX(): void {
        
         $pivot = $this->guessMorphPivot($related);
         $table = $pivot->getTable();
@@ -111,8 +108,7 @@ trait RelationX
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphPivot
      */
-    public function guessMorphPivot(string $related,?string $class = null)
-    {
+    public function guessMorphPivot(): void {
         $class = $this::class;
         $pivot_name = class_basename($related).'Morph';
         
@@ -129,8 +125,7 @@ trait RelationX
      * @param string|class-string|null $class The class to use for parent class lookup (used internally)
      * @return \Illuminate\Database\Eloquent\Relations\Pivot
      */
-    public function guessPivot(string $related, ?string $class = null)
-    {
+    public function guessPivot(): void {
         $class = $class ?? $this::class;
         $model_names = [
             class_basename($class),

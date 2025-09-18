@@ -1,4 +1,4 @@
-<x-filament-panels::page>
+lament-panels::page>
      <form wire:submit.prevent="submit">
         {{ $this->form }}
 

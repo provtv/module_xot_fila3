@@ -23,9 +23,6 @@ class FieldDTO extends Data
     /*
      * Undocumented function.
      */
-    // public function __construct(
-    //    public string $title,
-    //    public string $content,
-    // ) {
+    // public function __construct(): void {
     // }
 }

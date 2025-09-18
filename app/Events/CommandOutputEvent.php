@@ -16,11 +16,7 @@ class CommandOutputEvent implements ShouldBroadcast
     use InteractsWithSockets;
     use SerializesModels;
 
-    public function __construct(
-        public string $processId,
-        public string $output,
-        public string $type = 'output',
-    ) {
+    public function __construct(): void {
     }
 
     public function broadcastOn(): array

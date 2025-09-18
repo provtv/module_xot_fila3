@@ -1,4 +1,4 @@
-{{-- CSS Base per PDF - Componente riutilizzabile --}}
+CSS Base per PDF - Componente riutilizzabile --}}
 {{-- 
     Motivazione DRY: Evita duplicazione di stili CSS tra diversi template PDF
     Motivazione KISS: Componente con responsabilità singola e ben definita

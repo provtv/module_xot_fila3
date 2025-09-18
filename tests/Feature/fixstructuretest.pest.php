@@ -1,5 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
+
+
 use function Pest\Laravel\{artisan, assertDatabaseHas};
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;

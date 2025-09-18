@@ -14,8 +14,7 @@ it('throws if record has no email', function (): void {
             return null;
         }
 
-        public function myLogs()
-        {
+        public function myLogs(): void {
             return new class
             {
                 public function create(array $data): void {}

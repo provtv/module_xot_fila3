@@ -29,8 +29,7 @@ class LazyCollectionExport implements FromIterator, ShouldQueue, WithHeadings, W
     /**
      * @param array<int, string> $fields
      */
-    public function __construct(public LazyCollection $collection, ?string $transKey = null, array $fields = [])
-    {
+    public function __construct(): void {
         // $this->headings = count($headings) > 0 ? $headings : collect($collection->first())->keys()->toArray();
 
         $this->transKey = $transKey;

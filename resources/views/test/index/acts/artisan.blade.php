@@ -1,1 +1,1 @@
-artisan blade
+an blade

@@ -1,4 +1,4 @@
-<x-filament::page>
+lament::page>
     <div class="space-y-6" wire:poll.visible="{{ $this->isRunning ? '100' : '1000' }}">
         @if($this->isRunning)
             <div class="text-sm text-gray-500 bg-gray-50 p-2 rounded-lg border border-gray-200">

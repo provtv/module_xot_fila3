@@ -1,1 +1,1 @@
-@include('adm_theme::admin.dashboard.' . config('xra.adm_home', '01'))
+ude('adm_theme::admin.dashboard.' . config('xra.adm_home', '01'))
